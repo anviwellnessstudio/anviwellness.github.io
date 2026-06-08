@@ -158,308 +158,6 @@ tr:last-child td{border-bottom:none}
   .form-row{grid-template-columns:1fr}
 }
 </style>
-</head>
-<body>
-
-<!-- LOGIN -->
-<div class="login-wrap" id="loginWrap">
-  <div class="login-card">
-    <img class="login-logo" src="LOGO_PLACEHOLDER" alt="Anvi Wellness Studio">
-    <h1>Admin Panel</h1>
-    <p>Anvi Wellness Studio</p>
-    <input type="password" id="loginPwd" placeholder="Enter admin password" onkeydown="if(event.key==='Enter')doLogin()">
-    <button onclick="doLogin()">Sign In</button>
-    <p class="login-error" id="loginError">Incorrect password. Please try again.</p>
-    <p style="font-size:11px;color:var(--light);margin-top:1rem">Default password: <strong>anvi2025</strong></p>
-  </div>
-</div>
-
-<!-- ADMIN -->
-<div class="admin-wrap" id="adminWrap">
-  <!-- SIDEBAR -->
-  <div class="sidebar">
-    <div class="sidebar-logo">
-      <img src="LOGO_PLACEHOLDER" alt="Anvi Wellness Studio">
-      <div class="sidebar-subtitle">Admin Panel</div>
-    </div>
-    <div class="nav-item active" onclick="showPage('dashboard',this)">
-      <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
-      Dashboard
-    </div>
-    <div class="nav-item" onclick="showPage('enquiries',this)">
-      <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-      Enquiries
-      <span class="nav-badge" id="newBadge">0</span>
-    </div>
-    <div class="nav-item" onclick="showPage('testimonials',this)">
-      <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-      Testimonials
-    </div>
-    <div class="nav-item" onclick="showPage('photos',this)">
-      <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-      Photos
-    </div>
-    <div class="nav-item" onclick="showPage('settings',this)">
-      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
-      Settings
-    </div>
-    <div class="sidebar-footer">
-      <a href="https://anviwellnessstudio.com" target="_blank">
-        <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
-        View Website
-      </a>
-      <a href="#" onclick="logout()">
-        <svg viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
-        Sign Out
-      </a>
-    </div>
-  </div>
-
-  <!-- MAIN -->
-  <div class="main">
-
-    <!-- DASHBOARD -->
-    <div class="page active" id="page-dashboard">
-      <div class="page-header">
-        <h2>Welcome back, Dr. Anvi 👋</h2>
-        <p>Overview of your clinic enquiries and activity.</p>
-      </div>
-      <div class="stats-row">
-        <div class="stat-card">
-          <div class="stat-icon" style="background:var(--gold)"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
-          <div><div class="stat-num" id="statTotal">—</div><div class="stat-label">Total Enquiries</div></div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-icon" style="background:#e8a838"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div>
-          <div><div class="stat-num" id="statNew">—</div><div class="stat-label">New (Unread)</div></div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-icon" style="background:var(--green)"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
-          <div><div class="stat-num" id="statConfirmed">—</div><div class="stat-label">Confirmed</div></div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-icon" style="background:var(--sage)"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
-          <div><div class="stat-num" id="statToday">—</div><div class="stat-label">Today</div></div>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-title"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Recent Enquiries</div>
-        <div class="table-wrap">
-          <table id="dashTable">
-            <thead><tr><th>Name</th><th>Phone</th><th>Service</th><th>Date</th><th>Status</th></tr></thead>
-            <tbody id="dashBody"></tbody>
-          </table>
-          <div id="dashEmpty" class="empty-state" style="display:none">
-            <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-            <p>No enquiries yet. They will appear here when patients fill the form.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- ENQUIRIES -->
-    <div class="page" id="page-enquiries">
-      <div class="page-header">
-        <h2>Patient Enquiries</h2>
-        <p>All appointment requests from your website — synced with Google Sheets.</p>
-      </div>
-      <div class="card">
-        <div class="toolbar">
-          <div class="search-box">
-            <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-            <input type="text" id="searchInput" placeholder="Search by name or phone…" oninput="filterEnquiries()">
-          </div>
-          <div style="display:flex;gap:0.6rem;flex-wrap:wrap;align-items:center">
-            <div class="filter-tabs">
-              <button class="filter-tab active" onclick="setFilter('all',this)">All</button>
-              <button class="filter-tab" onclick="setFilter('New',this)">New</button>
-              <button class="filter-tab" onclick="setFilter('Contacted',this)">Contacted</button>
-              <button class="filter-tab" onclick="setFilter('Confirmed',this)">Confirmed</button>
-              <button class="filter-tab" onclick="setFilter('Completed',this)">Completed</button>
-            </div>
-            <button class="btn btn-secondary btn-sm" onclick="loadEnquiries()">
-              <svg viewBox="0 0 24 24"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>
-              Refresh
-            </button>
-            <button class="btn btn-secondary btn-sm" onclick="exportCSV()">
-              <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-              Export CSV
-            </button>
-          </div>
-        </div>
-        <div id="enquiryLoading" class="loading"><div class="spinner"></div> Loading from Google Sheets…</div>
-        <div class="table-wrap" id="enquiryTableWrap" style="display:none">
-          <table>
-            <thead><tr><th>Name</th><th>Phone</th><th>Type</th><th>Service</th><th>Date</th><th>Status</th><th>Actions</th></tr></thead>
-            <tbody id="enquiryBody"></tbody>
-          </table>
-          <div id="enquiryEmpty" class="empty-state" style="display:none">
-            <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-            <p>No enquiries found.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- TESTIMONIALS -->
-    <div class="page" id="page-testimonials">
-      <div class="page-header">
-        <h2>Testimonials</h2>
-        <p>Manage patient reviews shown on your website. Changes appear live instantly.</p>
-      </div>
-      <div class="card">
-        <div class="card-title" style="justify-content:space-between">
-          <span style="display:flex;align-items:center;gap:8px"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg> Active Reviews</span>
-          <button class="btn btn-primary btn-sm" onclick="openAddTestimonial()">
-            <svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-            Add Review
-          </button>
-        </div>
-        <div id="testimonialsLoading" class="loading"><div class="spinner"></div> Loading…</div>
-        <div id="testimonialsGrid" class="testimonial-grid" style="display:none"></div>
-        <div id="testimonialsEmpty" class="empty-state" style="display:none">
-          <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-          <p>No testimonials yet. Add your first review!</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- SETTINGS -->
-    <div class="page" id="page-settings">
-      <div class="page-header">
-        <h2>Website Settings</h2>
-        <p>Changes here update your website instantly for all visitors.</p>
-      </div>
-      <div class="card">
-        <div class="card-title"><svg viewBox="0 0 24 24"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/></svg> Announcement Bar</div>
-        <div class="setting-row">
-          <div><div class="setting-label">Top Bar Message</div><div class="setting-desc">Shown at the very top of the website</div></div>
-          <input class="setting-input" id="setting-announcement" placeholder="e.g. Now accepting new patients!">
-          <button class="btn btn-primary btn-sm" style="margin-left:0.5rem" onclick="saveSetting('announcement')">Save</button>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-title"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Opening Hours</div>
-        <div class="setting-row">
-          <div><div class="setting-label">Clinic Hours</div><div class="setting-desc">Mon–Sat clinic timings</div></div>
-          <input class="setting-input" id="setting-clinic_hours" placeholder="e.g. Mon–Sat 5:00 PM – 8:00 PM">
-          <button class="btn btn-primary btn-sm" style="margin-left:0.5rem" onclick="saveSetting('clinic_hours')">Save</button>
-        </div>
-        <div class="setting-row">
-          <div><div class="setting-label">Home Visit Hours</div><div class="setting-desc">Home visit timings</div></div>
-          <input class="setting-input" id="setting-home_hours" placeholder="e.g. Mon–Sat 8:00 AM – 2:00 PM">
-          <button class="btn btn-primary btn-sm" style="margin-left:0.5rem" onclick="saveSetting('home_hours')">Save</button>
-        </div>
-        <div class="setting-row">
-          <div><div class="setting-label">Online Consultation</div><div class="setting-desc">Online session timings</div></div>
-          <input class="setting-input" id="setting-online_hours" placeholder="e.g. 8:00 AM – 8:00 PM">
-          <button class="btn btn-primary btn-sm" style="margin-left:0.5rem" onclick="saveSetting('online_hours')">Save</button>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-title"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13"/></svg> Contact Details</div>
-        <div class="setting-row">
-          <div><div class="setting-label">Phone Number</div></div>
-          <input class="setting-input" id="setting-phone" placeholder="+91 99810 26077">
-          <button class="btn btn-primary btn-sm" style="margin-left:0.5rem" onclick="saveSetting('phone')">Save</button>
-        </div>
-        <div class="setting-row">
-          <div><div class="setting-label">Email Address</div></div>
-          <input class="setting-input" id="setting-email" placeholder="anviwellnessstudio@gmail.com">
-          <button class="btn btn-primary btn-sm" style="margin-left:0.5rem" onclick="saveSetting('email')">Save</button>
-        </div>
-      </div>
-    </div>
-
-
-    <!-- PHOTOS PAGE -->
-    <div class="page" id="page-photos">
-      <div class="page-header">
-        <h2>Website Photos</h2>
-        <p>Upload photos directly to GitHub. They appear on the website instantly.</p>
-      </div>
-
-      <!-- INSTRUCTIONS CARD -->
-      <div class="card" style="background:var(--sage-pale);border:1px solid rgba(122,158,126,0.3)">
-        <div class="card-title"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg> How to update a photo</div>
-        <ol style="font-size:13.5px;color:var(--mid);line-height:2.2;padding-left:1.2rem">
-          <li>Click <strong>"Choose Photo"</strong> on any slot below</li>
-          <li>Select your photo from your phone or computer</li>
-          <li>Click <strong>"Upload to GitHub"</strong></li>
-          <li>Enter your <strong>GitHub Personal Access Token</strong> when prompted</li>
-          <li>Done! Your website updates in <strong>30 seconds</strong> ✅</li>
-        </ol>
-        <div style="margin-top:1rem;padding:0.8rem 1rem;background:white;border-radius:var(--radius-sm);font-size:13px;color:var(--mid)">
-          <strong>🔑 Need a GitHub token?</strong> Go to <a href="https://github.com/settings/tokens/new" target="_blank" style="color:var(--sage-deep)">github.com/settings/tokens/new</a> → 
-          Note: "Anvi Website" → Expiration: No expiration → tick <strong>repo</strong> → Generate token → copy it
-        </div>
-      </div>
-
-      <!-- GITHUB TOKEN INPUT -->
-      <div class="card">
-        <div class="card-title"><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> GitHub Access Token</div>
-        <div style="display:flex;gap:0.8rem;align-items:center">
-          <input type="password" id="githubToken" placeholder="ghp_xxxxxxxxxxxxxxxxxxxx" 
-            style="flex:1;padding:0.75rem 1rem;border:1px solid rgba(122,158,126,0.25);border-radius:var(--radius-sm);font-family:var(--font);font-size:13px;outline:none"
-            oninput="saveToken()">
-          <span id="tokenStatus" style="font-size:12px;color:var(--light)"></span>
-        </div>
-        <p style="font-size:12px;color:var(--light);margin-top:0.5rem">Token is saved in your browser — you only need to enter it once.</p>
-      </div>
-
-      <!-- PHOTO SLOTS -->
-      <div class="card">
-        <div class="card-title"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg> Website Photo Slots</div>
-        <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:1rem" id="photoSlotsGrid">
-        </div>
-      </div>
-    </div>
-
-  </div><!-- /main -->
-</div><!-- /admin -->
-
-<!-- ADD TESTIMONIAL MODAL -->
-<div class="modal-overlay" id="addTestimonialModal" onclick="closeModal(event,'addTestimonialModal')">
-  <div class="modal">
-    <div class="modal-header">
-      <h3>Add Patient Review</h3>
-      <button class="modal-close" onclick="closeModalDirect('addTestimonialModal')"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
-    </div>
-    <div class="modal-body">
-      <div class="form-row">
-        <div class="form-group"><label>Patient Name</label><input type="text" id="t-name" placeholder="e.g. Priya Sharma"></div>
-        <div class="form-group"><label>Location</label><input type="text" id="t-location" placeholder="e.g. Kandivali West"></div>
-      </div>
-      <div class="form-group"><label>Review</label><textarea id="t-review" placeholder="What the patient said about their experience..."></textarea></div>
-      <div class="form-group">
-        <label>Star Rating</label>
-        <select id="t-stars"><option value="5">⭐⭐⭐⭐⭐ 5 Stars</option><option value="4">⭐⭐⭐⭐ 4 Stars</option><option value="3">⭐⭐⭐ 3 Stars</option></select>
-      </div>
-    </div>
-    <div class="modal-footer">
-      <button class="btn btn-secondary" onclick="closeModalDirect('addTestimonialModal')">Cancel</button>
-      <button class="btn btn-primary" onclick="saveTestimonial()">
-        <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-        Save Review
-      </button>
-    </div>
-  </div>
-</div>
-
-<!-- ENQUIRY DETAIL MODAL -->
-<div class="modal-overlay" id="enquiryModal" onclick="closeModal(event,'enquiryModal')">
-  <div class="modal">
-    <div class="modal-header">
-      <h3 id="enquiryModalTitle">Enquiry Details</h3>
-      <button class="modal-close" onclick="closeModalDirect('enquiryModal')"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
-    </div>
-    <div class="modal-body" id="enquiryModalBody"></div>
-  </div>
-</div>
-
-<!-- TOAST -->
-<div class="toast" id="toast"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span id="toastMsg"></span></div>
-
 <script>
 // ══════════════════════════════════════════
 // CONFIG
@@ -470,17 +168,7 @@ const ADMIN_PASSWORD = "anvi2025";
 // ══════════════════════════════════════════
 // LOGO
 // ══════════════════════════════════════════
-(function(){
-  var req = new XMLHttpRequest();
-  req.open('GET', 'index.html', true);
-  req.onload = function(){
-    var match = req.responseText.match(/var LOGO = "([^"]+)"/);
-    if(match) {
-      document.querySelectorAll('img[src="LOGO_PLACEHOLDER"]').forEach(function(img){ img.src = match[1]; });
-    }
-  };
-  req.send();
-})();
+// Logo loaded via GitHub URL directly
 
 // ══════════════════════════════════════════
 // AUTH
@@ -501,7 +189,7 @@ function logout() {
   document.getElementById('loginWrap').style.display = 'flex';
   document.getElementById('loginPwd').value = '';
 }
-document.getElementById('loginPwd').addEventListener('keydown', function(e){ if(e.key==='Enter') doLogin(); });
+document.addEventListener('DOMContentLoaded', function(){ var lp = document.getElementById('loginPwd'); if(lp) lp.addEventListener('keydown', function(e){ if(e.key==='Enter') doLogin(); }); });
 
 // ══════════════════════════════════════════
 // NAVIGATION
@@ -804,42 +492,88 @@ function saveToken() {
 }
 
 function initPhotosPage() {
-  // Load saved token
   var saved = localStorage.getItem("gh_token");
   if(saved) {
     document.getElementById("githubToken").value = saved;
-    document.getElementById("tokenStatus").textContent = "✅ Saved";
+    document.getElementById("tokenStatus").textContent = "Saved";
   }
 
-  // Render slots
   var grid = document.getElementById("photoSlotsGrid");
-  grid.innerHTML = PHOTO_SLOTS.map(function(slot) {
+  if(!grid) return;
+  grid.innerHTML = "";
+
+  PHOTO_SLOTS.forEach(function(slot) {
     var imgUrl = GITHUB_BASE_URL + slot.file + "?t=" + Date.now();
-    return [
-      "<div style='border:1px solid rgba(122,158,126,0.2);border-radius:var(--radius);overflow:hidden'>",
-        "<div style='height:160px;overflow:hidden;position:relative;background:var(--sage-pale)'>",
-          "<img id='preview-"+slot.key+"' src='"+imgUrl+"' style='width:100%;height:100%;object-fit:cover' onerror='this.style.display="none";document.getElementById("placeholder-"+slot.key+"").style.display="flex"'>",
-          "<div id='placeholder-"+slot.key+"' style='display:none;position:absolute;inset:0;align-items:center;justify-content:center;flex-direction:column;gap:0.5rem;color:var(--sage)'>",
-            "<svg width='32' height='32' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.5'><rect x='3' y='3' width='18' height='18' rx='2'/><circle cx='8.5' cy='8.5' r='1.5'/><polyline points='21 15 16 10 5 21'/></svg>",
-            "<span style='font-size:12px'>No photo yet</span>",
-          "</div>",
-        "</div>",
-        "<div style='padding:1rem'>",
-          "<div style='font-size:13.5px;font-weight:600;color:var(--dark);margin-bottom:2px'>"+slot.label+"</div>",
-          "<div style='font-size:12px;color:var(--light);margin-bottom:0.8rem'>"+slot.desc+"</div>",
-          "<div style='display:flex;gap:0.5rem;align-items:center'>",
-            "<label style='flex:1;display:inline-flex;align-items:center;gap:6px;padding:0.5rem 1rem;background:var(--sage-pale);color:var(--sage-deep);border-radius:50px;font-size:12.5px;font-weight:500;cursor:pointer'>",
-              "<svg width='13' height='13' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2'><path d='M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4'/><polyline points='17 8 12 3 7 8'/><line x1='12' y1='3' x2='12' y2='15'/></svg>",
-              "Choose Photo",
-              "<input type='file' accept='image/*' style='display:none' onchange='previewAndUpload(this,""+slot.key+"",""+slot.file+"")'>",
-            "</label>",
-            "<div id='status-"+slot.key+"' style='font-size:11.5px;color:var(--light)'></div>",
-          "</div>",
-        "</div>",
-      "</div>"
-    ].join("");
-  }).join("");
+    var div = document.createElement("div");
+    div.style.cssText = "border:1px solid rgba(122,158,126,0.2);border-radius:12px;overflow:hidden";
+
+    // Image container
+    var imgWrap = document.createElement("div");
+    imgWrap.style.cssText = "height:160px;overflow:hidden;position:relative;background:#e8f0e9";
+
+    var img = document.createElement("img");
+    img.id = "preview-" + slot.key;
+    img.src = imgUrl;
+    img.style.cssText = "width:100%;height:100%;object-fit:cover";
+    img.onerror = function() {
+      this.style.display = "none";
+      var ph = document.getElementById("placeholder-" + slot.key);
+      if(ph) ph.style.display = "flex";
+    };
+
+    var placeholder = document.createElement("div");
+    placeholder.id = "placeholder-" + slot.key;
+    placeholder.style.cssText = "display:none;position:absolute;inset:0;align-items:center;justify-content:center;flex-direction:column;gap:0.5rem;color:#7a9e7e";
+    placeholder.innerHTML = "<svg width=32 height=32 viewBox='0 0 24 24' fill=none stroke=currentColor stroke-width=1.5><rect x=3 y=3 width=18 height=18 rx=2/><circle cx=8.5 cy=8.5 r=1.5/><polyline points='21 15 16 10 5 21'/></svg><span style=font-size:12px>No photo yet</span>";
+
+    imgWrap.appendChild(img);
+    imgWrap.appendChild(placeholder);
+
+    // Body
+    var body = document.createElement("div");
+    body.style.cssText = "padding:1rem";
+
+    var name = document.createElement("div");
+    name.style.cssText = "font-size:13.5px;font-weight:600;color:#2c2c28;margin-bottom:2px";
+    name.textContent = slot.label;
+
+    var desc = document.createElement("div");
+    desc.style.cssText = "font-size:12px;color:#8a8a7e;margin-bottom:0.8rem";
+    desc.textContent = slot.desc;
+
+    var row = document.createElement("div");
+    row.style.cssText = "display:flex;gap:0.5rem;align-items:center";
+
+    var label = document.createElement("label");
+    label.style.cssText = "flex:1;display:inline-flex;align-items:center;gap:6px;padding:0.5rem 1rem;background:#e8f0e9;color:#4a7150;border-radius:50px;font-size:12.5px;font-weight:500;cursor:pointer";
+    label.innerHTML = "<svg width=13 height=13 viewBox='0 0 24 24' fill=none stroke=currentColor stroke-width=2><path d='M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4'/><polyline points='17 8 12 3 7 8'/><line x1=12 y1=3 x2=12 y2=15/></svg> Choose Photo";
+
+    var fileInput = document.createElement("input");
+    fileInput.type = "file";
+    fileInput.accept = "image/*";
+    fileInput.style.display = "none";
+    (function(k, f) {
+      fileInput.onchange = function() { previewAndUpload(this, k, f); };
+    })(slot.key, slot.file);
+    label.appendChild(fileInput);
+
+    var status = document.createElement("div");
+    status.id = "status-" + slot.key;
+    status.style.cssText = "font-size:11.5px;color:#8a8a7e";
+
+    row.appendChild(label);
+    row.appendChild(status);
+    body.appendChild(name);
+    body.appendChild(desc);
+    body.appendChild(row);
+
+    div.appendChild(imgWrap);
+    div.appendChild(body);
+    grid.appendChild(div);
+  });
 }
+
+
 
 function previewAndUpload(input, key, filename) {
   if(!input.files[0]) return;
@@ -925,10 +659,10 @@ function uploadToGitHub(filename, dataUrl, token, cb) {
 
 // Init photos page when navigated to
 var _origShowPage = showPage;
-function showPage(name, el) {
+showPage = function(name, el) {
   _origShowPage(name, el);
-  if(name === "photos") initPhotosPage();
-}
+  if(name === "photos") setTimeout(initPhotosPage, 100);
+};
 
 // ══════════════════════════════════════════
 // TOAST
@@ -949,5 +683,307 @@ function fmtDate(d){
   catch(e){ return d; }
 }
 </script>
+</head>
+<body>
+
+<!-- LOGIN -->
+<div class="login-wrap" id="loginWrap">
+  <div class="login-card">
+    <img class="login-logo" src="https://raw.githubusercontent.com/anviwellness/anviwellness.github.io/main/images/logo.jpg" onerror="this.style.opacity='0'" alt="Anvi Wellness Studio">
+    <h1>Admin Panel</h1>
+    <p>Anvi Wellness Studio</p>
+    <input type="password" id="loginPwd" placeholder="Enter admin password" onkeydown="if(event.key==='Enter')doLogin()">
+    <button onclick="doLogin()">Sign In</button>
+    <p class="login-error" id="loginError">Incorrect password. Please try again.</p>
+    <p style="font-size:11px;color:var(--light);margin-top:1rem">Default password: <strong>anvi2025</strong></p>
+  </div>
+</div>
+
+<!-- ADMIN -->
+<div class="admin-wrap" id="adminWrap">
+  <!-- SIDEBAR -->
+  <div class="sidebar">
+    <div class="sidebar-logo">
+      <img src="https://raw.githubusercontent.com/anviwellness/anviwellness.github.io/main/images/logo.jpg" onerror="this.style.opacity='0'" alt="Anvi Wellness Studio">
+      <div class="sidebar-subtitle">Admin Panel</div>
+    </div>
+    <div class="nav-item active" onclick="showPage('dashboard',this)">
+      <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+      Dashboard
+    </div>
+    <div class="nav-item" onclick="showPage('enquiries',this)">
+      <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+      Enquiries
+      <span class="nav-badge" id="newBadge">0</span>
+    </div>
+    <div class="nav-item" onclick="showPage('testimonials',this)">
+      <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+      Testimonials
+    </div>
+    <div class="nav-item" onclick="showPage('photos',this)">
+      <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+      Photos
+    </div>
+    <div class="nav-item" onclick="showPage('settings',this)">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+      Settings
+    </div>
+    <div class="sidebar-footer">
+      <a href="https://anviwellnessstudio.com" target="_blank">
+        <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+        View Website
+      </a>
+      <a href="#" onclick="logout()">
+        <svg viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+        Sign Out
+      </a>
+    </div>
+  </div>
+
+  <!-- MAIN -->
+  <div class="main">
+
+    <!-- DASHBOARD -->
+    <div class="page active" id="page-dashboard">
+      <div class="page-header">
+        <h2>Welcome back, Dr. Anvi 👋</h2>
+        <p>Overview of your clinic enquiries and activity.</p>
+      </div>
+      <div class="stats-row">
+        <div class="stat-card">
+          <div class="stat-icon" style="background:var(--gold)"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+          <div><div class="stat-num" id="statTotal">—</div><div class="stat-label">Total Enquiries</div></div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon" style="background:#e8a838"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div>
+          <div><div class="stat-num" id="statNew">—</div><div class="stat-label">New (Unread)</div></div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon" style="background:var(--green)"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div><div class="stat-num" id="statConfirmed">—</div><div class="stat-label">Confirmed</div></div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon" style="background:var(--sage)"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
+          <div><div class="stat-num" id="statToday">—</div><div class="stat-label">Today</div></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-title"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Recent Enquiries</div>
+        <div class="table-wrap">
+          <table id="dashTable">
+            <thead><tr><th>Name</th><th>Phone</th><th>Service</th><th>Date</th><th>Status</th></tr></thead>
+            <tbody id="dashBody"></tbody>
+          </table>
+          <div id="dashEmpty" class="empty-state" style="display:none">
+            <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            <p>No enquiries yet. They will appear here when patients fill the form.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ENQUIRIES -->
+    <div class="page" id="page-enquiries">
+      <div class="page-header">
+        <h2>Patient Enquiries</h2>
+        <p>All appointment requests from your website — synced with Google Sheets.</p>
+      </div>
+      <div class="card">
+        <div class="toolbar">
+          <div class="search-box">
+            <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <input type="text" id="searchInput" placeholder="Search by name or phone…" oninput="filterEnquiries()">
+          </div>
+          <div style="display:flex;gap:0.6rem;flex-wrap:wrap;align-items:center">
+            <div class="filter-tabs">
+              <button class="filter-tab active" onclick="setFilter('all',this)">All</button>
+              <button class="filter-tab" onclick="setFilter('New',this)">New</button>
+              <button class="filter-tab" onclick="setFilter('Contacted',this)">Contacted</button>
+              <button class="filter-tab" onclick="setFilter('Confirmed',this)">Confirmed</button>
+              <button class="filter-tab" onclick="setFilter('Completed',this)">Completed</button>
+            </div>
+            <button class="btn btn-secondary btn-sm" onclick="loadEnquiries()">
+              <svg viewBox="0 0 24 24"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>
+              Refresh
+            </button>
+            <button class="btn btn-secondary btn-sm" onclick="exportCSV()">
+              <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Export CSV
+            </button>
+          </div>
+        </div>
+        <div id="enquiryLoading" class="loading"><div class="spinner"></div> Loading from Google Sheets…</div>
+        <div class="table-wrap" id="enquiryTableWrap" style="display:none">
+          <table>
+            <thead><tr><th>Name</th><th>Phone</th><th>Type</th><th>Service</th><th>Date</th><th>Status</th><th>Actions</th></tr></thead>
+            <tbody id="enquiryBody"></tbody>
+          </table>
+          <div id="enquiryEmpty" class="empty-state" style="display:none">
+            <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            <p>No enquiries found.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TESTIMONIALS -->
+    <div class="page" id="page-testimonials">
+      <div class="page-header">
+        <h2>Testimonials</h2>
+        <p>Manage patient reviews shown on your website. Changes appear live instantly.</p>
+      </div>
+      <div class="card">
+        <div class="card-title" style="justify-content:space-between">
+          <span style="display:flex;align-items:center;gap:8px"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg> Active Reviews</span>
+          <button class="btn btn-primary btn-sm" onclick="openAddTestimonial()">
+            <svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            Add Review
+          </button>
+        </div>
+        <div id="testimonialsLoading" class="loading"><div class="spinner"></div> Loading…</div>
+        <div id="testimonialsGrid" class="testimonial-grid" style="display:none"></div>
+        <div id="testimonialsEmpty" class="empty-state" style="display:none">
+          <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          <p>No testimonials yet. Add your first review!</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- SETTINGS -->
+    <div class="page" id="page-settings">
+      <div class="page-header">
+        <h2>Website Settings</h2>
+        <p>Changes here update your website instantly for all visitors.</p>
+      </div>
+      <div class="card">
+        <div class="card-title"><svg viewBox="0 0 24 24"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/></svg> Announcement Bar</div>
+        <div class="setting-row">
+          <div><div class="setting-label">Top Bar Message</div><div class="setting-desc">Shown at the very top of the website</div></div>
+          <input class="setting-input" id="setting-announcement" placeholder="e.g. Now accepting new patients!">
+          <button class="btn btn-primary btn-sm" style="margin-left:0.5rem" onclick="saveSetting('announcement')">Save</button>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-title"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Opening Hours</div>
+        <div class="setting-row">
+          <div><div class="setting-label">Clinic Hours</div><div class="setting-desc">Mon–Sat clinic timings</div></div>
+          <input class="setting-input" id="setting-clinic_hours" placeholder="e.g. Mon–Sat 5:00 PM – 8:00 PM">
+          <button class="btn btn-primary btn-sm" style="margin-left:0.5rem" onclick="saveSetting('clinic_hours')">Save</button>
+        </div>
+        <div class="setting-row">
+          <div><div class="setting-label">Home Visit Hours</div><div class="setting-desc">Home visit timings</div></div>
+          <input class="setting-input" id="setting-home_hours" placeholder="e.g. Mon–Sat 8:00 AM – 2:00 PM">
+          <button class="btn btn-primary btn-sm" style="margin-left:0.5rem" onclick="saveSetting('home_hours')">Save</button>
+        </div>
+        <div class="setting-row">
+          <div><div class="setting-label">Online Consultation</div><div class="setting-desc">Online session timings</div></div>
+          <input class="setting-input" id="setting-online_hours" placeholder="e.g. 8:00 AM – 8:00 PM">
+          <button class="btn btn-primary btn-sm" style="margin-left:0.5rem" onclick="saveSetting('online_hours')">Save</button>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-title"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13"/></svg> Contact Details</div>
+        <div class="setting-row">
+          <div><div class="setting-label">Phone Number</div></div>
+          <input class="setting-input" id="setting-phone" placeholder="+91 99810 26077">
+          <button class="btn btn-primary btn-sm" style="margin-left:0.5rem" onclick="saveSetting('phone')">Save</button>
+        </div>
+        <div class="setting-row">
+          <div><div class="setting-label">Email Address</div></div>
+          <input class="setting-input" id="setting-email" placeholder="anviwellnessstudio@gmail.com">
+          <button class="btn btn-primary btn-sm" style="margin-left:0.5rem" onclick="saveSetting('email')">Save</button>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- PHOTOS PAGE -->
+    <div class="page" id="page-photos">
+      <div class="page-header">
+        <h2>Website Photos</h2>
+        <p>Upload photos directly to GitHub. They appear on the website instantly.</p>
+      </div>
+
+      <!-- INSTRUCTIONS CARD -->
+      <div class="card" style="background:var(--sage-pale);border:1px solid rgba(122,158,126,0.3)">
+        <div class="card-title"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg> How to update a photo</div>
+        <ol style="font-size:13.5px;color:var(--mid);line-height:2.2;padding-left:1.2rem">
+          <li>Click <strong>"Choose Photo"</strong> on any slot below</li>
+          <li>Select your photo from your phone or computer</li>
+          <li>Click <strong>"Upload to GitHub"</strong></li>
+          <li>Enter your <strong>GitHub Personal Access Token</strong> when prompted</li>
+          <li>Done! Your website updates in <strong>30 seconds</strong> ✅</li>
+        </ol>
+        <div style="margin-top:1rem;padding:0.8rem 1rem;background:white;border-radius:var(--radius-sm);font-size:13px;color:var(--mid)">
+          <strong>🔑 Need a GitHub token?</strong> Go to <a href="https://github.com/settings/tokens/new" target="_blank" style="color:var(--sage-deep)">github.com/settings/tokens/new</a> → 
+          Note: "Anvi Website" → Expiration: No expiration → tick <strong>repo</strong> → Generate token → copy it
+        </div>
+      </div>
+
+      <!-- GITHUB TOKEN INPUT -->
+      <div class="card">
+        <div class="card-title"><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> GitHub Access Token</div>
+        <div style="display:flex;gap:0.8rem;align-items:center">
+          <input type="password" id="githubToken" placeholder="ghp_xxxxxxxxxxxxxxxxxxxx" 
+            style="flex:1;padding:0.75rem 1rem;border:1px solid rgba(122,158,126,0.25);border-radius:var(--radius-sm);font-family:var(--font);font-size:13px;outline:none"
+            oninput="saveToken()">
+          <span id="tokenStatus" style="font-size:12px;color:var(--light)"></span>
+        </div>
+        <p style="font-size:12px;color:var(--light);margin-top:0.5rem">Token is saved in your browser — you only need to enter it once.</p>
+      </div>
+
+      <!-- PHOTO SLOTS -->
+      <div class="card">
+        <div class="card-title"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg> Website Photo Slots</div>
+        <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:1rem" id="photoSlotsGrid">
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /main -->
+</div><!-- /admin -->
+
+<!-- ADD TESTIMONIAL MODAL -->
+<div class="modal-overlay" id="addTestimonialModal" onclick="closeModal(event,'addTestimonialModal')">
+  <div class="modal">
+    <div class="modal-header">
+      <h3>Add Patient Review</h3>
+      <button class="modal-close" onclick="closeModalDirect('addTestimonialModal')"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+    </div>
+    <div class="modal-body">
+      <div class="form-row">
+        <div class="form-group"><label>Patient Name</label><input type="text" id="t-name" placeholder="e.g. Priya Sharma"></div>
+        <div class="form-group"><label>Location</label><input type="text" id="t-location" placeholder="e.g. Kandivali West"></div>
+      </div>
+      <div class="form-group"><label>Review</label><textarea id="t-review" placeholder="What the patient said about their experience..."></textarea></div>
+      <div class="form-group">
+        <label>Star Rating</label>
+        <select id="t-stars"><option value="5">⭐⭐⭐⭐⭐ 5 Stars</option><option value="4">⭐⭐⭐⭐ 4 Stars</option><option value="3">⭐⭐⭐ 3 Stars</option></select>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-secondary" onclick="closeModalDirect('addTestimonialModal')">Cancel</button>
+      <button class="btn btn-primary" onclick="saveTestimonial()">
+        <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+        Save Review
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- ENQUIRY DETAIL MODAL -->
+<div class="modal-overlay" id="enquiryModal" onclick="closeModal(event,'enquiryModal')">
+  <div class="modal">
+    <div class="modal-header">
+      <h3 id="enquiryModalTitle">Enquiry Details</h3>
+      <button class="modal-close" onclick="closeModalDirect('enquiryModal')"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+    </div>
+    <div class="modal-body" id="enquiryModalBody"></div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span id="toastMsg"></span></div>
+
 </body>
 </html>

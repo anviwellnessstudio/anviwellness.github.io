@@ -3,987 +3,622 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Admin Panel — Anvi Wellness Studio</title>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<title>Admin — Anvi Wellness Studio</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Cormorant+Garamond:wght@400;500&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
   --sage:#7a9e7e;--sage-light:#a8c5ab;--sage-pale:#e8f0e9;--sage-deep:#4a7150;
   --ivory:#faf8f3;--warm:#fffef9;--dark:#2c2c28;--mid:#5a5a52;--light:#8a8a7e;
-  --red:#e05555;--green:#4caf7d;--gold:#c4a55a;--blue:#4a7ab5;
-  --radius:12px;--radius-sm:8px;--font:'DM Sans',sans-serif;--serif:'Cormorant Garamond',serif;
+  --red:#e05555;--green:#4caf7d;--gold:#c4a55a;
+  --r:12px;--rs:8px;--f:'DM Sans',sans-serif;
 }
-body{font-family:var(--font);background:#f0f4f0;color:var(--dark);min-height:100vh}
-
+body{font-family:var(--f);background:#f0f4f0;color:var(--dark);min-height:100vh}
 /* LOGIN */
-.login-wrap{min-height:100vh;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--sage-pale),var(--ivory))}
-.login-card{background:white;border-radius:var(--radius);padding:2.5rem;width:100%;max-width:380px;box-shadow:0 10px 40px rgba(0,0,0,0.1);text-align:center}
-.login-logo{margin:0 auto 1.2rem;height:70px;object-fit:contain}
-.login-card h1{font-family:var(--serif);font-size:1.6rem;font-weight:400;margin-bottom:0.3rem;color:var(--dark)}
-.login-card p{font-size:13px;color:var(--light);margin-bottom:1.8rem}
-.login-card input{width:100%;padding:0.8rem 1rem;border:1px solid rgba(122,158,126,0.3);border-radius:var(--radius-sm);font-family:var(--font);font-size:14px;outline:none;margin-bottom:1rem;transition:border-color 0.2s}
-.login-card input:focus{border-color:var(--sage)}
-.login-card button{width:100%;padding:0.9rem;background:var(--sage);color:white;border:none;border-radius:50px;font-family:var(--font);font-size:14px;font-weight:500;cursor:pointer;transition:background 0.2s}
-.login-card button:hover{background:var(--sage-deep)}
-.login-error{color:var(--red);font-size:12.5px;margin-top:0.5rem;display:none}
-
+#loginWrap{min-height:100vh;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--sage-pale),var(--ivory))}
+.lcard{background:white;border-radius:var(--r);padding:2.5rem;width:100%;max-width:380px;box-shadow:0 10px 40px rgba(0,0,0,0.1);text-align:center}
+.lcard img{height:64px;object-fit:contain;margin-bottom:1.2rem}
+.lcard h1{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:400;margin-bottom:0.3rem}
+.lcard p{font-size:13px;color:var(--light);margin-bottom:1.5rem}
+.lcard input{width:100%;padding:0.8rem 1rem;border:1px solid rgba(122,158,126,0.3);border-radius:var(--rs);font-family:var(--f);font-size:14px;outline:none;margin-bottom:1rem;display:block}
+.lcard input:focus{border-color:var(--sage)}
+.lcard .btn-login{width:100%;padding:0.9rem;background:var(--sage);color:white;border:none;border-radius:50px;font-family:var(--f);font-size:14px;font-weight:500;cursor:pointer}
+.lcard .btn-login:hover{background:var(--sage-deep)}
+.lerror{color:var(--red);font-size:12.5px;margin-top:0.5rem;display:none}
 /* LAYOUT */
-.admin-wrap{display:none;min-height:100vh;flex-direction:row}
-.sidebar{width:250px;background:var(--dark);min-height:100vh;position:fixed;left:0;top:0;display:flex;flex-direction:column;padding:1.5rem 0;z-index:50}
-.sidebar-logo{padding:0 1.5rem 1.5rem;border-bottom:1px solid rgba(255,255,255,0.08);margin-bottom:0.5rem}
-.sidebar-logo img{height:44px;object-fit:contain;filter:brightness(0) invert(1)}
-.sidebar-subtitle{font-size:10px;color:rgba(255,255,255,0.35);letter-spacing:0.1em;text-transform:uppercase;margin-top:4px}
-.nav-item{display:flex;align-items:center;gap:10px;padding:0.75rem 1.5rem;color:rgba(255,255,255,0.5);font-size:13.5px;cursor:pointer;transition:all 0.2s;border-left:3px solid transparent}
+#adminWrap{display:none;min-height:100vh}
+.sidebar{width:240px;background:var(--dark);min-height:100vh;position:fixed;left:0;top:0;display:flex;flex-direction:column;padding:0}
+.sb-logo{padding:1.5rem;border-bottom:1px solid rgba(255,255,255,0.08)}
+.sb-logo img{height:40px;object-fit:contain;filter:brightness(0) invert(1)}
+.sb-logo small{display:block;font-size:10px;color:rgba(255,255,255,0.3);letter-spacing:0.1em;text-transform:uppercase;margin-top:4px}
+.nav-item{display:flex;align-items:center;gap:10px;padding:0.8rem 1.5rem;color:rgba(255,255,255,0.5);font-size:13.5px;cursor:pointer;transition:all 0.2s;border-left:3px solid transparent;user-select:none}
 .nav-item:hover{color:white;background:rgba(255,255,255,0.05)}
 .nav-item.active{color:white;background:rgba(122,158,126,0.2);border-left-color:var(--sage)}
 .nav-item svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2;flex-shrink:0}
-.nav-badge{margin-left:auto;background:var(--gold);color:white;font-size:10px;padding:1px 7px;border-radius:50px;display:none}
-.sidebar-footer{padding:1.2rem 1.5rem;border-top:1px solid rgba(255,255,255,0.08);margin-top:auto}
-.sidebar-footer a{display:flex;align-items:center;gap:8px;color:rgba(255,255,255,0.4);font-size:12.5px;text-decoration:none;transition:color 0.2s;margin-bottom:0.7rem}
-.sidebar-footer a:hover{color:white}
-.sidebar-footer a svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2}
-
-.main{margin-left:250px;padding:2rem;min-height:100vh}
+.nbadge{margin-left:auto;background:var(--gold);color:white;font-size:10px;padding:1px 7px;border-radius:50px;display:none}
+.sb-footer{padding:1.2rem 1.5rem;border-top:1px solid rgba(255,255,255,0.08);margin-top:auto}
+.sb-footer a{display:flex;align-items:center;gap:8px;color:rgba(255,255,255,0.4);font-size:12.5px;text-decoration:none;margin-bottom:0.6rem;transition:color 0.2s}
+.sb-footer a:hover{color:white}
+.sb-footer svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2}
+.main{margin-left:240px;padding:2rem;min-height:100vh}
 .page{display:none}.page.active{display:block}
-.page-header{margin-bottom:2rem}
-.page-header h2{font-family:var(--serif);font-size:1.8rem;font-weight:400}
-.page-header p{font-size:13px;color:var(--light);margin-top:0.3rem}
-
+.ph{margin-bottom:2rem}.ph h2{font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:400}
+.ph p{font-size:13px;color:var(--light);margin-top:0.3rem}
 /* CARDS */
-.card{background:white;border-radius:var(--radius);padding:1.5rem;box-shadow:0 2px 12px rgba(0,0,0,0.05);margin-bottom:1.5rem}
-.card-title{font-size:14px;font-weight:600;color:var(--dark);margin-bottom:1.2rem;display:flex;align-items:center;gap:8px}
-.card-title svg{width:16px;height:16px;stroke:var(--sage);fill:none;stroke-width:2}
-
+.card{background:white;border-radius:var(--r);padding:1.5rem;box-shadow:0 2px 12px rgba(0,0,0,0.05);margin-bottom:1.5rem}
+.ct{font-size:14px;font-weight:600;margin-bottom:1.2rem;display:flex;align-items:center;gap:8px}
+.ct svg{width:16px;height:16px;stroke:var(--sage);fill:none;stroke-width:2}
 /* STATS */
-.stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-bottom:1.5rem}
-.stat-card{background:white;border-radius:var(--radius);padding:1.2rem;box-shadow:0 2px 12px rgba(0,0,0,0.05);display:flex;align-items:center;gap:1rem}
-.stat-icon{width:44px;height:44px;border-radius:var(--radius-sm);display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.stat-icon svg{width:20px;height:20px;stroke:white;fill:none;stroke-width:2}
-.stat-num{font-family:var(--serif);font-size:1.8rem;font-weight:400;line-height:1}
-.stat-label{font-size:11.5px;color:var(--light);margin-top:2px}
-
-/* FORM ELEMENTS */
-.form-group{margin-bottom:1rem}
-.form-group label{display:block;font-size:11.5px;letter-spacing:0.08em;text-transform:uppercase;color:var(--light);font-weight:500;margin-bottom:0.4rem}
-.form-group input,.form-group select,.form-group textarea{width:100%;padding:0.75rem 1rem;border:1px solid rgba(122,158,126,0.25);border-radius:var(--radius-sm);font-family:var(--font);font-size:13.5px;color:var(--dark);outline:none;transition:border-color 0.2s;background:white}
-.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--sage)}
-.form-group textarea{resize:vertical;min-height:80px}
-.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
-
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-bottom:1.5rem}
+.sc{background:white;border-radius:var(--r);padding:1.2rem;box-shadow:0 2px 12px rgba(0,0,0,0.05);display:flex;align-items:center;gap:1rem}
+.si{width:44px;height:44px;border-radius:var(--rs);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.si svg{width:20px;height:20px;stroke:white;fill:none;stroke-width:2}
+.sn{font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:400;line-height:1}
+.sl{font-size:11.5px;color:var(--light);margin-top:2px}
+/* FORM */
+.fg{margin-bottom:1rem}
+.fg label{display:block;font-size:11.5px;letter-spacing:0.08em;text-transform:uppercase;color:var(--light);font-weight:500;margin-bottom:0.4rem}
+.fg input,.fg select,.fg textarea{width:100%;padding:0.75rem 1rem;border:1px solid rgba(122,158,126,0.25);border-radius:var(--rs);font-family:var(--f);font-size:13.5px;outline:none;transition:border-color 0.2s}
+.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--sage)}
+.fg textarea{resize:vertical;min-height:80px}
+.fr{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
 /* BUTTONS */
-.btn{display:inline-flex;align-items:center;gap:6px;padding:0.65rem 1.3rem;border-radius:50px;font-family:var(--font);font-size:13px;font-weight:500;cursor:pointer;border:none;transition:all 0.2s}
+.btn{display:inline-flex;align-items:center;gap:6px;padding:0.65rem 1.3rem;border-radius:50px;font-family:var(--f);font-size:13px;font-weight:500;cursor:pointer;border:none;transition:all 0.2s;text-decoration:none}
 .btn svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2}
-.btn-primary{background:var(--sage);color:white}.btn-primary:hover{background:var(--sage-deep)}
-.btn-secondary{background:var(--sage-pale);color:var(--sage-deep)}.btn-secondary:hover{background:var(--sage-light);color:white}
-.btn-danger{background:#fde8e8;color:var(--red)}.btn-danger:hover{background:var(--red);color:white}
+.btn-p{background:var(--sage);color:white}.btn-p:hover{background:var(--sage-deep)}
+.btn-s{background:var(--sage-pale);color:var(--sage-deep)}.btn-s:hover{background:var(--sage-light);color:white}
+.btn-d{background:#fde8e8;color:var(--red)}.btn-d:hover{background:var(--red);color:white}
 .btn-sm{padding:0.4rem 0.8rem;font-size:12px}
-.btn-green{background:#d1fae5;color:#065f46}.btn-green:hover{background:var(--green);color:white}
-
 /* TABLE */
-.table-wrap{overflow-x:auto}
+.tw{overflow-x:auto}
 table{width:100%;border-collapse:collapse}
 th{text-align:left;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--light);font-weight:500;padding:0.7rem 1rem;border-bottom:2px solid var(--sage-pale)}
 td{padding:0.9rem 1rem;border-bottom:1px solid var(--sage-pale);font-size:13.5px;vertical-align:top}
 tr:hover td{background:var(--ivory)}
 tr:last-child td{border-bottom:none}
-
-/* BADGES */
+/* BADGE */
 .badge{display:inline-flex;align-items:center;gap:4px;padding:0.25rem 0.7rem;border-radius:50px;font-size:11px;font-weight:500}
 .badge::before{content:'';width:5px;height:5px;border-radius:50%;background:currentColor}
-.badge-new{background:#fff3cd;color:#856404}
-.badge-contacted{background:#d1e7dd;color:#0a5c36}
-.badge-confirmed{background:#cfe2ff;color:#084298}
-.badge-completed{background:#e2e3e5;color:#41464b}
-
+.b-new{background:#fff3cd;color:#856404}.b-contacted{background:#d1e7dd;color:#0a5c36}
+.b-confirmed{background:#cfe2ff;color:#084298}.b-completed{background:#e2e3e5;color:#41464b}
 /* TOOLBAR */
-.toolbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:1.2rem;flex-wrap:wrap;gap:0.8rem}
-.search-box{display:flex;align-items:center;gap:8px;background:var(--ivory);border:1px solid rgba(122,158,126,0.2);border-radius:50px;padding:0.5rem 1rem}
-.search-box svg{width:15px;height:15px;stroke:var(--light);fill:none;stroke-width:2}
-.search-box input{border:none;background:none;font-family:var(--font);font-size:13px;color:var(--dark);outline:none;width:180px}
-.filter-tabs{display:flex;gap:0.4rem;flex-wrap:wrap}
-.filter-tab{padding:0.35rem 0.8rem;border-radius:50px;font-size:12px;cursor:pointer;border:1px solid rgba(122,158,126,0.2);background:white;color:var(--mid);font-family:var(--font);transition:all 0.2s}
-.filter-tab.active{background:var(--sage);color:white;border-color:var(--sage)}
-
+.tb{display:flex;justify-content:space-between;align-items:center;margin-bottom:1.2rem;flex-wrap:wrap;gap:0.8rem}
+.sb{display:flex;align-items:center;gap:8px;background:var(--ivory);border:1px solid rgba(122,158,126,0.2);border-radius:50px;padding:0.5rem 1rem}
+.sb svg{width:15px;height:15px;stroke:var(--light);fill:none;stroke-width:2}
+.sb input{border:none;background:none;font-family:var(--f);font-size:13px;color:var(--dark);outline:none;width:180px}
+.ft{display:flex;gap:0.4rem;flex-wrap:wrap}
+.ftab{padding:0.35rem 0.8rem;border-radius:50px;font-size:12px;cursor:pointer;border:1px solid rgba(122,158,126,0.2);background:white;color:var(--mid);font-family:var(--f);transition:all 0.2s}
+.ftab.active{background:var(--sage);color:white;border-color:var(--sage)}
 /* SETTINGS */
-.setting-row{display:flex;align-items:center;justify-content:space-between;padding:1rem 0;border-bottom:1px solid var(--sage-pale);gap:1rem}
-.setting-row:last-child{border-bottom:none}
-.setting-label{font-size:13.5px;font-weight:500;color:var(--dark);min-width:160px}
-.setting-desc{font-size:12px;color:var(--light);margin-top:2px}
-.setting-input{flex:1;padding:0.6rem 1rem;border:1px solid rgba(122,158,126,0.25);border-radius:var(--radius-sm);font-family:var(--font);font-size:13px;color:var(--dark);outline:none}
-.setting-input:focus{border-color:var(--sage)}
-
-/* TESTIMONIAL CARDS */
-.testimonial-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
-.t-card{background:var(--ivory);border-radius:var(--radius);padding:1.2rem;border:1px solid rgba(122,158,126,0.15)}
-.t-card-name{font-weight:600;font-size:13.5px;color:var(--dark)}
-.t-card-loc{font-size:12px;color:var(--light);margin-bottom:0.5rem}
-.t-card-text{font-size:13px;color:var(--mid);line-height:1.6;font-style:italic;margin-bottom:0.8rem}
-.t-card-stars{color:var(--gold);font-size:13px;margin-bottom:0.8rem}
-.t-card-actions{display:flex;gap:0.5rem}
-
-/* EMPTY STATE */
-.empty-state{text-align:center;padding:3rem;color:var(--light)}
-.empty-state svg{width:40px;height:40px;stroke:var(--sage-light);fill:none;stroke-width:1.5;margin:0 auto 1rem;display:block}
-.empty-state p{font-size:14px}
-
+.sr{display:flex;align-items:center;justify-content:space-between;padding:1rem 0;border-bottom:1px solid var(--sage-pale);gap:1rem}
+.sr:last-child{border-bottom:none}
+.sl2{font-size:13.5px;font-weight:500;min-width:160px}
+.sd{font-size:12px;color:var(--light);margin-top:2px}
+.si2{flex:1;padding:0.6rem 1rem;border:1px solid rgba(122,158,126,0.25);border-radius:var(--rs);font-family:var(--f);font-size:13px;outline:none}
+.si2:focus{border-color:var(--sage)}
+/* TESTIMONIALS */
+.tg{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+.tc{background:var(--ivory);border-radius:var(--r);padding:1.2rem;border:1px solid rgba(122,158,126,0.15)}
+/* PHOTOS */
+.pg{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem}
+.pslot{border:1px solid rgba(122,158,126,0.2);border-radius:var(--r);overflow:hidden}
+.pimg{height:160px;overflow:hidden;position:relative;background:var(--sage-pale)}
+.pimg img{width:100%;height:100%;object-fit:cover}
+.pph{display:none;position:absolute;inset:0;align-items:center;justify-content:center;flex-direction:column;gap:0.5rem;color:var(--sage)}
+.pbody{padding:1rem}
+.pbody strong{display:block;font-size:13.5px;font-weight:600;color:var(--dark);margin-bottom:2px}
+.pbody small{display:block;font-size:12px;color:var(--light);margin-bottom:0.8rem}
+.prow{display:flex;gap:0.5rem;align-items:center}
 /* MODAL */
-.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.4);z-index:500;display:none;align-items:center;justify-content:center;padding:1.5rem}
-.modal-overlay.open{display:flex}
-.modal{background:white;border-radius:var(--radius);width:100%;max-width:500px;max-height:85vh;overflow-y:auto;box-shadow:0 20px 60px rgba(0,0,0,0.15)}
-.modal-header{display:flex;justify-content:space-between;align-items:center;padding:1.2rem 1.5rem;border-bottom:1px solid var(--sage-pale)}
-.modal-header h3{font-family:var(--serif);font-size:1.3rem;font-weight:400}
-.modal-close{width:30px;height:30px;border-radius:50%;background:var(--ivory);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center}
-.modal-close svg{width:14px;height:14px;stroke:var(--mid);fill:none;stroke-width:2}
-.modal-body{padding:1.5rem}
-.modal-footer{padding:1rem 1.5rem;border-top:1px solid var(--sage-pale);display:flex;gap:0.8rem;justify-content:flex-end}
-
+.mo{position:fixed;inset:0;background:rgba(0,0,0,0.4);z-index:500;display:none;align-items:center;justify-content:center;padding:1.5rem}
+.mo.open{display:flex}
+.md{background:white;border-radius:var(--r);width:100%;max-width:500px;max-height:85vh;overflow-y:auto;box-shadow:0 20px 60px rgba(0,0,0,0.15)}
+.mh{display:flex;justify-content:space-between;align-items:center;padding:1.2rem 1.5rem;border-bottom:1px solid var(--sage-pale)}
+.mh h3{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:400}
+.mc{width:30px;height:30px;border-radius:50%;background:var(--ivory);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.mc svg{width:14px;height:14px;stroke:var(--mid);fill:none;stroke-width:2}
+.mb{padding:1.5rem}
+.mf{padding:1rem 1.5rem;border-top:1px solid var(--sage-pale);display:flex;gap:0.8rem;justify-content:flex-end}
 /* TOAST */
-.toast{position:fixed;bottom:2rem;right:2rem;background:var(--dark);color:white;padding:0.8rem 1.3rem;border-radius:var(--radius-sm);font-size:13px;z-index:9999;transform:translateY(100px);opacity:0;transition:all 0.3s;display:flex;align-items:center;gap:8px}
+.toast{position:fixed;bottom:2rem;right:2rem;background:var(--dark);color:white;padding:0.8rem 1.3rem;border-radius:var(--rs);font-size:13px;z-index:9999;transform:translateY(100px);opacity:0;transition:all 0.3s;display:flex;align-items:center;gap:8px}
 .toast.show{transform:translateY(0);opacity:1}
-.toast.success svg{stroke:var(--sage-light)}
-.toast.error svg{stroke:#f08080}
-.toast svg{width:15px;height:15px;stroke:var(--sage-light);fill:none;stroke-width:2}
-
 /* LOADING */
 .loading{display:flex;align-items:center;justify-content:center;padding:3rem;gap:10px;color:var(--light);font-size:13px}
-.spinner{width:20px;height:20px;border:2px solid var(--sage-pale);border-top-color:var(--sage);border-radius:50%;animation:spin 0.7s linear infinite}
+.spin{width:20px;height:20px;border:2px solid var(--sage-pale);border-top-color:var(--sage);border-radius:50%;animation:spin 0.7s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
-
-/* RESPONSIVE */
-@media(max-width:768px){
-  .sidebar{display:none}
-  .main{margin-left:0;padding:1rem}
-  .stats-row{grid-template-columns:repeat(2,1fr)}
-  .testimonial-grid{grid-template-columns:1fr}
-  .form-row{grid-template-columns:1fr}
-}
+.empty{text-align:center;padding:3rem;color:var(--light)}
+.empty svg{width:40px;height:40px;stroke:var(--sage-light);fill:none;stroke-width:1.5;margin:0 auto 1rem;display:block}
+@media(max-width:768px){.sidebar{display:none}.main{margin-left:0;padding:1rem}.stats{grid-template-columns:repeat(2,1fr)}.tg,.pg,.fr{grid-template-columns:1fr}}
 </style>
-<script>
-// ══════════════════════════════════════════
-// CONFIG
-// ══════════════════════════════════════════
-const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbx12S4tlDAtjq7xtBLXl8aGH7e9vl4Edra0tXTanAcf7iQOd5-YgRqmxFWpLhFsQLOOeg/exec";
-const ADMIN_PASSWORD = "anvi2025";
-
-// ══════════════════════════════════════════
-// LOGO
-// ══════════════════════════════════════════
-// Logo loaded via GitHub URL directly
-
-// ══════════════════════════════════════════
-// AUTH
-// ══════════════════════════════════════════
-function doLogin() {
-  var pwd = document.getElementById('loginPwd').value;
-  if(pwd === ADMIN_PASSWORD) {
-    document.getElementById('loginWrap').style.display = 'none';
-    document.getElementById('adminWrap').style.display = 'flex';
-    loadAll();
-  } else {
-    document.getElementById('loginError').style.display = 'block';
-    document.getElementById('loginPwd').value = '';
-  }
-}
-function logout() {
-  document.getElementById('adminWrap').style.display = 'none';
-  document.getElementById('loginWrap').style.display = 'flex';
-  document.getElementById('loginPwd').value = '';
-}
-document.addEventListener('DOMContentLoaded', function(){ var lp = document.getElementById('loginPwd'); if(lp) lp.addEventListener('keydown', function(e){ if(e.key==='Enter') doLogin(); }); });
-
-// ══════════════════════════════════════════
-// NAVIGATION
-// ══════════════════════════════════════════
-function showPage(name, el) {
-  document.querySelectorAll('.page').forEach(function(p){ p.classList.remove('active'); });
-  document.querySelectorAll('.nav-item').forEach(function(n){ n.classList.remove('active'); });
-  document.getElementById('page-'+name).classList.add('active');
-  el.classList.add('active');
-  if(name==='enquiries') loadEnquiries();
-  if(name==='testimonials') loadTestimonials();
-  if(name==='settings') loadSettings();
-}
-
-// ══════════════════════════════════════════
-// API CALLS
-// ══════════════════════════════════════════
-function apiGet(action, cb) {
-  fetch(SCRIPT_URL + '?action=' + action)
-    .then(function(r){ return r.json(); })
-    .then(function(d){ cb(null, d); })
-    .catch(function(e){ cb(e, null); });
-}
-
-function apiPost(data, cb) {
-  fetch(SCRIPT_URL, {
-    method: 'POST',
-    body: JSON.stringify(data)
-  })
-  .then(function(r){ return r.json(); })
-  .then(function(d){ cb(null, d); })
-  .catch(function(e){ cb(e, null); });
-}
-
-// ══════════════════════════════════════════
-// LOAD ALL
-// ══════════════════════════════════════════
-function loadAll() {
-  loadDashboard();
-  updateNewBadge();
-}
-
-// ══════════════════════════════════════════
-// DASHBOARD
-// ══════════════════════════════════════════
-function loadDashboard() {
-  apiGet('getEnquiries', function(err, res) {
-    if(err || !res.success) return;
-    var rows = res.data.slice(1); // skip header
-    var today = new Date().toDateString();
-    var total = rows.length;
-    var newCount = rows.filter(function(r){ return r[8]==='New'; }).length;
-    var confirmed = rows.filter(function(r){ return r[8]==='Confirmed'; }).length;
-    var todayCount = rows.filter(function(r){ return new Date(r[7]).toDateString()===today; }).length;
-
-    document.getElementById('statTotal').textContent = total;
-    document.getElementById('statNew').textContent = newCount;
-    document.getElementById('statConfirmed').textContent = confirmed;
-    document.getElementById('statToday').textContent = todayCount;
-
-    var badge = document.getElementById('newBadge');
-    badge.textContent = newCount;
-    badge.style.display = newCount > 0 ? 'inline' : 'none';
-
-    var recent = rows.slice(-5).reverse();
-    var tbody = document.getElementById('dashBody');
-    var empty = document.getElementById('dashEmpty');
-    if(recent.length === 0) { tbody.innerHTML=''; empty.style.display='block'; return; }
-    empty.style.display='none';
-    tbody.innerHTML = recent.map(function(r){
-      return '<tr><td><strong>'+r[1]+'</strong></td><td>'+r[2]+'</td><td style="font-size:12px;color:var(--mid)">'+r[5]+'</td><td style="font-size:12px;color:var(--light)">'+fmtDate(r[7])+'</td><td><span class="badge badge-'+r[8].toLowerCase()+'">'+r[8]+'</span></td></tr>';
-    }).join('');
-  });
-}
-
-// ══════════════════════════════════════════
-// ENQUIRIES
-// ══════════════════════════════════════════
-var allEnquiries = [];
-var currentFilter = 'all';
-var currentSearch = '';
-
-function loadEnquiries() {
-  document.getElementById('enquiryLoading').style.display = 'flex';
-  document.getElementById('enquiryTableWrap').style.display = 'none';
-  apiGet('getEnquiries', function(err, res) {
-    document.getElementById('enquiryLoading').style.display = 'none';
-    document.getElementById('enquiryTableWrap').style.display = 'block';
-    if(err || !res.success) { showToast('Failed to load enquiries', true); return; }
-    allEnquiries = res.data.slice(1).reverse(); // skip header, newest first
-    renderEnquiries();
-  });
-}
-
-function renderEnquiries() {
-  var filtered = allEnquiries;
-  if(currentFilter !== 'all') filtered = filtered.filter(function(r){ return r[8]===currentFilter; });
-  if(currentSearch) {
-    var q = currentSearch.toLowerCase();
-    filtered = filtered.filter(function(r){ return (r[1]+'').toLowerCase().includes(q)||(r[2]+'').includes(q); });
-  }
-  var tbody = document.getElementById('enquiryBody');
-  var empty = document.getElementById('enquiryEmpty');
-  if(filtered.length===0){ tbody.innerHTML=''; empty.style.display='block'; return; }
-  empty.style.display='none';
-  tbody.innerHTML = filtered.map(function(r,i){
-    var origIdx = allEnquiries.indexOf(r);
-    return '<tr>'+
-      '<td><strong>'+r[1]+'</strong><br><span style="font-size:11px;color:var(--light)">'+r[3]+'</span></td>'+
-      '<td><a href="tel:'+r[2]+'" style="color:var(--sage-deep);text-decoration:none">'+r[2]+'</a></td>'+
-      '<td style="font-size:12.5px">'+r[4]+'</td>'+
-      '<td style="font-size:12.5px;max-width:120px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">'+r[5]+'</td>'+
-      '<td style="font-size:12px;color:var(--light);white-space:nowrap">'+fmtDate(r[7])+'</td>'+
-      '<td><select style="padding:0.3rem 0.6rem;border:1px solid rgba(122,158,126,0.3);border-radius:50px;font-family:var(--font);font-size:11.5px;outline:none" onchange="updateStatus(\''+r[0]+'\',this.value)">'+
-        ['New','Contacted','Confirmed','Completed'].map(function(s){ return '<option value="'+s+'"'+(r[8]===s?' selected':'')+'>'+s+'</option>'; }).join('')+
-      '</select></td>'+
-      '<td><div style="display:flex;gap:0.4rem">'+
-        '<button class="btn btn-secondary btn-sm" onclick="viewEnquiry('+origIdx+')" title="View">👁</button>'+
-        '<a class="btn btn-sm" style="background:#d1fae5;color:#065f46;text-decoration:none" href="https://wa.me/'+r[2].replace(/\D/g,'')+'" target="_blank">WhatsApp</a>'+
-      '</div></td>'+
-    '</tr>';
-  }).join('');
-}
-
-function setFilter(f, btn) {
-  currentFilter = f;
-  document.querySelectorAll('.filter-tab').forEach(function(t){ t.classList.remove('active'); });
-  btn.classList.add('active');
-  renderEnquiries();
-}
-function filterEnquiries() { currentSearch = document.getElementById('searchInput').value; renderEnquiries(); }
-
-function updateStatus(id, status) {
-  apiPost({action:'updateStatus', id:id, status:status}, function(err, res){
-    if(err) { showToast('Failed to update', true); return; }
-    // update local data
-    allEnquiries.forEach(function(r){ if(r[0]==id) r[8]=status; });
-    loadDashboard();
-    showToast('Status updated to ' + status);
-  });
-}
-
-function updateNewBadge() {
-  apiGet('getEnquiries', function(err, res){
-    if(err || !res.success) return;
-    var count = res.data.slice(1).filter(function(r){ return r[8]==='New'; }).length;
-    var badge = document.getElementById('newBadge');
-    badge.textContent = count;
-    badge.style.display = count > 0 ? 'inline' : 'none';
-  });
-}
-
-function viewEnquiry(idx) {
-  var r = allEnquiries[idx];
-  if(!r) return;
-  document.getElementById('enquiryModalTitle').textContent = r[1];
-  document.getElementById('enquiryModalBody').innerHTML =
-    '<div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem">'+
-    field('Name', r[1]) + field('Phone', '<a href="tel:'+r[2]+'" style="color:var(--sage-deep)">'+r[2]+'</a>') +
-    field('Email', r[3]||'Not provided') + field('Date', fmtDate(r[7])) +
-    field('Type', r[4]||'—') + field('Service', r[5]||'—') +
-    '</div>'+
-    (r[6] ? '<div style="margin-top:1rem"><div style="font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--light);margin-bottom:0.3rem">Message</div><p style="font-size:14px;color:var(--mid);line-height:1.7">'+r[6]+'</p></div>' : '')+
-    '<div style="display:flex;gap:0.8rem;margin-top:1.5rem">'+
-    '<a href="https://wa.me/'+r[2].replace(/\D/g,'')+'" target="_blank" class="btn btn-primary" style="flex:1;justify-content:center;background:#25D366;text-decoration:none">WhatsApp Patient</a>'+
-    '<a href="tel:'+r[2]+'" class="btn btn-primary" style="flex:1;justify-content:center;background:var(--dark);text-decoration:none">Call Patient</a>'+
-    '</div>';
-  document.getElementById('enquiryModal').classList.add('open');
-}
-function field(label, value){ return '<div><div style="font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--light);margin-bottom:3px">'+label+'</div><div style="font-size:14px;color:var(--dark)">'+value+'</div></div>'; }
-
-function exportCSV() {
-  if(!allEnquiries.length){ showToast('No enquiries to export', true); return; }
-  var headers = ['ID','Name','Phone','Email','Type','Service','Message','Date','Status'];
-  var rows = allEnquiries.map(function(r){ return r.map(function(c){ return '"'+String(c).replace(/"/g,'""')+'"'; }).join(','); });
-  var csv = [headers.join(','), ...rows].join('\n');
-  var a = document.createElement('a');
-  a.href = 'data:text/csv;charset=utf-8,' + encodeURIComponent(csv);
-  a.download = 'anvi-enquiries-'+new Date().toISOString().split('T')[0]+'.csv';
-  a.click();
-  showToast('CSV exported!');
-}
-
-// ══════════════════════════════════════════
-// TESTIMONIALS
-// ══════════════════════════════════════════
-function loadTestimonials() {
-  document.getElementById('testimonialsLoading').style.display = 'flex';
-  document.getElementById('testimonialsGrid').style.display = 'none';
-  document.getElementById('testimonialsEmpty').style.display = 'none';
-  apiGet('getTestimonials', function(err, res){
-    document.getElementById('testimonialsLoading').style.display = 'none';
-    if(err || !res.success){ showToast('Failed to load', true); return; }
-    var data = res.data;
-    if(!data.length){ document.getElementById('testimonialsEmpty').style.display = 'block'; return; }
-    var grid = document.getElementById('testimonialsGrid');
-    grid.style.display = 'grid';
-    grid.innerHTML = data.map(function(t){
-      var stars = '★'.repeat(t.stars) + '☆'.repeat(5-t.stars);
-      return '<div class="t-card">'+
-        '<div class="t-card-name">'+t.name+'</div>'+
-        '<div class="t-card-loc">'+t.location+'</div>'+
-        '<div class="t-card-stars">'+stars+'</div>'+
-        '<div class="t-card-text">"'+t.review+'"</div>'+
-        '<div class="t-card-actions">'+
-          '<button class="btn btn-danger btn-sm" onclick="deleteTestimonial(\''+t.name+'\',\''+t.location+'\')">'+
-            '<svg viewBox="0 0 24 24"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H6L5 6"/></svg>Delete</button>'+
-        '</div>'+
-      '</div>';
-    }).join('');
-  });
-}
-
-function openAddTestimonial() {
-  document.getElementById('t-name').value='';
-  document.getElementById('t-location').value='';
-  document.getElementById('t-review').value='';
-  document.getElementById('t-stars').value='5';
-  document.getElementById('addTestimonialModal').classList.add('open');
-}
-
-function saveTestimonial() {
-  var name = document.getElementById('t-name').value.trim();
-  var location = document.getElementById('t-location').value.trim();
-  var review = document.getElementById('t-review').value.trim();
-  var stars = parseInt(document.getElementById('t-stars').value);
-  if(!name||!review){ showToast('Please fill name and review', true); return; }
-  apiPost({action:'addTestimonial', name:name, location:location, review:review, stars:stars}, function(err, res){
-    if(err||!res.success){ showToast('Failed to save', true); return; }
-    closeModalDirect('addTestimonialModal');
-    loadTestimonials();
-    showToast('Review added successfully!');
-  });
-}
-
-function deleteTestimonial(name, location) {
-  if(!confirm('Delete review from '+name+'?')) return;
-  apiPost({action:'deleteTestimonial', name:name, location:location}, function(err, res){
-    if(err||!res.success){ showToast('Failed to delete', true); return; }
-    loadTestimonials();
-    showToast('Review deleted');
-  });
-}
-
-// ══════════════════════════════════════════
-// SETTINGS
-// ══════════════════════════════════════════
-function loadSettings() {
-  apiGet('getSettings', function(err, res){
-    if(err||!res.success){ showToast('Failed to load settings', true); return; }
-    var s = res.data;
-    ['announcement','clinic_hours','home_hours','online_hours','phone','email'].forEach(function(key){
-      var el = document.getElementById('setting-'+key);
-      if(el && s[key]) el.value = s[key];
-    });
-  });
-}
-
-function saveSetting(key) {
-  var val = document.getElementById('setting-'+key).value.trim();
-  if(!val){ showToast('Please enter a value', true); return; }
-  apiPost({action:'updateSetting', key:key, value:val}, function(err, res){
-    if(err||!res.success){ showToast('Failed to save', true); return; }
-    showToast('Setting saved! Website updated.');
-  });
-}
-
-// ══════════════════════════════════════════
-// MODALS
-// ══════════════════════════════════════════
-function closeModal(e, id){ if(e.target===document.getElementById(id)) closeModalDirect(id); }
-function closeModalDirect(id){ document.getElementById(id).classList.remove('open'); }
-document.addEventListener('keydown', function(e){ if(e.key==='Escape') document.querySelectorAll('.modal-overlay.open').forEach(function(m){ m.classList.remove('open'); }); });
-
-// ══════════════════════════════════════════
-// PHOTOS — GitHub Upload
-// ══════════════════════════════════════════
-var GITHUB_OWNER = "anviwellness";
-var GITHUB_REPO  = "anviwellness.github.io";
-var GITHUB_BRANCH = "main";
-var GITHUB_BASE_URL = "https://raw.githubusercontent.com/" + GITHUB_OWNER + "/" + GITHUB_REPO + "/" + GITHUB_BRANCH + "/images/";
-
-var PHOTO_SLOTS = [
-  { key: "logo",         label: "Clinic Logo",              file: "logo.jpg",         desc: "Shown in nav bar & footer" },
-  { key: "hero",         label: "Hero Photo",               file: "hero.jpg",         desc: "Main photo on homepage" },
-  { key: "about-main",   label: "About — Main Image",       file: "about-main.jpg",   desc: "Large image in About section" },
-  { key: "about-accent", label: "About — Accent Image",     file: "about-accent.jpg", desc: "Small overlapping image in About" },
-  { key: "doctor",       label: "Dr. Anvi — Profile Photo", file: "doctor.jpg",       desc: "Your professional headshot" },
-  { key: "why",          label: "Why Choose Us Photo",      file: "why.jpg",          desc: "Image beside the Why section" },
-  { key: "aqua",         label: "Aquatherapy Photo",        file: "aqua.jpg",         desc: "Service card image" },
-  { key: "needling",     label: "Dry Needling Photo",       file: "needling.jpg",     desc: "Service card image" },
-  { key: "cupping",      label: "Cupping Therapy Photo",    file: "cupping.jpg",      desc: "Service card image" },
-  { key: "online",       label: "Online Consultation Photo",file: "online.jpg",       desc: "Service card image" },
-];
-
-function saveToken() {
-  var t = document.getElementById("githubToken").value;
-  localStorage.setItem("gh_token", t);
-  document.getElementById("tokenStatus").textContent = t ? "✅ Saved" : "";
-}
-
-function initPhotosPage() {
-  var saved = localStorage.getItem("gh_token");
-  if(saved) {
-    document.getElementById("githubToken").value = saved;
-    document.getElementById("tokenStatus").textContent = "Saved";
-  }
-
-  var grid = document.getElementById("photoSlotsGrid");
-  if(!grid) return;
-  grid.innerHTML = "";
-
-  PHOTO_SLOTS.forEach(function(slot) {
-    var imgUrl = GITHUB_BASE_URL + slot.file + "?t=" + Date.now();
-    var div = document.createElement("div");
-    div.style.cssText = "border:1px solid rgba(122,158,126,0.2);border-radius:12px;overflow:hidden";
-
-    // Image container
-    var imgWrap = document.createElement("div");
-    imgWrap.style.cssText = "height:160px;overflow:hidden;position:relative;background:#e8f0e9";
-
-    var img = document.createElement("img");
-    img.id = "preview-" + slot.key;
-    img.src = imgUrl;
-    img.style.cssText = "width:100%;height:100%;object-fit:cover";
-    img.onerror = function() {
-      this.style.display = "none";
-      var ph = document.getElementById("placeholder-" + slot.key);
-      if(ph) ph.style.display = "flex";
-    };
-
-    var placeholder = document.createElement("div");
-    placeholder.id = "placeholder-" + slot.key;
-    placeholder.style.cssText = "display:none;position:absolute;inset:0;align-items:center;justify-content:center;flex-direction:column;gap:0.5rem;color:#7a9e7e";
-    placeholder.innerHTML = "<svg width=32 height=32 viewBox='0 0 24 24' fill=none stroke=currentColor stroke-width=1.5><rect x=3 y=3 width=18 height=18 rx=2/><circle cx=8.5 cy=8.5 r=1.5/><polyline points='21 15 16 10 5 21'/></svg><span style=font-size:12px>No photo yet</span>";
-
-    imgWrap.appendChild(img);
-    imgWrap.appendChild(placeholder);
-
-    // Body
-    var body = document.createElement("div");
-    body.style.cssText = "padding:1rem";
-
-    var name = document.createElement("div");
-    name.style.cssText = "font-size:13.5px;font-weight:600;color:#2c2c28;margin-bottom:2px";
-    name.textContent = slot.label;
-
-    var desc = document.createElement("div");
-    desc.style.cssText = "font-size:12px;color:#8a8a7e;margin-bottom:0.8rem";
-    desc.textContent = slot.desc;
-
-    var row = document.createElement("div");
-    row.style.cssText = "display:flex;gap:0.5rem;align-items:center";
-
-    var label = document.createElement("label");
-    label.style.cssText = "flex:1;display:inline-flex;align-items:center;gap:6px;padding:0.5rem 1rem;background:#e8f0e9;color:#4a7150;border-radius:50px;font-size:12.5px;font-weight:500;cursor:pointer";
-    label.innerHTML = "<svg width=13 height=13 viewBox='0 0 24 24' fill=none stroke=currentColor stroke-width=2><path d='M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4'/><polyline points='17 8 12 3 7 8'/><line x1=12 y1=3 x2=12 y2=15/></svg> Choose Photo";
-
-    var fileInput = document.createElement("input");
-    fileInput.type = "file";
-    fileInput.accept = "image/*";
-    fileInput.style.display = "none";
-    (function(k, f) {
-      fileInput.onchange = function() { previewAndUpload(this, k, f); };
-    })(slot.key, slot.file);
-    label.appendChild(fileInput);
-
-    var status = document.createElement("div");
-    status.id = "status-" + slot.key;
-    status.style.cssText = "font-size:11.5px;color:#8a8a7e";
-
-    row.appendChild(label);
-    row.appendChild(status);
-    body.appendChild(name);
-    body.appendChild(desc);
-    body.appendChild(row);
-
-    div.appendChild(imgWrap);
-    div.appendChild(body);
-    grid.appendChild(div);
-  });
-}
-
-
-
-function previewAndUpload(input, key, filename) {
-  if(!input.files[0]) return;
-  var file = input.files[0];
-  var token = localStorage.getItem("gh_token");
-  if(!token) {
-    showToast("Please enter your GitHub token first!", true);
-    document.getElementById("githubToken").focus();
-    return;
-  }
-
-  var statusEl = document.getElementById("status-"+key);
-  var previewEl = document.getElementById("preview-"+key);
-  var placeholderEl = document.getElementById("placeholder-"+key);
-  statusEl.textContent = "⏳ Reading…";
-  statusEl.style.color = "var(--sage)";
-
-  // Preview locally first
-  var reader = new FileReader();
-  reader.onload = function(e) {
-    previewEl.src = e.target.result;
-    previewEl.style.display = "block";
-    if(placeholderEl) placeholderEl.style.display = "none";
-
-    // Now upload to GitHub
-    statusEl.textContent = "⏳ Uploading…";
-    uploadToGitHub(filename, e.target.result, token, function(err) {
-      if(err) {
-        statusEl.textContent = "❌ Failed";
-        statusEl.style.color = "var(--red)";
-        showToast("Upload failed: " + err, true);
-      } else {
-        statusEl.textContent = "✅ Live!";
-        statusEl.style.color = "var(--green)";
-        showToast(key + " photo updated on website!");
-        // Bust cache — reload preview from GitHub
-        setTimeout(function() {
-          previewEl.src = GITHUB_BASE_URL + filename + "?t=" + Date.now();
-        }, 3000);
-      }
-    });
-  };
-  reader.readAsDataURL(file);
-}
-
-function uploadToGitHub(filename, dataUrl, token, cb) {
-  // Get base64 content (remove data URI prefix)
-  var base64 = dataUrl.split(",")[1];
-  var apiUrl = "https://api.github.com/repos/" + GITHUB_OWNER + "/" + GITHUB_REPO + "/contents/images/" + filename;
-
-  // First check if file exists to get its SHA (needed for update)
-  fetch(apiUrl, {
-    headers: {
-      "Authorization": "token " + token,
-      "Accept": "application/vnd.github.v3+json"
-    }
-  })
-  .then(function(r) { return r.ok ? r.json() : null; })
-  .then(function(existing) {
-    var body = {
-      message: "Update " + filename + " via admin panel",
-      content: base64,
-      branch: GITHUB_BRANCH
-    };
-    if(existing && existing.sha) body.sha = existing.sha;
-
-    return fetch(apiUrl, {
-      method: "PUT",
-      headers: {
-        "Authorization": "token " + token,
-        "Accept": "application/vnd.github.v3+json",
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(body)
-    });
-  })
-  .then(function(r) {
-    if(r.ok) cb(null);
-    else r.json().then(function(e){ cb(e.message || "Unknown error"); });
-  })
-  .catch(function(e){ cb(e.message); });
-}
-
-// Init photos page when navigated to
-var _origShowPage = showPage;
-showPage = function(name, el) {
-  _origShowPage(name, el);
-  if(name === "photos") setTimeout(initPhotosPage, 100);
-};
-
-// ══════════════════════════════════════════
-// TOAST
-// ══════════════════════════════════════════
-function showToast(msg, isError) {
-  var t = document.getElementById('toast');
-  document.getElementById('toastMsg').textContent = msg;
-  t.className = 'toast ' + (isError ? 'error' : 'success') + ' show';
-  setTimeout(function(){ t.classList.remove('show'); }, 3000);
-}
-
-// ══════════════════════════════════════════
-// HELPERS
-// ══════════════════════════════════════════
-function fmtDate(d){
-  if(!d) return '—';
-  try{ return new Date(d).toLocaleDateString('en-IN',{day:'numeric',month:'short',year:'numeric'}); }
-  catch(e){ return d; }
-}
-</script>
 </head>
 <body>
 
 <!-- LOGIN -->
-<div class="login-wrap" id="loginWrap">
-  <div class="login-card">
-    <img class="login-logo" src="https://raw.githubusercontent.com/anviwellness/anviwellness.github.io/main/images/logo.jpg" onerror="this.style.opacity='0'" alt="Anvi Wellness Studio">
+<div id="loginWrap">
+  <div class="lcard">
+    <img src="https://raw.githubusercontent.com/anviwellness/anviwellness.github.io/main/images/logo.jpg" alt="Anvi Wellness Studio" onerror="this.style.display='none'">
     <h1>Admin Panel</h1>
     <p>Anvi Wellness Studio</p>
-    <input type="password" id="loginPwd" placeholder="Enter admin password" onkeydown="if(event.key==='Enter')doLogin()">
-    <button onclick="doLogin()">Sign In</button>
-    <p class="login-error" id="loginError">Incorrect password. Please try again.</p>
-    <p style="font-size:11px;color:var(--light);margin-top:1rem">Default password: <strong>anvi2025</strong></p>
+    <input type="password" id="loginPwd" placeholder="Enter admin password">
+    <button class="btn-login" id="loginBtn">Sign In</button>
+    <p class="lerror" id="loginError">Incorrect password. Please try again.</p>
+    <p style="font-size:11px;color:var(--light);margin-top:1rem">Password: <strong>anvi2025</strong></p>
   </div>
 </div>
 
 <!-- ADMIN -->
-<div class="admin-wrap" id="adminWrap">
-  <!-- SIDEBAR -->
+<div id="adminWrap">
   <div class="sidebar">
-    <div class="sidebar-logo">
-      <img src="https://raw.githubusercontent.com/anviwellness/anviwellness.github.io/main/images/logo.jpg" onerror="this.style.opacity='0'" alt="Anvi Wellness Studio">
-      <div class="sidebar-subtitle">Admin Panel</div>
+    <div class="sb-logo">
+      <img src="https://raw.githubusercontent.com/anviwellness/anviwellness.github.io/main/images/logo.jpg" alt="Anvi Wellness" onerror="this.style.display='none'">
+      <small>Admin Panel</small>
     </div>
-    <div class="nav-item active" onclick="showPage('dashboard',this)">
-      <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
-      Dashboard
+    <div class="nav-item active" id="nav-dashboard" onclick="showPage('dashboard')">
+      <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>Dashboard
     </div>
-    <div class="nav-item" onclick="showPage('enquiries',this)">
-      <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-      Enquiries
-      <span class="nav-badge" id="newBadge">0</span>
+    <div class="nav-item" id="nav-enquiries" onclick="showPage('enquiries')">
+      <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Enquiries
+      <span class="nbadge" id="newBadge">0</span>
     </div>
-    <div class="nav-item" onclick="showPage('testimonials',this)">
-      <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-      Testimonials
+    <div class="nav-item" id="nav-testimonials" onclick="showPage('testimonials')">
+      <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>Testimonials
     </div>
-    <div class="nav-item" onclick="showPage('photos',this)">
-      <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-      Photos
+    <div class="nav-item" id="nav-photos" onclick="showPage('photos')">
+      <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>Photos
     </div>
-    <div class="nav-item" onclick="showPage('settings',this)">
-      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
-      Settings
+    <div class="nav-item" id="nav-settings" onclick="showPage('settings')">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>Settings
     </div>
-    <div class="sidebar-footer">
+    <div class="sb-footer">
       <a href="https://anviwellnessstudio.com" target="_blank">
-        <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
-        View Website
+        <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>View Website
       </a>
-      <a href="#" onclick="logout()">
-        <svg viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
-        Sign Out
+      <a href="#" id="logoutBtn">
+        <svg viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>Sign Out
       </a>
     </div>
   </div>
 
-  <!-- MAIN -->
   <div class="main">
 
     <!-- DASHBOARD -->
     <div class="page active" id="page-dashboard">
-      <div class="page-header">
-        <h2>Welcome back, Dr. Anvi 👋</h2>
-        <p>Overview of your clinic enquiries and activity.</p>
-      </div>
-      <div class="stats-row">
-        <div class="stat-card">
-          <div class="stat-icon" style="background:var(--gold)"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
-          <div><div class="stat-num" id="statTotal">—</div><div class="stat-label">Total Enquiries</div></div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-icon" style="background:#e8a838"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div>
-          <div><div class="stat-num" id="statNew">—</div><div class="stat-label">New (Unread)</div></div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-icon" style="background:var(--green)"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
-          <div><div class="stat-num" id="statConfirmed">—</div><div class="stat-label">Confirmed</div></div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-icon" style="background:var(--sage)"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
-          <div><div class="stat-num" id="statToday">—</div><div class="stat-label">Today</div></div>
-        </div>
+      <div class="ph"><h2>Welcome back, Dr. Anvi 👋</h2><p>Overview of your clinic enquiries.</p></div>
+      <div class="stats">
+        <div class="sc"><div class="si" style="background:var(--gold)"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div><div><div class="sn" id="s-total">—</div><div class="sl">Total</div></div></div>
+        <div class="sc"><div class="si" style="background:#e8a838"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div><div><div class="sn" id="s-new">—</div><div class="sl">New</div></div></div>
+        <div class="sc"><div class="si" style="background:var(--green)"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div><div><div class="sn" id="s-confirmed">—</div><div class="sl">Confirmed</div></div></div>
+        <div class="sc"><div class="si" style="background:var(--sage)"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div><div><div class="sn" id="s-today">—</div><div class="sl">Today</div></div></div>
       </div>
       <div class="card">
-        <div class="card-title"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Recent Enquiries</div>
-        <div class="table-wrap">
-          <table id="dashTable">
-            <thead><tr><th>Name</th><th>Phone</th><th>Service</th><th>Date</th><th>Status</th></tr></thead>
-            <tbody id="dashBody"></tbody>
-          </table>
-          <div id="dashEmpty" class="empty-state" style="display:none">
-            <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-            <p>No enquiries yet. They will appear here when patients fill the form.</p>
-          </div>
-        </div>
+        <div class="ct"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Recent Enquiries</div>
+        <div class="tw"><table><thead><tr><th>Name</th><th>Phone</th><th>Service</th><th>Date</th><th>Status</th></tr></thead><tbody id="dash-body"></tbody></table></div>
+        <div id="dash-empty" class="empty" style="display:none"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg><p>No enquiries yet.</p></div>
       </div>
     </div>
 
     <!-- ENQUIRIES -->
     <div class="page" id="page-enquiries">
-      <div class="page-header">
-        <h2>Patient Enquiries</h2>
-        <p>All appointment requests from your website — synced with Google Sheets.</p>
-      </div>
+      <div class="ph"><h2>Patient Enquiries</h2><p>All appointment requests — synced with Google Sheets.</p></div>
       <div class="card">
-        <div class="toolbar">
-          <div class="search-box">
-            <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-            <input type="text" id="searchInput" placeholder="Search by name or phone…" oninput="filterEnquiries()">
-          </div>
-          <div style="display:flex;gap:0.6rem;flex-wrap:wrap;align-items:center">
-            <div class="filter-tabs">
-              <button class="filter-tab active" onclick="setFilter('all',this)">All</button>
-              <button class="filter-tab" onclick="setFilter('New',this)">New</button>
-              <button class="filter-tab" onclick="setFilter('Contacted',this)">Contacted</button>
-              <button class="filter-tab" onclick="setFilter('Confirmed',this)">Confirmed</button>
-              <button class="filter-tab" onclick="setFilter('Completed',this)">Completed</button>
+        <div class="tb">
+          <div class="sb"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><input type="text" id="searchInput" placeholder="Search name or phone…" oninput="filterE()"></div>
+          <div style="display:flex;gap:0.5rem;flex-wrap:wrap">
+            <div class="ft">
+              <button class="ftab active" onclick="setF('all',this)">All</button>
+              <button class="ftab" onclick="setF('New',this)">New</button>
+              <button class="ftab" onclick="setF('Contacted',this)">Contacted</button>
+              <button class="ftab" onclick="setF('Confirmed',this)">Confirmed</button>
+              <button class="ftab" onclick="setF('Completed',this)">Completed</button>
             </div>
-            <button class="btn btn-secondary btn-sm" onclick="loadEnquiries()">
-              <svg viewBox="0 0 24 24"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>
-              Refresh
-            </button>
-            <button class="btn btn-secondary btn-sm" onclick="exportCSV()">
-              <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-              Export CSV
-            </button>
+            <button class="btn btn-s btn-sm" onclick="loadE()">↺ Refresh</button>
+            <button class="btn btn-s btn-sm" onclick="exportCSV()">↓ CSV</button>
           </div>
         </div>
-        <div id="enquiryLoading" class="loading"><div class="spinner"></div> Loading from Google Sheets…</div>
-        <div class="table-wrap" id="enquiryTableWrap" style="display:none">
-          <table>
-            <thead><tr><th>Name</th><th>Phone</th><th>Type</th><th>Service</th><th>Date</th><th>Status</th><th>Actions</th></tr></thead>
-            <tbody id="enquiryBody"></tbody>
-          </table>
-          <div id="enquiryEmpty" class="empty-state" style="display:none">
-            <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-            <p>No enquiries found.</p>
-          </div>
+        <div id="e-loading" class="loading"><div class="spin"></div> Loading…</div>
+        <div id="e-wrap" style="display:none">
+          <div class="tw"><table><thead><tr><th>Name</th><th>Phone</th><th>Type</th><th>Service</th><th>Date</th><th>Status</th><th>Act</th></tr></thead><tbody id="e-body"></tbody></table></div>
+          <div id="e-empty" class="empty" style="display:none"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg><p>No enquiries found.</p></div>
         </div>
       </div>
     </div>
 
     <!-- TESTIMONIALS -->
     <div class="page" id="page-testimonials">
-      <div class="page-header">
-        <h2>Testimonials</h2>
-        <p>Manage patient reviews shown on your website. Changes appear live instantly.</p>
+      <div class="ph"><h2>Testimonials</h2><p>Manage patient reviews shown on your website.</p></div>
+      <div class="card">
+        <div class="ct" style="justify-content:space-between">
+          <span style="display:flex;align-items:center;gap:8px"><svg viewBox="0 0 24 24" style="width:16px;height:16px;stroke:var(--sage);fill:none;stroke-width:2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>Active Reviews</span>
+          <button class="btn btn-p btn-sm" onclick="openAddT()">+ Add Review</button>
+        </div>
+        <div id="t-loading" class="loading"><div class="spin"></div> Loading…</div>
+        <div id="t-grid" class="tg"></div>
+        <div id="t-empty" class="empty" style="display:none"><p>No testimonials yet.</p></div>
+      </div>
+    </div>
+
+    <!-- PHOTOS -->
+    <div class="page" id="page-photos">
+      <div class="ph"><h2>Website Photos</h2><p>Upload photos to GitHub. They appear on the website instantly.</p></div>
+      <div class="card" style="background:var(--sage-pale);border:1px solid rgba(122,158,126,0.3)">
+        <div class="ct"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>How to update a photo</div>
+        <ol style="font-size:13.5px;color:var(--mid);line-height:2.2;padding-left:1.2rem">
+          <li>Enter your <strong>GitHub Token</strong> below (only once)</li>
+          <li>Click <strong>Choose Photo</strong> on any slot</li>
+          <li>Photo uploads automatically ✅</li>
+          <li>Website updates in <strong>30 seconds</strong></li>
+        </ol>
+        <div style="margin-top:1rem;padding:0.8rem 1rem;background:white;border-radius:var(--rs);font-size:13px;color:var(--mid)">
+          <strong>Need a token?</strong> Go to <a href="https://github.com/settings/tokens/new" target="_blank" style="color:var(--sage-deep)">github.com/settings/tokens/new</a> → Note: Anvi Website → No expiration → tick <strong>repo</strong> → Generate
+        </div>
       </div>
       <div class="card">
-        <div class="card-title" style="justify-content:space-between">
-          <span style="display:flex;align-items:center;gap:8px"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg> Active Reviews</span>
-          <button class="btn btn-primary btn-sm" onclick="openAddTestimonial()">
-            <svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-            Add Review
-          </button>
+        <div class="ct"><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>GitHub Token</div>
+        <div style="display:flex;gap:0.8rem;align-items:center">
+          <input type="password" id="ghToken" placeholder="ghp_xxxxxxxxxxxxxxxxxxxx" style="flex:1;padding:0.75rem 1rem;border:1px solid rgba(122,158,126,0.25);border-radius:var(--rs);font-family:var(--f);font-size:13px;outline:none" oninput="saveToken()">
+          <span id="tokenStatus" style="font-size:12px;color:var(--light)"></span>
         </div>
-        <div id="testimonialsLoading" class="loading"><div class="spinner"></div> Loading…</div>
-        <div id="testimonialsGrid" class="testimonial-grid" style="display:none"></div>
-        <div id="testimonialsEmpty" class="empty-state" style="display:none">
-          <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-          <p>No testimonials yet. Add your first review!</p>
-        </div>
+      </div>
+      <div class="card">
+        <div class="ct"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>Photo Slots</div>
+        <div class="pg" id="photoGrid"></div>
       </div>
     </div>
 
     <!-- SETTINGS -->
     <div class="page" id="page-settings">
-      <div class="page-header">
-        <h2>Website Settings</h2>
-        <p>Changes here update your website instantly for all visitors.</p>
-      </div>
+      <div class="ph"><h2>Website Settings</h2><p>Changes update your website for all visitors.</p></div>
       <div class="card">
-        <div class="card-title"><svg viewBox="0 0 24 24"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/></svg> Announcement Bar</div>
-        <div class="setting-row">
-          <div><div class="setting-label">Top Bar Message</div><div class="setting-desc">Shown at the very top of the website</div></div>
-          <input class="setting-input" id="setting-announcement" placeholder="e.g. Now accepting new patients!">
-          <button class="btn btn-primary btn-sm" style="margin-left:0.5rem" onclick="saveSetting('announcement')">Save</button>
+        <div class="ct"><svg viewBox="0 0 24 24"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/></svg>Announcement Bar</div>
+        <div class="sr">
+          <div><div class="sl2">Top Bar Message</div><div class="sd">Shown at very top of website</div></div>
+          <input class="si2" id="set-announcement" placeholder="e.g. Now accepting new patients!">
+          <button class="btn btn-p btn-sm" onclick="saveSetting('announcement')">Save</button>
         </div>
       </div>
       <div class="card">
-        <div class="card-title"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Opening Hours</div>
-        <div class="setting-row">
-          <div><div class="setting-label">Clinic Hours</div><div class="setting-desc">Mon–Sat clinic timings</div></div>
-          <input class="setting-input" id="setting-clinic_hours" placeholder="e.g. Mon–Sat 5:00 PM – 8:00 PM">
-          <button class="btn btn-primary btn-sm" style="margin-left:0.5rem" onclick="saveSetting('clinic_hours')">Save</button>
-        </div>
-        <div class="setting-row">
-          <div><div class="setting-label">Home Visit Hours</div><div class="setting-desc">Home visit timings</div></div>
-          <input class="setting-input" id="setting-home_hours" placeholder="e.g. Mon–Sat 8:00 AM – 2:00 PM">
-          <button class="btn btn-primary btn-sm" style="margin-left:0.5rem" onclick="saveSetting('home_hours')">Save</button>
-        </div>
-        <div class="setting-row">
-          <div><div class="setting-label">Online Consultation</div><div class="setting-desc">Online session timings</div></div>
-          <input class="setting-input" id="setting-online_hours" placeholder="e.g. 8:00 AM – 8:00 PM">
-          <button class="btn btn-primary btn-sm" style="margin-left:0.5rem" onclick="saveSetting('online_hours')">Save</button>
-        </div>
+        <div class="ct"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Opening Hours</div>
+        <div class="sr"><div><div class="sl2">Clinic Hours</div><div class="sd">Mon–Sat clinic</div></div><input class="si2" id="set-clinic_hours" placeholder="Mon–Sat 5:00 PM – 8:00 PM"><button class="btn btn-p btn-sm" onclick="saveSetting('clinic_hours')">Save</button></div>
+        <div class="sr"><div><div class="sl2">Home Visit Hours</div></div><input class="si2" id="set-home_hours" placeholder="Mon–Sat 8:00 AM – 2:00 PM"><button class="btn btn-p btn-sm" onclick="saveSetting('home_hours')">Save</button></div>
+        <div class="sr"><div><div class="sl2">Online Consultations</div></div><input class="si2" id="set-online_hours" placeholder="8:00 AM – 8:00 PM"><button class="btn btn-p btn-sm" onclick="saveSetting('online_hours')">Save</button></div>
       </div>
       <div class="card">
-        <div class="card-title"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13"/></svg> Contact Details</div>
-        <div class="setting-row">
-          <div><div class="setting-label">Phone Number</div></div>
-          <input class="setting-input" id="setting-phone" placeholder="+91 99810 26077">
-          <button class="btn btn-primary btn-sm" style="margin-left:0.5rem" onclick="saveSetting('phone')">Save</button>
-        </div>
-        <div class="setting-row">
-          <div><div class="setting-label">Email Address</div></div>
-          <input class="setting-input" id="setting-email" placeholder="anviwellnessstudio@gmail.com">
-          <button class="btn btn-primary btn-sm" style="margin-left:0.5rem" onclick="saveSetting('email')">Save</button>
-        </div>
+        <div class="ct"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07"/></svg>Contact Details</div>
+        <div class="sr"><div><div class="sl2">Phone Number</div></div><input class="si2" id="set-phone" placeholder="+91 99810 26077"><button class="btn btn-p btn-sm" onclick="saveSetting('phone')">Save</button></div>
+        <div class="sr"><div><div class="sl2">Email Address</div></div><input class="si2" id="set-email" placeholder="anviwellnessstudio@gmail.com"><button class="btn btn-p btn-sm" onclick="saveSetting('email')">Save</button></div>
       </div>
     </div>
 
-
-    <!-- PHOTOS PAGE -->
-    <div class="page" id="page-photos">
-      <div class="page-header">
-        <h2>Website Photos</h2>
-        <p>Upload photos directly to GitHub. They appear on the website instantly.</p>
-      </div>
-
-      <!-- INSTRUCTIONS CARD -->
-      <div class="card" style="background:var(--sage-pale);border:1px solid rgba(122,158,126,0.3)">
-        <div class="card-title"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg> How to update a photo</div>
-        <ol style="font-size:13.5px;color:var(--mid);line-height:2.2;padding-left:1.2rem">
-          <li>Click <strong>"Choose Photo"</strong> on any slot below</li>
-          <li>Select your photo from your phone or computer</li>
-          <li>Click <strong>"Upload to GitHub"</strong></li>
-          <li>Enter your <strong>GitHub Personal Access Token</strong> when prompted</li>
-          <li>Done! Your website updates in <strong>30 seconds</strong> ✅</li>
-        </ol>
-        <div style="margin-top:1rem;padding:0.8rem 1rem;background:white;border-radius:var(--radius-sm);font-size:13px;color:var(--mid)">
-          <strong>🔑 Need a GitHub token?</strong> Go to <a href="https://github.com/settings/tokens/new" target="_blank" style="color:var(--sage-deep)">github.com/settings/tokens/new</a> → 
-          Note: "Anvi Website" → Expiration: No expiration → tick <strong>repo</strong> → Generate token → copy it
-        </div>
-      </div>
-
-      <!-- GITHUB TOKEN INPUT -->
-      <div class="card">
-        <div class="card-title"><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> GitHub Access Token</div>
-        <div style="display:flex;gap:0.8rem;align-items:center">
-          <input type="password" id="githubToken" placeholder="ghp_xxxxxxxxxxxxxxxxxxxx" 
-            style="flex:1;padding:0.75rem 1rem;border:1px solid rgba(122,158,126,0.25);border-radius:var(--radius-sm);font-family:var(--font);font-size:13px;outline:none"
-            oninput="saveToken()">
-          <span id="tokenStatus" style="font-size:12px;color:var(--light)"></span>
-        </div>
-        <p style="font-size:12px;color:var(--light);margin-top:0.5rem">Token is saved in your browser — you only need to enter it once.</p>
-      </div>
-
-      <!-- PHOTO SLOTS -->
-      <div class="card">
-        <div class="card-title"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg> Website Photo Slots</div>
-        <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:1rem" id="photoSlotsGrid">
-        </div>
-      </div>
-    </div>
-
-  </div><!-- /main -->
-</div><!-- /admin -->
-
-<!-- ADD TESTIMONIAL MODAL -->
-<div class="modal-overlay" id="addTestimonialModal" onclick="closeModal(event,'addTestimonialModal')">
-  <div class="modal">
-    <div class="modal-header">
-      <h3>Add Patient Review</h3>
-      <button class="modal-close" onclick="closeModalDirect('addTestimonialModal')"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
-    </div>
-    <div class="modal-body">
-      <div class="form-row">
-        <div class="form-group"><label>Patient Name</label><input type="text" id="t-name" placeholder="e.g. Priya Sharma"></div>
-        <div class="form-group"><label>Location</label><input type="text" id="t-location" placeholder="e.g. Kandivali West"></div>
-      </div>
-      <div class="form-group"><label>Review</label><textarea id="t-review" placeholder="What the patient said about their experience..."></textarea></div>
-      <div class="form-group">
-        <label>Star Rating</label>
-        <select id="t-stars"><option value="5">⭐⭐⭐⭐⭐ 5 Stars</option><option value="4">⭐⭐⭐⭐ 4 Stars</option><option value="3">⭐⭐⭐ 3 Stars</option></select>
-      </div>
-    </div>
-    <div class="modal-footer">
-      <button class="btn btn-secondary" onclick="closeModalDirect('addTestimonialModal')">Cancel</button>
-      <button class="btn btn-primary" onclick="saveTestimonial()">
-        <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-        Save Review
-      </button>
-    </div>
   </div>
 </div>
 
-<!-- ENQUIRY DETAIL MODAL -->
-<div class="modal-overlay" id="enquiryModal" onclick="closeModal(event,'enquiryModal')">
-  <div class="modal">
-    <div class="modal-header">
-      <h3 id="enquiryModalTitle">Enquiry Details</h3>
-      <button class="modal-close" onclick="closeModalDirect('enquiryModal')"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+<!-- ADD TESTIMONIAL MODAL -->
+<div class="mo" id="addTModal" onclick="closeMO(event,'addTModal')">
+  <div class="md">
+    <div class="mh"><h3>Add Patient Review</h3><button class="mc" onclick="closeM('addTModal')"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div>
+    <div class="mb">
+      <div class="fr">
+        <div class="fg"><label>Patient Name</label><input type="text" id="t-name" placeholder="e.g. Priya Sharma"></div>
+        <div class="fg"><label>Location</label><input type="text" id="t-loc" placeholder="e.g. Kandivali West"></div>
+      </div>
+      <div class="fg"><label>Review</label><textarea id="t-rev" placeholder="What the patient said..."></textarea></div>
+      <div class="fg"><label>Stars</label><select id="t-stars"><option value="5">★★★★★ 5 Stars</option><option value="4">★★★★ 4 Stars</option><option value="3">★★★ 3 Stars</option></select></div>
     </div>
-    <div class="modal-body" id="enquiryModalBody"></div>
+    <div class="mf"><button class="btn btn-s" onclick="closeM('addTModal')">Cancel</button><button class="btn btn-p" onclick="saveT()">Save Review</button></div>
+  </div>
+</div>
+
+<!-- ENQUIRY MODAL -->
+<div class="mo" id="eModal" onclick="closeMO(event,'eModal')">
+  <div class="md">
+    <div class="mh"><h3 id="eModalTitle">Enquiry</h3><button class="mc" onclick="closeM('eModal')"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div>
+    <div class="mb" id="eModalBody"></div>
   </div>
 </div>
 
 <!-- TOAST -->
 <div class="toast" id="toast"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span id="toastMsg"></span></div>
 
+<script>
+var API = "https://script.google.com/macros/s/AKfycbx12S4tlDAtjq7xtBLXl8aGH7e9vl4Edra0tXTanAcf7iQOd5-YgRqmxFWpLhFsQLOOeg/exec";
+var PWD = "anvi2025";
+var GH_OWNER = "anviwellness";
+var GH_REPO = "anviwellness.github.io";
+var GH_BRANCH = "main";
+var GH_BASE = "https://raw.githubusercontent.com/" + GH_OWNER + "/" + GH_REPO + "/" + GH_BRANCH + "/images/";
+var SLOTS = [
+  {key:"logo",file:"logo.jpg",label:"Clinic Logo",desc:"Nav bar & footer"},
+  {key:"hero",file:"hero.jpg",label:"Hero Photo",desc:"Main homepage photo"},
+  {key:"about-main",file:"about-main.jpg",label:"About — Main",desc:"Large About section image"},
+  {key:"about-accent",file:"about-accent.jpg",label:"About — Accent",desc:"Small overlapping image"},
+  {key:"doctor",file:"doctor.jpg",label:"Dr. Anvi Photo",desc:"Professional headshot"},
+  {key:"why",file:"why.jpg",label:"Why Choose Us",desc:"Image beside Why section"},
+  {key:"aqua",file:"aqua.jpg",label:"Aquatherapy",desc:"Service card image"},
+  {key:"needling",file:"needling.jpg",label:"Dry Needling",desc:"Service card image"},
+  {key:"cupping",file:"cupping.jpg",label:"Cupping Therapy",desc:"Service card image"},
+  {key:"online",file:"online.jpg",label:"Online Consultation",desc:"Service card image"}
+];
+var allE = [], curF = "all";
+
+// ── BOOT ──
+window.addEventListener("DOMContentLoaded", function() {
+  document.getElementById("loginBtn").addEventListener("click", doLogin);
+  document.getElementById("loginPwd").addEventListener("keydown", function(e){ if(e.key==="Enter") doLogin(); });
+  document.getElementById("logoutBtn").addEventListener("click", function(e){ e.preventDefault(); doLogout(); });
+  document.addEventListener("keydown", function(e){ if(e.key==="Escape") document.querySelectorAll(".mo.open").forEach(function(m){ m.classList.remove("open"); }); });
+});
+
+// ── AUTH ──
+function doLogin() {
+  var pwd = document.getElementById("loginPwd").value;
+  if(pwd === PWD) {
+    document.getElementById("loginWrap").style.display = "none";
+    document.getElementById("adminWrap").style.display = "block";
+    loadDashboard();
+    updateBadge();
+  } else {
+    document.getElementById("loginError").style.display = "block";
+    document.getElementById("loginPwd").value = "";
+  }
+}
+function doLogout() {
+  document.getElementById("adminWrap").style.display = "none";
+  document.getElementById("loginWrap").style.display = "flex";
+  document.getElementById("loginPwd").value = "";
+}
+
+// ── NAV ──
+function showPage(name) {
+  document.querySelectorAll(".page").forEach(function(p){ p.classList.remove("active"); });
+  document.querySelectorAll(".nav-item").forEach(function(n){ n.classList.remove("active"); });
+  document.getElementById("page-"+name).classList.add("active");
+  document.getElementById("nav-"+name).classList.add("active");
+  if(name==="enquiries") loadE();
+  if(name==="testimonials") loadT();
+  if(name==="settings") loadSettings();
+  if(name==="photos") initPhotos();
+}
+
+// ── API ──
+function apiGet(action, cb) {
+  fetch(API + "?action=" + action).then(function(r){ return r.json(); }).then(function(d){ cb(null,d); }).catch(function(e){ cb(e,null); });
+}
+function apiPost(data, cb) {
+  fetch(API, {method:"POST",body:JSON.stringify(data)}).then(function(r){ return r.json(); }).then(function(d){ cb(null,d); }).catch(function(e){ cb(e,null); });
+}
+
+// ── DASHBOARD ──
+function loadDashboard() {
+  apiGet("getEnquiries", function(err, res) {
+    if(err||!res.success) return;
+    var rows = res.data.slice(1).reverse();
+    var today = new Date().toDateString();
+    document.getElementById("s-total").textContent = rows.length;
+    document.getElementById("s-new").textContent = rows.filter(function(r){ return r[8]==="New"; }).length;
+    document.getElementById("s-confirmed").textContent = rows.filter(function(r){ return r[8]==="Confirmed"; }).length;
+    document.getElementById("s-today").textContent = rows.filter(function(r){ return new Date(r[7]).toDateString()===today; }).length;
+    var tbody = document.getElementById("dash-body");
+    var empty = document.getElementById("dash-empty");
+    var recent = rows.slice(0,5);
+    if(!recent.length){ tbody.innerHTML=""; empty.style.display="block"; return; }
+    empty.style.display="none";
+    tbody.innerHTML = recent.map(function(r){
+      return "<tr><td><strong>"+r[1]+"</strong></td><td>"+r[2]+"</td><td style='font-size:12px;color:var(--mid)'>"+r[5]+"</td><td style='font-size:12px;color:var(--light)'>"+fmtD(r[7])+"</td><td><span class='badge b-"+r[8].toLowerCase()+"'>"+r[8]+"</span></td></tr>";
+    }).join("");
+  });
+}
+function updateBadge() {
+  apiGet("getEnquiries", function(err, res) {
+    if(err||!res.success) return;
+    var n = res.data.slice(1).filter(function(r){ return r[8]==="New"; }).length;
+    var b = document.getElementById("newBadge");
+    b.textContent = n; b.style.display = n>0?"inline":"none";
+  });
+}
+
+// ── ENQUIRIES ──
+function loadE() {
+  document.getElementById("e-loading").style.display="flex";
+  document.getElementById("e-wrap").style.display="none";
+  apiGet("getEnquiries", function(err, res) {
+    document.getElementById("e-loading").style.display="none";
+    document.getElementById("e-wrap").style.display="block";
+    if(err||!res.success){ toast("Failed to load",true); return; }
+    allE = res.data.slice(1).reverse();
+    renderE();
+  });
+}
+function renderE() {
+  var filtered = allE;
+  if(curF!=="all") filtered = filtered.filter(function(r){ return r[8]===curF; });
+  var q = document.getElementById("searchInput").value.toLowerCase();
+  if(q) filtered = filtered.filter(function(r){ return (r[1]+"").toLowerCase().includes(q)||(r[2]+"").includes(q); });
+  var tbody = document.getElementById("e-body");
+  var empty = document.getElementById("e-empty");
+  if(!filtered.length){ tbody.innerHTML=""; empty.style.display="block"; return; }
+  empty.style.display="none";
+  tbody.innerHTML = filtered.map(function(r, i) {
+    var idx = allE.indexOf(r);
+    return "<tr>" +
+      "<td><strong>"+r[1]+"</strong><br><span style='font-size:11px;color:var(--light)'>"+r[3]+"</span></td>" +
+      "<td><a href='tel:"+r[2]+"' style='color:var(--sage-deep);text-decoration:none'>"+r[2]+"</a></td>" +
+      "<td style='font-size:12.5px'>"+r[4]+"</td>" +
+      "<td style='font-size:12.5px;max-width:120px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap'>"+r[5]+"</td>" +
+      "<td style='font-size:12px;color:var(--light);white-space:nowrap'>"+fmtD(r[7])+"</td>" +
+      "<td><select style='padding:0.3rem 0.6rem;border:1px solid rgba(122,158,126,0.3);border-radius:50px;font-family:var(--f);font-size:11.5px;outline:none' onchange='updStatus(\""+r[0]+"\",this.value)'>" +
+        ["New","Contacted","Confirmed","Completed"].map(function(s){ return "<option"+(r[8]===s?" selected":"")+">"+s+"</option>"; }).join("") +
+      "</select></td>" +
+      "<td><div style='display:flex;gap:0.4rem'>" +
+        "<button class='btn btn-s btn-sm' onclick='viewE("+idx+")'>👁</button>" +
+        "<a class='btn btn-sm' style='background:#d1fae5;color:#065f46;text-decoration:none' href='https://wa.me/"+r[2].replace(/\D/g,"")+"' target='_blank'>WA</a>" +
+      "</div></td>" +
+    "</tr>";
+  }).join("");
+}
+function setF(f, btn) {
+  curF = f;
+  document.querySelectorAll(".ftab").forEach(function(t){ t.classList.remove("active"); });
+  btn.classList.add("active");
+  renderE();
+}
+function filterE() { renderE(); }
+function updStatus(id, status) {
+  apiPost({action:"updateStatus",id:id,status:status}, function(err,res){
+    if(err) { toast("Failed",true); return; }
+    allE.forEach(function(r){ if(r[0]==id) r[8]=status; });
+    loadDashboard(); updateBadge(); toast("Status updated");
+  });
+}
+function viewE(idx) {
+  var r = allE[idx]; if(!r) return;
+  document.getElementById("eModalTitle").textContent = r[1];
+  document.getElementById("eModalBody").innerHTML =
+    "<div style='display:grid;grid-template-columns:1fr 1fr;gap:1rem'>" +
+    fld("Name",r[1])+fld("Phone","<a href='tel:"+r[2]+"' style='color:var(--sage-deep)'>"+r[2]+"</a>")+
+    fld("Email",r[3]||"Not provided")+fld("Date",fmtD(r[7]))+
+    fld("Type",r[4]||"—")+fld("Service",r[5]||"—")+"</div>"+
+    (r[6]?"<div style='margin-top:1rem'><div style='font-size:11px;text-transform:uppercase;color:var(--light);margin-bottom:0.3rem'>Message</div><p style='font-size:14px;color:var(--mid);line-height:1.7'>"+r[6]+"</p></div>":"")+
+    "<div style='display:flex;gap:0.8rem;margin-top:1.5rem'>" +
+    "<a href='https://wa.me/"+r[2].replace(/\D/g,"")+"' target='_blank' class='btn btn-p' style='flex:1;justify-content:center;background:#25D366;text-decoration:none'>WhatsApp</a>" +
+    "<a href='tel:"+r[2]+"' class='btn btn-p' style='flex:1;justify-content:center;background:var(--dark);text-decoration:none'>Call</a></div>";
+  document.getElementById("eModal").classList.add("open");
+}
+function fld(l,v){ return "<div><div style='font-size:11px;text-transform:uppercase;color:var(--light);margin-bottom:3px'>"+l+"</div><div style='font-size:14px;color:var(--dark)'>"+v+"</div></div>"; }
+function exportCSV() {
+  if(!allE.length){ toast("No data",true); return; }
+  var csv = ["ID,Name,Phone,Email,Type,Service,Message,Date,Status"].concat(allE.map(function(r){ return r.map(function(c){ return '"'+String(c).replace(/"/g,'""')+'"'; }).join(","); })).join("\n");
+  var a = document.createElement("a"); a.href="data:text/csv;charset=utf-8,"+encodeURIComponent(csv); a.download="enquiries.csv"; a.click();
+  toast("CSV exported!");
+}
+
+// ── TESTIMONIALS ──
+function loadT() {
+  document.getElementById("t-loading").style.display="flex";
+  document.getElementById("t-grid").innerHTML="";
+  document.getElementById("t-empty").style.display="none";
+  apiGet("getTestimonials", function(err, res) {
+    document.getElementById("t-loading").style.display="none";
+    if(err||!res.success){ toast("Failed",true); return; }
+    if(!res.data.length){ document.getElementById("t-empty").style.display="block"; return; }
+    document.getElementById("t-grid").innerHTML = res.data.map(function(t){
+      return "<div class='tc'><div style='font-weight:600;font-size:13.5px'>"+t.name+"</div><div style='font-size:12px;color:var(--light);margin-bottom:0.4rem'>"+t.location+"</div><div style='color:var(--gold);font-size:13px;margin-bottom:0.5rem'>"+"★".repeat(t.stars)+"</div><div style='font-size:13px;color:var(--mid);font-style:italic;margin-bottom:0.8rem'>"+t.review+"</div><button class='btn btn-d btn-sm' onclick='delT(\""+t.name+"\",\""+t.location+"\")'>Delete</button></div>";
+    }).join("");
+  });
+}
+function openAddT() {
+  ["t-name","t-loc","t-rev"].forEach(function(id){ document.getElementById(id).value=""; });
+  document.getElementById("t-stars").value="5";
+  document.getElementById("addTModal").classList.add("open");
+}
+function saveT() {
+  var n=document.getElementById("t-name").value.trim(), l=document.getElementById("t-loc").value.trim(), r=document.getElementById("t-rev").value.trim(), s=parseInt(document.getElementById("t-stars").value);
+  if(!n||!r){ toast("Fill name and review",true); return; }
+  apiPost({action:"addTestimonial",name:n,location:l,review:r,stars:s}, function(err,res){
+    if(err||!res.success){ toast("Failed",true); return; }
+    closeM("addTModal"); loadT(); toast("Review added!");
+  });
+}
+function delT(name, loc) {
+  if(!confirm("Delete review from "+name+"?")) return;
+  apiPost({action:"deleteTestimonial",name:name,location:loc}, function(err,res){
+    if(err||!res.success){ toast("Failed",true); return; }
+    loadT(); toast("Deleted");
+  });
+}
+
+// ── SETTINGS ──
+function loadSettings() {
+  apiGet("getSettings", function(err, res){
+    if(err||!res.success) return;
+    ["announcement","clinic_hours","home_hours","online_hours","phone","email"].forEach(function(k){
+      var el = document.getElementById("set-"+k); if(el&&res.data[k]) el.value=res.data[k];
+    });
+  });
+}
+function saveSetting(key) {
+  var val = document.getElementById("set-"+key).value.trim();
+  if(!val){ toast("Enter a value",true); return; }
+  apiPost({action:"updateSetting",key:key,value:val}, function(err,res){
+    if(err||!res.success){ toast("Failed",true); return; }
+    toast("Saved!");
+  });
+}
+
+// ── PHOTOS ──
+function saveToken() {
+  var t = document.getElementById("ghToken").value;
+  localStorage.setItem("gh_token", t);
+  document.getElementById("tokenStatus").textContent = t ? "✅ Saved" : "";
+}
+function initPhotos() {
+  var saved = localStorage.getItem("gh_token");
+  if(saved){ document.getElementById("ghToken").value=saved; document.getElementById("tokenStatus").textContent="✅ Saved"; }
+  var grid = document.getElementById("photoGrid");
+  grid.innerHTML = "";
+  SLOTS.forEach(function(slot){
+    var wrap = document.createElement("div"); wrap.className="pslot";
+    var imgDiv = document.createElement("div"); imgDiv.className="pimg";
+    var img = document.createElement("img"); img.src = GH_BASE+slot.file+"?t="+Date.now(); img.id="pi-"+slot.key;
+    img.onerror = function(){ this.style.display="none"; var ph=document.getElementById("pp-"+slot.key); if(ph){ ph.style.display="flex"; } };
+    var ph = document.createElement("div"); ph.className="pph"; ph.id="pp-"+slot.key; ph.innerHTML="<span style='font-size:12px;color:var(--sage)'>No photo yet</span>";
+    imgDiv.appendChild(img); imgDiv.appendChild(ph);
+    var body = document.createElement("div"); body.className="pbody";
+    var lbl = document.createElement("strong"); lbl.textContent=slot.label;
+    var desc = document.createElement("small"); desc.textContent=slot.desc;
+    var row = document.createElement("div"); row.className="prow";
+    var label = document.createElement("label"); label.className="btn btn-s btn-sm"; label.textContent="Choose Photo";
+    var inp = document.createElement("input"); inp.type="file"; inp.accept="image/*"; inp.style.display="none";
+    (function(k,f){ inp.onchange = function(){ uploadPhoto(this,k,f); }; })(slot.key, slot.file);
+    label.appendChild(inp);
+    var st = document.createElement("span"); st.id="ps-"+slot.key; st.style.cssText="font-size:11.5px;color:var(--light)";
+    row.appendChild(label); row.appendChild(st);
+    body.appendChild(lbl); body.appendChild(desc); body.appendChild(row);
+    wrap.appendChild(imgDiv); wrap.appendChild(body);
+    grid.appendChild(wrap);
+  });
+}
+function uploadPhoto(input, key, filename) {
+  if(!input.files[0]) return;
+  var token = localStorage.getItem("gh_token");
+  if(!token){ toast("Enter GitHub token first!",true); return; }
+  var st = document.getElementById("ps-"+key);
+  var reader = new FileReader();
+  reader.onload = function(e) {
+    var b64 = e.target.result.split(",")[1];
+    var img = document.getElementById("pi-"+key);
+    if(img){ img.src=e.target.result; img.style.display="block"; var ph=document.getElementById("pp-"+key); if(ph) ph.style.display="none"; }
+    st.textContent="Uploading…"; st.style.color="var(--sage)";
+    var url = "https://api.github.com/repos/"+GH_OWNER+"/"+GH_REPO+"/contents/images/"+filename;
+    fetch(url, {headers:{"Authorization":"token "+token,"Accept":"application/vnd.github.v3+json"}})
+    .then(function(r){ return r.ok?r.json():null; })
+    .then(function(ex){
+      var body = {message:"Update "+filename,content:b64,branch:GH_BRANCH};
+      if(ex&&ex.sha) body.sha=ex.sha;
+      return fetch(url, {method:"PUT",headers:{"Authorization":"token "+token,"Accept":"application/vnd.github.v3+json","Content-Type":"application/json"},body:JSON.stringify(body)});
+    })
+    .then(function(r){
+      if(r.ok){ st.textContent="✅ Live!"; st.style.color="var(--green)"; toast(key+" updated!"); }
+      else{ r.json().then(function(e){ st.textContent="❌ Failed"; st.style.color="var(--red)"; toast(e.message||"Upload failed",true); }); }
+    })
+    .catch(function(e){ st.textContent="❌ Error"; st.style.color="var(--red)"; toast("Error: "+e.message,true); });
+  };
+  reader.readAsDataURL(input.files[0]);
+}
+
+// ── MODALS ──
+function closeMO(e, id){ if(e.target===document.getElementById(id)) closeM(id); }
+function closeM(id){ document.getElementById(id).classList.remove("open"); }
+
+// ── TOAST ──
+function toast(msg, isErr) {
+  var t=document.getElementById("toast"), s=document.getElementById("toastMsg");
+  s.textContent=msg; t.style.background=isErr?"var(--red)":"var(--dark)";
+  t.classList.add("show"); setTimeout(function(){ t.classList.remove("show"); }, 3000);
+}
+
+// ── HELPERS ──
+function fmtD(d){ if(!d) return "—"; try{ return new Date(d).toLocaleDateString("en-IN",{day:"numeric",month:"short",year:"numeric"}); }catch(e){ return d; } }
+document.getElementById("ghToken") && document.getElementById("ghToken").addEventListener("input", saveToken);
+</script>
 </body>
 </html>

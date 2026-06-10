@@ -28,21 +28,21 @@
     --radius: 12px;
     --radius-sm: 8px;
   }
-  html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+  html { scroll-behavior: smooth; }
   body { font-family: var(--font-sans); background: var(--warm-white); color: var(--text-dark); line-height: 1.7; overflow-x: hidden; }
 
   /* NAV */
   nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 1.1rem 5%; background: rgba(255,254,249,0.93); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(122,158,126,0.15); transition: box-shadow 0.3s; }
   nav.scrolled { box-shadow: 0 2px 30px rgba(0,0,0,0.07); }
   .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
-  .nav-logo-img { height: 54px; width: auto; object-fit: contain; display: block; }
-  .nav-links { display: flex; list-style: none; gap: 1.6rem; align-items: center; }
-  .nav-links a { text-decoration: none; color: var(--text-mid); font-size: 13px; font-weight: 400; letter-spacing: 0.02em; transition: color 0.2s; position: relative; padding-bottom: 2px; }
-  .nav-links a::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 0; height: 2px; background: var(--sage); border-radius: 2px; transition: width 0.25s; }
+  .nav-logo-mark { width: 38px; height: 38px; border-radius: 50%; background: var(--sage); display: flex; align-items: center; justify-content: center; }
+  .nav-logo-mark span { font-family: var(--font-serif); font-size: 18px; color: white; font-weight: 500; }
+  .nav-logo-text { display: flex; flex-direction: column; line-height: 1.1; }
+  .nav-logo-text strong { font-family: var(--font-serif); font-size: 18px; font-weight: 600; color: var(--text-dark); letter-spacing: 0.02em; }
+  .nav-logo-text small { font-size: 10px; color: var(--text-light); letter-spacing: 0.12em; text-transform: uppercase; }
+  .nav-links { display: flex; list-style: none; gap: 2.2rem; align-items: center; }
+  .nav-links a { text-decoration: none; color: var(--text-mid); font-size: 13.5px; font-weight: 400; letter-spacing: 0.03em; transition: color 0.2s; }
   .nav-links a:hover { color: var(--sage-deep); }
-  .nav-links a:hover::after { width: 100%; }
-  .nav-links a.active-link { color: var(--sage-deep); }
-  .nav-links a.active-link::after { width: 100%; }
   .nav-cta { background: var(--sage) !important; color: white !important; padding: 0.55rem 1.3rem; border-radius: 50px; font-size: 13px !important; font-weight: 500 !important; transition: background 0.2s !important; }
   .nav-cta:hover { background: var(--sage-deep) !important; }
   .nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
@@ -56,9 +56,7 @@
   .hero-badge::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--sage); }
   .hero-title { font-family: var(--font-serif); font-size: clamp(2.8rem, 4.5vw, 4.2rem); font-weight: 300; line-height: 1.15; color: var(--text-dark); margin-bottom: 1.4rem; letter-spacing: -0.01em; }
   .hero-title em { font-style: italic; color: var(--sage-deep); }
-  .hero-subtitle { font-size: 13px; color: var(--text-light); font-weight: 400; letter-spacing: 0.05em; margin-bottom: 0.8rem; }
-  .hero-name-highlight { font-family: var(--font-serif); font-size: clamp(1.4rem, 2.5vw, 1.9rem); font-weight: 500; color: var(--sage-deep); letter-spacing: 0.01em; display: inline-block; position: relative; line-height: 1.2; }
-  .hero-name-highlight::after { content: ""; position: absolute; bottom: -3px; left: 0; width: 100%; height: 2.5px; background: linear-gradient(to right, var(--sage), var(--gold)); border-radius: 2px; }
+  .hero-subtitle { font-size: 14px; color: var(--sage-deep); font-weight: 500; letter-spacing: 0.05em; margin-bottom: 0.8rem; }
   .hero-desc { font-size: 15.5px; color: var(--text-mid); max-width: 430px; line-height: 1.85; margin-bottom: 2.2rem; font-weight: 300; }
   .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; }
   .btn-primary { display: inline-flex; align-items: center; gap: 8px; background: var(--sage); color: white; text-decoration: none; padding: 0.9rem 1.8rem; border-radius: 50px; font-size: 14px; font-weight: 500; letter-spacing: 0.03em; transition: all 0.25s; border: none; cursor: pointer; font-family: var(--font-sans); }
@@ -79,7 +77,7 @@
   .hero-float-text small { font-size: 11px; color: var(--text-light); }
 
   /* SECTIONS */
-  section { padding: 5.5rem 5%; scroll-margin-top: 90px; }
+  section { padding: 5.5rem 5%; }
   .section-tag { font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--sage); font-weight: 500; margin-bottom: 0.7rem; }
   .section-title { font-family: var(--font-serif); font-size: clamp(1.9rem, 3.2vw, 2.8rem); font-weight: 400; line-height: 1.2; color: var(--text-dark); margin-bottom: 1rem; }
   .section-title em { font-style: italic; color: var(--sage-deep); }
@@ -110,7 +108,7 @@
   .doctor-credential-badge { position: absolute; bottom: -1rem; right: -1rem; background: white; border-radius: var(--radius); padding: 1rem 1.2rem; box-shadow: 0 8px 30px rgba(0,0,0,0.1); }
   .doctor-credential-badge strong { display: block; font-size: 13px; font-weight: 500; color: var(--text-dark); }
   .doctor-credential-badge small { font-size: 11px; color: var(--text-light); }
-  .doctor-name { font-family: var(--font-serif); font-size: clamp(2rem, 3.5vw, 2.8rem); font-weight: 500; color: var(--text-dark); margin-bottom: 0.5rem; letter-spacing: -0.01em; }
+  .doctor-name { font-family: var(--font-serif); font-size: clamp(1.8rem, 3vw, 2.5rem); font-weight: 400; color: var(--text-dark); margin-bottom: 0.3rem; }
   .doctor-qual { font-size: 13px; color: var(--sage-deep); font-weight: 500; letter-spacing: 0.04em; margin-bottom: 1.4rem; }
   .doctor-bio { font-size: 14.5px; color: var(--text-mid); line-height: 1.85; font-weight: 300; margin-bottom: 1.2rem; }
   .doctor-skills { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.5rem; }
@@ -140,8 +138,8 @@
   .cond-tab.active, .cond-tab:hover { background: white; color: var(--sage-deep); }
   .conditions-list { display: none; grid-template-columns: 1fr 1fr; gap: 0.7rem; }
   .conditions-list.active { display: grid; }
-  .condition-item { display: flex; align-items: center; gap: 9px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.15); border-radius: var(--radius-sm); padding: 0.75rem 1rem; font-size: 13px; color: rgba(255,255,255,0.9); font-weight: 300; transition: all 0.2s; cursor: pointer; justify-content: space-between; }
-  .condition-item:hover { background: rgba(255,255,255,0.22); transform: translateX(3px); }
+  .condition-item { display: flex; align-items: center; gap: 9px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.15); border-radius: var(--radius-sm); padding: 0.75rem 1rem; font-size: 13px; color: rgba(255,255,255,0.9); font-weight: 300; transition: background 0.2s; }
+  .condition-item:hover { background: rgba(255,255,255,0.18); }
   .condition-item::before { content: ''; width: 5px; height: 5px; border-radius: 50%; background: rgba(255,255,255,0.6); flex-shrink: 0; }
 
   /* TREATMENTS */
@@ -187,7 +185,7 @@
   .testimonial-location { font-size: 11px; color: var(--text-light); }
 
   /* WHY */
-  .why { scroll-margin-top: 90px; background: var(--ivory-dark); display: grid; grid-template-columns: 1.2fr 1fr; gap: 5rem; align-items: center; }
+  .why { background: var(--ivory-dark); display: grid; grid-template-columns: 1.2fr 1fr; gap: 5rem; align-items: center; }
   .why-points { margin-top: 2.2rem; }
   .why-point { display: flex; gap: 1.2rem; margin-bottom: 1.8rem; padding-bottom: 1.8rem; border-bottom: 1px solid rgba(122,158,126,0.15); }
   .why-point:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
@@ -253,37 +251,6 @@
   .whatsapp-btn:hover { transform: scale(1.08); box-shadow: 0 6px 28px rgba(37,211,102,0.5); }
   .whatsapp-btn svg { width: 26px; height: 26px; fill: white; }
 
-
-  /* ── TREATMENT MODAL ── */
-  .t-modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.55); z-index: 999; display: flex; align-items: center; justify-content: center; padding: 1.5rem; opacity: 0; pointer-events: none; transition: opacity 0.3s; }
-  .t-modal-overlay.open { opacity: 1; pointer-events: all; }
-  .t-modal { background: white; border-radius: 18px; width: 100%; max-width: 680px; max-height: 88vh; overflow-y: auto; box-shadow: 0 25px 70px rgba(0,0,0,0.18); transform: translateY(30px); transition: transform 0.3s; }
-  .t-modal-overlay.open .t-modal { transform: translateY(0); }
-  .t-modal-hero { position: relative; height: 200px; border-radius: 18px 18px 0 0; overflow: hidden; display: flex; align-items: flex-end; }
-  .t-modal-hero-bg { position: absolute; inset: 0; background: linear-gradient(135deg, var(--sage) 0%, var(--sage-deep) 100%); }
-  .t-modal-hero-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.5) 0%, transparent 60%); }
-  .t-modal-hero-icon { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-60%); width: 64px; height: 64px; border-radius: 50%; background: rgba(255,255,255,0.15); backdrop-filter: blur(6px); display: flex; align-items: center; justify-content: center; border: 2px solid rgba(255,255,255,0.3); }
-  .t-modal-hero-icon svg { width: 30px; height: 30px; stroke: white; fill: none; stroke-width: 1.8; }
-  .t-modal-hero-title { position: relative; z-index: 1; padding: 1.2rem 1.8rem; }
-  .t-modal-hero-title h2 { font-family: var(--font-serif); font-size: 1.8rem; font-weight: 400; color: white; line-height: 1.2; }
-  .t-modal-hero-title p { font-size: 12.5px; color: rgba(255,255,255,0.8); margin-top: 3px; letter-spacing: 0.04em; }
-  .t-modal-body { padding: 2rem 2rem 1.5rem; }
-  .t-modal-body h3 { font-family: var(--font-serif); font-size: 1.2rem; font-weight: 500; color: var(--text-dark); margin: 1.5rem 0 0.6rem; }
-  .t-modal-body h3:first-child { margin-top: 0; }
-  .t-modal-body p { font-size: 14px; color: var(--text-mid); line-height: 1.85; font-weight: 300; margin-bottom: 0.6rem; }
-  .t-modal-body ul { list-style: none; margin: 0.5rem 0 1rem; }
-  .t-modal-body ul li { font-size: 13.5px; color: var(--text-mid); padding: 0.4rem 0; border-bottom: 1px solid var(--sage-pale); display: flex; align-items: flex-start; gap: 8px; font-weight: 300; line-height: 1.6; }
-  .t-modal-body ul li:last-child { border-bottom: none; }
-  .t-modal-body ul li::before { content: "✓"; color: var(--sage); font-weight: 600; flex-shrink: 0; margin-top: 1px; }
-  .t-modal-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 1.2rem 0; }
-  .t-modal-tag { background: var(--sage-pale); color: var(--sage-deep); font-size: 12px; padding: 0.3rem 0.8rem; border-radius: 50px; font-weight: 400; }
-  .t-modal-footer { padding: 1.2rem 2rem 2rem; display: flex; gap: 1rem; align-items: center; border-top: 1px solid var(--sage-pale); }
-  .t-modal-close-btn { width: 38px; height: 38px; border-radius: 50%; background: var(--ivory); border: 1px solid rgba(122,158,126,0.2); cursor: pointer; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: all 0.2s; }
-  .t-modal-close-btn:hover { background: var(--sage-pale); }
-  .t-modal-close-btn svg { width: 16px; height: 16px; stroke: var(--text-mid); fill: none; stroke-width: 2; }
-  .treatment-pill { cursor: pointer; }
-  .treatment-pill:hover { cursor: pointer; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(122,158,126,0.15); }
-
   /* ANIMATIONS */
   @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
   .fade-up { opacity: 0; animation: fadeUp 0.7s ease forwards; }
@@ -295,7 +262,6 @@
     .hero-image { display: none; }
     .hero-content { padding: 3rem 4% 3rem; }
     .hero-float-card { left: 1rem; bottom: 1rem; }
-    .hero::after { content: ''; position: absolute; bottom: -80px; right: -80px; width: 280px; height: 280px; border-radius: 50%; background: var(--sage-pale); opacity: 0.55; z-index: 0; pointer-events: none; }
     .about { grid-template-columns: 1fr; gap: 3rem; }
     .about-images { height: 360px; }
     .doctor-inner { grid-template-columns: 1fr; gap: 3rem; }
@@ -314,12 +280,7 @@
     nav { padding: 1rem 4%; }
     .nav-links { display: none; }
     .nav-hamburger { display: flex; }
-    .nav-links.open { display: flex; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: var(--warm-white); padding: 1.2rem 5%; gap: 0; border-bottom: 1px solid rgba(122,158,126,0.15); box-shadow: 0 8px 20px rgba(0,0,0,0.08); }
-    .nav-links.open li { border-bottom: 1px solid rgba(122,158,126,0.1); }
-    .nav-links.open li:last-child { border-bottom: none; padding-top: 0.8rem; }
-    .nav-links.open a { display: block; padding: 0.75rem 0; font-size: 14px; color: var(--text-dark); }
-    .nav-links.open a::after { display: none; }
-    .nav-links.open a.nav-cta { background: var(--sage); color: white !important; text-align: center; border-radius: 50px; padding: 0.75rem 1.5rem; margin-bottom: 0.5rem; }
+    .nav-links.open { display: flex; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: var(--warm-white); padding: 1.5rem 5%; gap: 1rem; border-bottom: 1px solid rgba(122,158,126,0.15); box-shadow: 0 8px 20px rgba(0,0,0,0.08); }
     section { padding: 4rem 4%; }
     .services-grid, .testimonials-grid, .treatments-grid { grid-template-columns: 1fr; }
     .form-row { grid-template-columns: 1fr; }
@@ -331,144 +292,19 @@
     .conditions-inner, .first-visit-inner { gap: 2.5rem; }
   }
 </style>
-  <!-- EmailJS SDK -->
-  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-  <script>
-    // ── EMAILJS CONFIGURATION ──
-    // SETUP INSTRUCTIONS (one time, 5 minutes):
-    // 1. Go to emailjs.com → Sign up free with anviwellnessstudio@gmail.com
-    // 2. Add a Service: Email Services → Add Service → Gmail → connect anviwellnessstudio@gmail.com → copy Service ID
-    // 3. Create a Template: Email Templates → Create → use the variables below → copy Template ID
-    // 4. Get Public Key: Account → API Keys → copy Public Key
-    // 5. Replace the 3 values below with your actual IDs
-    (function(){
-      emailjs.init("YOUR_PUBLIC_KEY"); // ← Replace with your EmailJS Public Key
-    })();
-
-    var EMAILJS_SERVICE_ID  = "YOUR_SERVICE_ID";   // ← Replace with your Service ID
-    var EMAILJS_TEMPLATE_ID = "YOUR_TEMPLATE_ID";  // ← Replace with your Template ID
-  </script>
 </head>
 <body>
 <script id="anvi-photos-data" type="application/json">{"LOGO": "https://raw.githubusercontent.com/anviwellnessstudio/anviwellness.github.io/main/images/logo.jpg", "HERO": "https://raw.githubusercontent.com/anviwellnessstudio/anviwellness.github.io/main/images/hero.jpg", "ABOUT_MAIN": "https://raw.githubusercontent.com/anviwellnessstudio/anviwellness.github.io/main/images/about-main.jpg", "ABOUT_ACCENT": "https://raw.githubusercontent.com/anviwellnessstudio/anviwellness.github.io/main/images/about-accent.jpg", "DOCTOR": "https://raw.githubusercontent.com/anviwellnessstudio/anviwellness.github.io/main/images/doctor.jpg", "WHY": "https://raw.githubusercontent.com/anviwellnessstudio/anviwellness.github.io/main/images/why.jpg", "AQUA": "https://raw.githubusercontent.com/anviwellnessstudio/anviwellness.github.io/main/images/aqua.jpg", "NEEDLING": "https://raw.githubusercontent.com/anviwellnessstudio/anviwellness.github.io/main/images/needling.jpg", "CUPPING": "https://raw.githubusercontent.com/anviwellnessstudio/anviwellness.github.io/main/images/cupping.jpg", "ONLINE": "https://raw.githubusercontent.com/anviwellnessstudio/anviwellness.github.io/main/images/online.jpg"}</script>
 <script>
 (function(){
-  var PHOTOS = JSON.parse(document.getElementById("anvi-photos-data").textContent);
+  var P = JSON.parse(document.getElementById("anvi-photos-data").textContent);
   document.addEventListener("DOMContentLoaded", function(){
-    document.querySelectorAll('img[data-photo="LOGO"]').forEach(function(i){i.src=PHOTOS["LOGO"];});
-    document.querySelectorAll('img[data-photo="HERO"]').forEach(function(i){i.src=PHOTOS["HERO"];});
-    document.querySelectorAll('img[data-photo="ABOUT_MAIN"]').forEach(function(i){i.src=PHOTOS["ABOUT_MAIN"];});
-    document.querySelectorAll('img[data-photo="ABOUT_ACCENT"]').forEach(function(i){i.src=PHOTOS["ABOUT_ACCENT"];});
-    document.querySelectorAll('img[data-photo="DOCTOR"]').forEach(function(i){i.src=PHOTOS["DOCTOR"];});
-    document.querySelectorAll('img[data-photo="WHY"]').forEach(function(i){i.src=PHOTOS["WHY"];});
-    document.querySelectorAll('img[data-photo="AQUA"]').forEach(function(i){i.src=PHOTOS["AQUA"];});
-    document.querySelectorAll('img[data-photo="NEEDLING"]').forEach(function(i){i.src=PHOTOS["NEEDLING"];});
-    document.querySelectorAll('img[data-photo="CUPPING"]').forEach(function(i){i.src=PHOTOS["CUPPING"];});
-    document.querySelectorAll('img[data-photo="ONLINE"]').forEach(function(i){i.src=PHOTOS["ONLINE"];});
+    Object.keys(P).forEach(function(k){
+      document.querySelectorAll('img[data-photo="'+k+'"]').forEach(function(i){ i.src=P[k]; });
+    });
   });
-
-  window.submitEnquiry = function() {
-    var name    = document.querySelector(".contact-form input[type=text]").value.trim();
-    var phone   = document.querySelector(".contact-form input[type=tel]").value.trim();
-    var email   = document.querySelector(".contact-form input[type=email]").value.trim();
-    var selects = document.querySelectorAll(".contact-form select");
-    var type    = selects[0] ? selects[0].value : "";
-    var service = selects[1] ? selects[1].value : "";
-    var message = document.querySelector(".contact-form textarea").value.trim();
-
-    if (!name)  { alert("Please enter your name."); return; }
-    if (!phone) { alert("Please enter your phone number."); return; }
-
-    // Disable button
-    var btn = document.querySelector(".contact-form .btn-primary");
-    btn.disabled = true;
-    btn.textContent = "Sending...";
-
-    var data = {
-      action:  "addEnquiry",
-      id:      Date.now().toString(),
-      name:    name,
-      phone:   phone,
-      email:   email,
-      type:    type    || "Not specified",
-      service: service || "Not specified",
-      message: message || "",
-      date:    new Date().toLocaleString("en-IN", {timeZone:"Asia/Kolkata"})
-    };
-
-    // Save to Google Sheets + send email
-    fetch("https://script.google.com/macros/s/AKfycbx12S4tlDAtjq7xtBLXl8aGH7e9vl4Edra0tXTanAcf7iQOd5-YgRqmxFWpLhFsQLOOeg/exec", {
-      method: "POST",
-      body: JSON.stringify(data)
-    })
-    .then(function(r){ return r.json(); })
-    .then(function(res){
-      done();
-    })
-    .catch(function(){ done(); }); // still show success even if network issue
-
-    function done() {
-      document.getElementById("formSuccess").style.display = "block";
-      btn.disabled = false;
-      btn.innerHTML = '<svg viewBox="0 0 24 24" style="width:16px;height:16px;stroke:white;fill:none;stroke-width:2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg> Send Enquiry';
-      document.querySelector(".contact-form input[type=text]").value = "";
-      document.querySelector(".contact-form input[type=tel]").value = "";
-      document.querySelector(".contact-form input[type=email]").value = "";
-      if(selects[0]) selects[0].selectedIndex = 0;
-      if(selects[1]) selects[1].selectedIndex = 0;
-      document.querySelector(".contact-form textarea").value = "";
-      var msg = "Hi Dr. Anvi! I would like to book an appointment.\n\nName: " + name + "\nPhone: " + phone + "\nType: " + (type||"Not specified") + "\nService: " + (service||"Not specified") + (message ? "\nNote: " + message : "");
-      setTimeout(function(){ window.open("https://wa.me/919981026077?text="+encodeURIComponent(msg),"_blank"); }, 800);
-    }
-  };
-
-    emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams)
-      .then(function() {
-        // Success
-        document.getElementById("formSuccess").style.display = "block";
-        btn.disabled = false;
-        btn.innerHTML = '<svg viewBox="0 0 24 24" style="width:16px;height:16px;stroke:white;fill:none;stroke-width:2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg> Send Enquiry';
-
-        // Clear form
-        document.querySelector(".contact-form input[type=text]").value = "";
-        document.querySelector(".contact-form input[type=tel]").value = "";
-        document.querySelector(".contact-form input[type=email]").value = "";
-        if (selects[0]) selects[0].selectedIndex = 0;
-        if (selects[1]) selects[1].selectedIndex = 0;
-        document.querySelector(".contact-form textarea").value = "";
-
-        // Open WhatsApp too
-        var msg = "Hi Dr. Anvi! I would like to book an appointment.\n\nName: " + name
-                + "\nPhone: " + phone
-                + "\nType: " + (type || "Not specified")
-                + "\nService: " + (service || "Not specified")
-                + (message ? "\nNote: " + message : "");
-        setTimeout(function(){ window.open("https://wa.me/919981026077?text=" + encodeURIComponent(msg), "_blank"); }, 800);
-      }, function(error) {
-        // If EmailJS not configured yet, still show success and open WhatsApp
-        document.getElementById("formSuccess").style.display = "block";
-        btn.disabled = false;
-        btn.innerHTML = '<svg viewBox="0 0 24 24" style="width:16px;height:16px;stroke:white;fill:none;stroke-width:2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg> Send Enquiry';
-
-        document.querySelector(".contact-form input[type=text]").value = "";
-        document.querySelector(".contact-form input[type=tel]").value = "";
-        document.querySelector(".contact-form input[type=email]").value = "";
-        if (selects[0]) selects[0].selectedIndex = 0;
-        if (selects[1]) selects[1].selectedIndex = 0;
-        document.querySelector(".contact-form textarea").value = "";
-
-        var msg = "Hi Dr. Anvi! I would like to book an appointment.\n\nName: " + name
-                + "\nPhone: " + phone
-                + "\nType: " + (type || "Not specified")
-                + "\nService: " + (service || "Not specified")
-                + (message ? "\nNote: " + message : "");
-        setTimeout(function(){ window.open("https://wa.me/919981026077?text=" + encodeURIComponent(msg), "_blank"); }, 800);
-      });
-  };
-
 })();
 </script>
-
 
 <!-- ANNOUNCEMENT BAR -->
 <div class="announcement-bar">
@@ -479,15 +315,17 @@
 <!-- NAV -->
 <nav id="navbar">
   <a href="#" class="nav-logo">
-    <img src="" data-photo="LOGO" alt="Anvi Wellness Studio" class="nav-logo-img">
+    <div class="nav-logo-mark"><span>A</span></div>
+    <div class="nav-logo-text">
+      <strong>Anvi Wellness Studio</strong>
+      <small>Physiotherapy Clinic · Kandivali West</small>
+    </div>
   </a>
   <ul class="nav-links" id="navLinks">
     <li><a href="#about">About</a></li>
     <li><a href="#doctor">Dr. Anvi</a></li>
     <li><a href="#services">Services</a></li>
     <li><a href="#conditions">Conditions</a></li>
-    <li><a href="#treatments">Treatments</a></li>
-    <li><a href="#firstvisit">First Visit</a></li>
     <li><a href="#testimonials">Reviews</a></li>
     <li><a href="#contact" class="nav-cta">Book Appointment</a></li>
   </ul>
@@ -557,8 +395,8 @@
 <!-- ABOUT -->
 <section class="about" id="about">
   <div class="about-images">
-    <div style="position:absolute;top:0;left:0;width:78%;height:85%;border-radius:12px;overflow:hidden;"><img src="" data-photo="ABOUT_MAIN" alt="Anvi Wellness Studio" style="width:100%;height:100%;object-fit:cover;object-position:center top;"></div>
-    <div style="position:absolute;bottom:0;right:0;width:55%;height:54%;border-radius:12px;overflow:hidden;border:4px solid var(--warm-white);box-shadow:0 8px 30px rgba(0,0,0,0.08);"><img src="" data-photo="ABOUT_ACCENT" alt="Dr. Anvi" style="width:100%;height:100%;object-fit:cover;object-position:center top;"></div>
+    <div style="position:absolute;top:0;left:0;width:78%;height:85%;border-radius:12px;overflow:hidden;"><img src="" data-photo="ABOUT_MAIN" alt="Anvi Wellness Studio" style="width:100%;height:100%;object-fit:cover;"></div>
+    <div style="position:absolute;bottom:0;right:0;width:55%;height:54%;border-radius:12px;overflow:hidden;border:4px solid var(--warm-white);box-shadow:0 8px 30px rgba(0,0,0,0.08);"><img src="" data-photo="ABOUT_ACCENT" alt="Dr. Anvi" style="width:100%;height:100%;object-fit:cover;"></div>
     <div class="about-years-badge">
       <strong>7+</strong>
       <span>Years of<br>Excellence</span>
@@ -574,6 +412,13 @@
       Conveniently located at Vora Palace, M.G. Road, next to Bank of Baroda, we serve patients from Kandivali, Borivali, Malad, and Goregaon West. We also offer home visits across Mumbai and online consultations globally.
     </p>
     <div class="about-features">
+      <div class="about-feature">
+        <div class="about-feature-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <div class="about-feature-text">
+          <strong>No Referral Needed</strong>
+          <small>Book directly — walk in or call us</small>
+        </div>
+      </div>
       <div class="about-feature">
         <div class="about-feature-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
         <div class="about-feature-text">
@@ -610,7 +455,6 @@
   <div class="doctor-inner">
     <div class="doctor-photo-wrap">
       <div class="doctor-photo" style="background:none;"><img src="" data-photo="DOCTOR" alt="Dr. Anvi Kadakia" style="width:100%;height:100%;object-fit:cover;object-position:center top;"></div>
-
     </div>
     <div>
       <div class="section-tag">Meet Your Physiotherapist</div>
@@ -650,7 +494,7 @@
   <div class="services-grid">
     <div class="service-card">
       <div class="service-card-img">
-        <img src="https://images.unsplash.com/photo-1587293852726-70cdb56c2866?w=700&q=70" alt="Orthopaedic Physiotherapy" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.background='#e8f0e9'">
+        <img src="https://raw.githubusercontent.com/anviwellnessstudio/anviwellness.github.io/main/images/needling.jpg" alt="Orthopaedic" style="width:100%;height:100%;object-fit:cover;">
       </div>
       <div class="service-card-body">
         <div class="service-card-tag">Musculoskeletal</div>
@@ -660,7 +504,7 @@
     </div>
     <div class="service-card">
       <div class="service-card-img">
-        <img src="https://images.unsplash.com/photo-1574680178050-55c6a6a96e0a?w=700&q=70" alt="Sports Rehabilitation" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.background='#e8f0e9'">
+        <img src="https://raw.githubusercontent.com/anviwellnessstudio/anviwellness.github.io/main/images/cupping.jpg" alt="Sports" style="width:100%;height:100%;object-fit:cover;">
       </div>
       <div class="service-card-body">
         <div class="service-card-tag">Sports</div>
@@ -670,7 +514,7 @@
     </div>
     <div class="service-card">
       <div class="service-card-img">
-        <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=700&q=70" alt="Neuro Physiotherapy" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.background='#e8f0e9'">
+        <img src="https://raw.githubusercontent.com/anviwellnessstudio/anviwellness.github.io/main/images/needling.jpg" alt="Neuro" style="width:100%;height:100%;object-fit:cover;">
       </div>
       <div class="service-card-body">
         <div class="service-card-tag">Neurological</div>
@@ -680,7 +524,7 @@
     </div>
     <div class="service-card">
       <div class="service-card-img">
-        <img src="https://images.unsplash.com/photo-1517963879433-6ad2b056d712?w=700&q=70" alt="Cardio Rehabilitation" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.background='#e8f0e9'">
+        <img src="https://raw.githubusercontent.com/anviwellnessstudio/anviwellness.github.io/main/images/online.jpg" alt="Cardio" style="width:100%;height:100%;object-fit:cover;">
       </div>
       <div class="service-card-body">
         <div class="service-card-tag">Cardiopulmonary</div>
@@ -690,7 +534,7 @@
     </div>
     <div class="service-card">
       <div class="service-card-img">
-        <img src="" data-photo="AQUA" alt="Paediatric Physio" style="width:100%;height:100%;object-fit:cover;">
+        <img src="" data-photo="AQUA" alt="Paediatric" style="width:100%;height:100%;object-fit:cover;">
       </div>
       <div class="service-card-body">
         <div class="service-card-tag">Paediatric</div>
@@ -700,7 +544,7 @@
     </div>
     <div class="service-card">
       <div class="service-card-img">
-        <img src="" data-photo="ONLINE" alt="Online Consultation" style="width:100%;height:100%;object-fit:cover;">
+        <img src="" data-photo="ONLINE" alt="Online" style="width:100%;height:100%;object-fit:cover;">
       </div>
       <div class="service-card-body">
         <div class="service-card-tag">Online · Home · Clinic</div>
@@ -733,48 +577,48 @@
         <button class="cond-tab" onclick="showCond('paeds', this)">Paediatric</button>
       </div>
       <div id="cond-musculo" class="conditions-list active">
-        <div class="condition-item" onclick="openCondition('neck_back')"><span>Neck & Back Pain</span><span style="font-size:11px;opacity:0.7;">→</span></div>
-        <div class="condition-item" onclick="openCondition('knee')"><span>Knee Pain & Arthritis</span><span style="font-size:11px;opacity:0.7;">→</span></div>
-        <div class="condition-item" onclick="openCondition('frozen_shoulder')"><span>Frozen Shoulder</span><span style="font-size:11px;opacity:0.7;">→</span></div>
-        <div class="condition-item" onclick="openCondition('sports')"><span>Sports Injuries</span><span style="font-size:11px;opacity:0.7;">→</span></div>
-        <div class="condition-item" onclick="openCondition('ligament')"><span>Ligament Injuries</span><span style="font-size:11px;opacity:0.7;">→</span></div>
-        <div class="condition-item" onclick="openCondition('strains')"><span>Muscle Strains/Sprains</span><span style="font-size:11px;opacity:0.7;">→</span></div>
-        <div class="condition-item" onclick="openCondition('postop_cond')"><span>Post-Operative Rehab</span><span style="font-size:11px;opacity:0.7;">→</span></div>
-        <div class="condition-item" onclick="openCondition('posture_cond')"><span>Postural Dysfunction</span><span style="font-size:11px;opacity:0.7;">→</span></div>
-        <div class="condition-item" onclick="openCondition('sciatica')"><span>Sciatica</span><span style="font-size:11px;opacity:0.7;">→</span></div>
-        <div class="condition-item" onclick="openCondition('slip_disc')"><span>Slip Disc / Cervical Spondylosis</span><span style="font-size:11px;opacity:0.7;">→</span></div>
-        <div class="condition-item" onclick="openCondition('falls')"><span>Fall Prevention (Elderly)</span><span style="font-size:11px;opacity:0.7;">→</span></div>
-        <div class="condition-item" onclick="openCondition('ergonomics')"><span>Corporate Ergonomics</span><span style="font-size:11px;opacity:0.7;">→</span></div>
+        <div class="condition-item">Neck & Back Pain</div>
+        <div class="condition-item">Knee Pain & Arthritis</div>
+        <div class="condition-item">Frozen Shoulder</div>
+        <div class="condition-item">Sports Injuries</div>
+        <div class="condition-item">Ligament Injuries</div>
+        <div class="condition-item">Muscle Strains/Sprains</div>
+        <div class="condition-item">Post-Operative Rehab</div>
+        <div class="condition-item">Postural Dysfunction</div>
+        <div class="condition-item">Sciatica</div>
+        <div class="condition-item">Slip Disc / Cervical Spondylosis</div>
+        <div class="condition-item">Fall Prevention (Elderly)</div>
+        <div class="condition-item">Corporate Ergonomics</div>
       </div>
       <div id="cond-neuro" class="conditions-list">
-        <div class="condition-item" onclick="openCondition('stroke')"><span>Stroke Rehabilitation</span><span style="font-size:11px;opacity:0.7;">→</span></div>
-        <div class="condition-item" onclick="openCondition('parkinsons')"><span>Parkinson's Disease</span><span style="font-size:11px;opacity:0.7;">→</span></div>
-        <div class="condition-item" onclick="openCondition('bells')"><span>Bell's Palsy</span><span style="font-size:11px;opacity:0.7;">→</span></div>
-        <div class="condition-item" onclick="openCondition('ms')"><span>Multiple Sclerosis</span><span style="font-size:11px;opacity:0.7;">→</span></div>
-        <div class="condition-item" onclick="openCondition('balance_cond')"><span>Balance & Coordination Disorders</span><span style="font-size:11px;opacity:0.7;">→</span></div>
-        <div class="condition-item" onclick="openCondition('neuro_weakness')"><span>Neurological Weakness</span><span style="font-size:11px;opacity:0.7;">→</span></div>
-        <div class="condition-item" onclick="openCondition('functional')"><span>Functional Mobility</span><span style="font-size:11px;opacity:0.7;">→</span></div>
-        <div class="condition-item" onclick="openCondition('gait')"><span>Gait Rehabilitation</span><span style="font-size:11px;opacity:0.7;">→</span></div>
+        <div class="condition-item">Stroke Rehabilitation</div>
+        <div class="condition-item">Parkinson's Disease</div>
+        <div class="condition-item">Bell's Palsy</div>
+        <div class="condition-item">Multiple Sclerosis</div>
+        <div class="condition-item">Balance & Coordination Disorders</div>
+        <div class="condition-item">Neurological Weakness</div>
+        <div class="condition-item">Functional Mobility</div>
+        <div class="condition-item">Gait Rehabilitation</div>
       </div>
       <div id="cond-cardio" class="conditions-list">
-        <div class="condition-item" onclick="openCondition('cardiac')"><span>Post-Cardiac Surgery Recovery</span><span style="font-size:11px;opacity:0.7;">→</span></div>
-        <div class="condition-item" onclick="openCondition('cardiac_rehab')"><span>Cardiac Rehab Programmes</span><span style="font-size:11px;opacity:0.7;">→</span></div>
-        <div class="condition-item" onclick="openCondition('respiratory')"><span>Respiratory Rehabilitation</span><span style="font-size:11px;opacity:0.7;">→</span></div>
-        <div class="condition-item" onclick="openCondition('breathing')"><span>Breathing Exercises</span><span style="font-size:11px;opacity:0.7;">→</span></div>
-        <div class="condition-item" onclick="openCondition('deconditioning')"><span>Post-Hospitalisation Deconditioning</span><span style="font-size:11px;opacity:0.7;">→</span></div>
-        <div class="condition-item" onclick="openCondition('copd')"><span>COPD & Lung Conditions</span><span style="font-size:11px;opacity:0.7;">→</span></div>
-        <div class="condition-item" onclick="openCondition('endurance')"><span>Functional Endurance Training</span><span style="font-size:11px;opacity:0.7;">→</span></div>
-        <div class="condition-item" onclick="openCondition('energy')"><span>Energy Conservation Techniques</span><span style="font-size:11px;opacity:0.7;">→</span></div>
+        <div class="condition-item">Post-Cardiac Surgery Recovery</div>
+        <div class="condition-item">Cardiac Rehab Programmes</div>
+        <div class="condition-item">Respiratory Rehabilitation</div>
+        <div class="condition-item">Breathing Exercises</div>
+        <div class="condition-item">Post-Hospitalisation Deconditioning</div>
+        <div class="condition-item">COPD & Lung Conditions</div>
+        <div class="condition-item">Functional Endurance Training</div>
+        <div class="condition-item">Energy Conservation Techniques</div>
       </div>
       <div id="cond-paeds" class="conditions-list">
-        <div class="condition-item" onclick="openCondition('dev_delay')"><span>Developmental Delay</span><span style="font-size:11px;opacity:0.7;">→</span></div>
-        <div class="condition-item" onclick="openCondition('cp')"><span>Cerebral Palsy</span><span style="font-size:11px;opacity:0.7;">→</span></div>
-        <div class="condition-item" onclick="openCondition('paeds_posture')"><span>Postural Disorders (Children)</span><span style="font-size:11px;opacity:0.7;">→</span></div>
-        <div class="condition-item" onclick="openCondition('coordination')"><span>Coordination Difficulties</span><span style="font-size:11px;opacity:0.7;">→</span></div>
-        <div class="condition-item" onclick="openCondition('balance_paeds')"><span>Balance Problems</span><span style="font-size:11px;opacity:0.7;">→</span></div>
-        <div class="condition-item" onclick="openCondition('paeds_msk')"><span>Paediatric Musculoskeletal</span><span style="font-size:11px;opacity:0.7;">→</span></div>
-        <div class="condition-item" onclick="openCondition('movement')"><span>Movement Disorders</span><span style="font-size:11px;opacity:0.7;">→</span></div>
-        <div class="condition-item" onclick="openCondition('gross_motor')"><span>Gross Motor Delay</span><span style="font-size:11px;opacity:0.7;">→</span></div>
+        <div class="condition-item">Developmental Delay</div>
+        <div class="condition-item">Cerebral Palsy</div>
+        <div class="condition-item">Postural Disorders (Children)</div>
+        <div class="condition-item">Coordination Difficulties</div>
+        <div class="condition-item">Balance Problems</div>
+        <div class="condition-item">Paediatric Musculoskeletal</div>
+        <div class="condition-item">Movement Disorders</div>
+        <div class="condition-item">Gross Motor Delay</div>
       </div>
     </div>
   </div>
@@ -788,58 +632,51 @@
     <p class="section-desc" style="margin:0 auto;text-align:center;">We combine advanced techniques with personalised programmes to restore movement, reduce pain, and achieve long-term wellness.</p>
   </div>
   <div class="treatments-grid">
-    <div class="treatment-pill" onclick='openTreatment("manual")' role="button">
+    <div class="treatment-pill">
       <div class="treatment-pill-icon"><svg viewBox="0 0 24 24"><path d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-3l-4 4z"/></svg></div>
       <div><strong>Manual Therapy</strong><small>Joint mobilisation & soft tissue</small></div>
-      <div style="margin-top:6px;font-size:11px;color:var(--sage);font-weight:500;letter-spacing:0.05em;">Learn more →</div>
     </div>
-    <div class="treatment-pill" onclick='openTreatment("exercise")' role="button" style="cursor:pointer">
+    <div class="treatment-pill">
       <div class="treatment-pill-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg></div>
       <div><strong>Exercise Therapy</strong><small>Strengthening & mobility programs</small></div>
-      <div style="margin-top:6px;font-size:11px;color:var(--sage);font-weight:500;letter-spacing:0.05em;">Learn more →</div>
     </div>
-    <div class="treatment-pill" onclick='openTreatment("electro")' role="button" style="cursor:pointer">
+    <div class="treatment-pill">
       <div class="treatment-pill-icon"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
       <div><strong>Electrotherapy</strong><small>TENS, IFT, Ultrasound</small></div>
-      <div style="margin-top:6px;font-size:11px;color:var(--sage);font-weight:500;letter-spacing:0.05em;">Learn more →</div>
     </div>
-    <div class="treatment-pill" onclick='openTreatment("needling")' role="button" style="cursor:pointer">
+    <div class="treatment-pill">
       <div class="treatment-pill-icon"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
       <div><strong>Dry Needling</strong><small>Trigger point release</small></div>
-      <div style="margin-top:6px;font-size:11px;color:var(--sage);font-weight:500;letter-spacing:0.05em;">Learn more →</div>
     </div>
-    <div class="treatment-pill" onclick='openTreatment("taping")' role="button" style="cursor:pointer">
+    <div class="treatment-pill">
       <div class="treatment-pill-icon"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
       <div><strong>Kinesiology Taping</strong><small>Support & pain relief</small></div>
-      <div style="margin-top:6px;font-size:11px;color:var(--sage);font-weight:500;letter-spacing:0.05em;">Learn more →</div>
     </div>
-    <div class="treatment-pill" onclick='openTreatment("aqua")' role="button" style="cursor:pointer">
+    <div class="treatment-pill">
       <div class="treatment-pill-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
       <div><strong>Aquatherapy</strong><small>Water-based rehabilitation</small></div>
-      <div style="margin-top:6px;font-size:11px;color:var(--sage);font-weight:500;letter-spacing:0.05em;">Learn more →</div>
     </div>
-    <div class="treatment-pill" onclick='openTreatment("cupping")' role="button" style="cursor:pointer">
+    <div class="treatment-pill">
       <div class="treatment-pill-icon"><svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg></div>
       <div><strong>Dry & Ice Cupping</strong><small>Myofascial decompression</small></div>
     </div>
-    <div class="treatment-pill" onclick='openTreatment("posture")' role="button" style="cursor:pointer">
+    <div class="treatment-pill">
       <div class="treatment-pill-icon"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
       <div><strong>Posture Correction</strong><small>Ergonomics & workplace health</small></div>
     </div>
-    <div class="treatment-pill" onclick='openTreatment("hep")' role="button" style="cursor:pointer">
+    <div class="treatment-pill">
       <div class="treatment-pill-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/></svg></div>
       <div><strong>Home Exercise Programs</strong><small>Self-management & education</small></div>
     </div>
-    <div class="treatment-pill" onclick='openTreatment("postop")' role="button" style="cursor:pointer">
+    <div class="treatment-pill">
       <div class="treatment-pill-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg></div>
       <div><strong>Post-Operative Rehab</strong><small>Surgery recovery protocols</small></div>
-      <div style="margin-top:6px;font-size:11px;color:var(--sage);font-weight:500;letter-spacing:0.05em;">Learn more →</div>
     </div>
-    <div class="treatment-pill" onclick='openTreatment("mfr")' role="button" style="cursor:pointer">
+    <div class="treatment-pill">
       <div class="treatment-pill-icon"><svg viewBox="0 0 24 24"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg></div>
       <div><strong>Myofascial Release</strong><small>Fascia & deep tissue work</small></div>
     </div>
-    <div class="treatment-pill" onclick='openTreatment("balance")' role="button" style="cursor:pointer">
+    <div class="treatment-pill">
       <div class="treatment-pill-icon"><svg viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div>
       <div><strong>Balance & Gait Training</strong><small>Fall prevention & mobility</small></div>
     </div>
@@ -942,7 +779,7 @@
   </div>
   <div style="text-align:center;margin-top:2.5rem;">
     <p style="font-size:13px;color:var(--text-light);margin-bottom:1rem;">Read our reviews on Google</p>
-    <a href="https://g.page/r/search?q=Anvi+Wellness+Studio+Kandivali" target="_blank" class="btn-secondary">View Google Reviews ↗</a>
+    <a href="#" class="btn-secondary">View Google Reviews ↗</a>
   </div>
 </section>
 
@@ -983,7 +820,7 @@
       </div>
     </div>
   </div>
-  <div class="why-visual" style="background:none;"><img src="" data-photo="WHY" alt="Dr. Anvi at clinic" style="width:100%;height:100%;object-fit:cover;object-position:center top;border-radius:var(--radius);"></div>
+  <div class="why-visual" style="background:none;"><img src="" data-photo="WHY" alt="Dr. Anvi at clinic" style="width:100%;height:100%;object-fit:cover;border-radius:var(--radius);"></div>
 </section>
 
 <!-- CONTACT -->
@@ -1041,9 +878,6 @@
         </div>
         <p style="font-size:11.5px;color:var(--sage-deep);margin-top:0.7rem;">📅 Appointment recommended for all sessions</p>
       </div>
-      <div class="referral-note">
-        No doctor's referral needed to book. Walk-ins welcome during clinic hours, or book ahead via WhatsApp for a guaranteed slot.
-      </div>
     </div>
     <div class="contact-form">
       <h3 style="font-family:var(--font-serif);font-size:1.5rem;font-weight:400;color:var(--text-dark);margin-bottom:1.4rem;">Send an Enquiry</h3>
@@ -1088,13 +922,10 @@
         <label>Brief Description (Optional)</label>
         <textarea placeholder="Tell us a little about your condition or concern..."></textarea>
       </div>
-      <button type="button" class="btn-primary" style="width:100%;justify-content:center;" onclick="submitEnquiry()">
+      <button type="button" class="btn-primary" style="width:100%;justify-content:center;">
         <svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
         Send Enquiry
       </button>
-      <div id="formSuccess" style="display:none;background:var(--sage-pale);border-radius:var(--radius-sm);padding:1rem;margin-top:0.8rem;text-align:center;font-size:13.5px;color:var(--sage-deep);font-weight:500">
-        ✅ Thank you! We've received your enquiry and will contact you on WhatsApp shortly.
-      </div>
       <p style="font-size:12px;color:var(--text-light);margin-top:0.8rem;text-align:center;">We'll respond within a few hours. Your information is kept private.</p>
     </div>
   </div>
@@ -1126,9 +957,9 @@
       <div class="footer-logo" style="margin-bottom:1rem;"><div style="background:white;border-radius:10px;padding:6px 14px;display:inline-block;"><img src="" data-photo="LOGO" alt="Anvi Wellness Studio" style="height:48px;width:auto;object-fit:contain;display:block;"></div></div>
       <p class="footer-tagline">Expert physiotherapy in Kandivali West, Mumbai. Clinic · Home Visits · Online Consultations.<br>Heal Faster. Feel Freer. Function Fully.</p>
       <div class="footer-social">
-        <a href="https://www.facebook.com" target="_blank" class="social-btn" aria-label="Facebook">f</a>
-        <a href="https://www.instagram.com" target="_blank" class="social-btn" aria-label="Instagram">@</a>
-        <a href="https://wa.me/919981026077" target="_blank" class="social-btn" aria-label="WhatsApp">w</a>
+        <a href="#" class="social-btn" aria-label="Facebook">f</a>
+        <a href="#" class="social-btn" aria-label="Instagram">@</a>
+        <a href="#" class="social-btn" aria-label="WhatsApp">w</a>
       </div>
     </div>
     <div class="footer-col">
@@ -1147,25 +978,25 @@
     <div class="footer-col">
       <h5>Services</h5>
       <ul>
-        <li><a href="#services">Orthopaedic Physiotherapy</a></li>
-        <li><a href="#services">Sports Rehabilitation</a></li>
-        <li><a href="#services">Neuro Physiotherapy</a></li>
-        <li><a href="#services">Cardio Rehab</a></li>
-        <li><a href="#services">Paediatric Physiotherapy</a></li>
-        <li><a href="#contact">Home Visits</a></li>
-        <li><a href="#contact">Online Consultations</a></li>
+        <li><a href="#">Orthopaedic Physiotherapy</a></li>
+        <li><a href="#">Sports Rehabilitation</a></li>
+        <li><a href="#">Neuro Physiotherapy</a></li>
+        <li><a href="#">Cardio Rehab</a></li>
+        <li><a href="#">Paediatric Physiotherapy</a></li>
+        <li><a href="#">Home Visits</a></li>
+        <li><a href="#">Online Consultations</a></li>
       </ul>
     </div>
     <div class="footer-col">
       <h5>Contact</h5>
       <ul>
-        <li><a href="https://maps.google.com/?q=Vora+Palace+MG+Road+Kandivali+West+Mumbai" target="_blank">Vora Palace, M.G. Road</a></li>
-        <li><a href="https://maps.google.com/?q=Vora+Palace+MG+Road+Kandivali+West+Mumbai" target="_blank">Kandivali West, Mumbai 400067</a></li>
-        <li><a href="https://maps.google.com/?q=Bank+of+Baroda+MG+Road+Kandivali+West" target="_blank">Next to Bank of Baroda</a></li>
-        <li><a href="tel:+919981026077">+91 99810 26077</a></li>
-        <li><a href="mailto:hello@anviwellness.in">hello@anviwellness.in</a></li>
-        <li><a href="#contact">Clinic: Mon–Sat 5–8 PM</a></li>
-        <li><a href="#contact">Home Visits: 8 AM–2 PM</a></li>
+        <li><a href="#">Vora Palace, M.G. Road</a></li>
+        <li><a href="#">Kandivali West, Mumbai 400067</a></li>
+        <li><a href="#">Next to Bank of Baroda</a></li>
+        <li><a href="#">+91 99810 26077</a></li>
+        <li><a href="#">hello@anviwellness.in</a></li>
+        <li><a href="#">Clinic: Mon–Sat 5–8 PM</a></li>
+        <li><a href="#">Home Visits: 8 AM–2 PM</a></li>
       </ul>
     </div>
   </div>
@@ -1180,276 +1011,95 @@
   <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
 </a>
 
-<script>
-  const navbar = document.getElementById('navbar');
-  const hamburger = document.getElementById('hamburger');
-  const navLinks = document.getElementById('navLinks');
 
-  window.addEventListener('scroll', () => {
-    navbar.classList.toggle('scrolled', window.scrollY > 50);
-    var sections = ['about','doctor','services','conditions','treatments','firstvisit','testimonials','contact'];
+<script>
+  var navbar = document.getElementById("navbar");
+  var hamburger = document.getElementById("hamburger");
+  var navLinks = document.getElementById("navLinks");
+
+  window.addEventListener("scroll", function() {
+    navbar.classList.toggle("scrolled", window.scrollY > 50);
+    var sections = ["about","doctor","services","conditions","treatments","firstvisit","testimonials","contact"];
     var scrollPos = window.scrollY + 120;
     sections.forEach(function(id) {
       var el = document.getElementById(id);
-      var link = document.querySelector('.nav-links a[href="#' + id + '"]');
+      var link = document.querySelector(".nav-links a[href=\"#" + id + "\"]");
       if (!el || !link) return;
       if (scrollPos >= el.offsetTop && scrollPos < el.offsetTop + el.offsetHeight) {
-        document.querySelectorAll('.nav-links a').forEach(function(a){ a.classList.remove('active-link'); });
-        link.classList.add('active-link');
+        document.querySelectorAll(".nav-links a").forEach(function(a){ a.classList.remove("active-link"); });
+        link.classList.add("active-link");
       }
     });
   });
 
-  // ── Smooth scroll for ALL anchor links with nav offset fix ──
-  document.addEventListener('click', function(e) {
-    var target = e.target.closest('a[href^="#"]');
+  document.addEventListener("click", function(e) {
+    var target = e.target.closest("a[href^=\"#\"]");
     if (!target) return;
-    var hash = target.getAttribute('href');
-    if (!hash || hash === '#') return;
+    var hash = target.getAttribute("href");
+    if (!hash || hash === "#") return;
     var dest = document.querySelector(hash);
     if (!dest) return;
     e.preventDefault();
-    var navHeight = document.getElementById('navbar').offsetHeight;
+    var navHeight = document.getElementById("navbar").offsetHeight;
     var top = dest.getBoundingClientRect().top + window.pageYOffset - navHeight - 10;
-    window.scrollTo({ top: top, behavior: 'smooth' });
-    // close mobile menu if open
-    navLinks.classList.remove('open');
+    window.scrollTo({ top: top, behavior: "smooth" });
+    navLinks.classList.remove("open");
   });
 
-  hamburger.addEventListener('click', () => navLinks.classList.toggle('open'));
-  document.querySelectorAll('.nav-links a').forEach(l => l.addEventListener('click', () => navLinks.classList.remove('open')));
+  hamburger.addEventListener("click", function() { navLinks.classList.toggle("open"); });
 
   function showCond(tab, btn) {
-    document.querySelectorAll('.conditions-list').forEach(el => el.classList.remove('active'));
-    document.querySelectorAll('.cond-tab').forEach(el => el.classList.remove('active'));
-    document.getElementById('cond-' + tab).classList.add('active');
-    btn.classList.add('active');
+    document.querySelectorAll(".conditions-list").forEach(function(el) { el.classList.remove("active"); });
+    document.querySelectorAll(".cond-tab").forEach(function(el) { el.classList.remove("active"); });
+    document.getElementById("cond-" + tab).classList.add("active");
+    btn.classList.add("active");
   }
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
       if (entry.isIntersecting) {
-        entry.target.style.opacity = '1';
-        entry.target.style.transform = 'translateY(0)';
+        entry.target.style.opacity = "1";
+        entry.target.style.transform = "translateY(0)";
       }
     });
   }, { threshold: 0.08 });
 
-  document.querySelectorAll('.service-card, .testimonial-card, .why-point, .condition-item, .about-feature, .treatment-pill, .visit-step').forEach(el => {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(18px)';
-    el.style.transition = 'opacity 0.55s ease, transform 0.55s ease';
+  document.querySelectorAll(".service-card, .testimonial-card, .why-point, .condition-item, .about-feature, .treatment-pill, .visit-step").forEach(function(el) {
+    el.style.opacity = "0";
+    el.style.transform = "translateY(18px)";
+    el.style.transition = "opacity 0.55s ease, transform 0.55s ease";
     observer.observe(el);
   });
-</script>
 
-<!-- TREATMENT MODALS -->
-<div class="t-modal-overlay" id="tModalOverlay" onclick="closeTreatment(event)">
-  <div class="t-modal" id="tModal">
-    <div class="t-modal-hero">
-      <div class="t-modal-hero-bg" id="tModalBg"></div>
-      <div class="t-modal-hero-overlay"></div>
-      <div class="t-modal-hero-icon" id="tModalIcon"></div>
-      <div class="t-modal-hero-title">
-        <h2 id="tModalTitle"></h2>
-        <p id="tModalSub"></p>
-      </div>
-    </div>
-    <div class="t-modal-body" id="tModalBody"></div>
-    <div class="t-modal-footer">
-      <button class="t-modal-close-btn" onclick="closeTreatmentDirect()">
-        <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-      </button>
-      <a href="#contact" class="btn-primary" onclick="closeTreatmentDirect()" style="flex:1;justify-content:center;">
-        <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-        Book This Treatment
-      </a>
-      <a href="https://wa.me/919981026077" target="_blank" class="btn-primary" style="background:#25D366;flex:1;justify-content:center;">
-        Ask Dr. Anvi
-      </a>
-    </div>
-  </div>
-</div>
-
-<script>
-var TREATMENTS = {
-  manual: {
-    title: "Manual Therapy",
-    sub: "Joint Mobilisation & Soft Tissue Techniques",
-    icon: '<svg viewBox="0 0 24 24"><path d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-3l-4 4z"/></svg>',
-    tags: ["Hands-on Treatment", "Joint Mobilisation", "Soft Tissue Therapy", "Pain Relief"],
-    what: "Manual therapy is a specialised hands-on physiotherapy technique where Dr. Anvi uses her hands to diagnose, treat, and prevent musculoskeletal conditions. It involves skilled, precise movements applied to joints, muscles, and soft tissues to restore normal movement and reduce pain.",
-    how: "During a session, Dr. Anvi assesses your joint range of motion, muscle tension, and movement patterns. She then applies specific techniques including joint mobilisation (gentle rhythmic movements), manipulation, and soft tissue massage to restore normal function.",
-    treats: ["Neck & back pain", "Joint stiffness and restricted movement", "Shoulder, knee and hip problems", "Headaches from cervical spine issues", "Post-injury muscle tightness", "Arthritis-related stiffness"],
-    benefits: ["Immediate pain reduction", "Improved joint range of motion", "Restored normal movement patterns", "Reduced muscle spasm and tension", "Enhanced blood circulation to affected area", "Faster recovery from injury"]
-  },
-  exercise: {
-    title: "Exercise Therapy",
-    sub: "Therapeutic Strengthening & Mobility Programs",
-    icon: '<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>',
-    tags: ["Strengthening", "Mobility", "Flexibility", "Functional Rehab"],
-    what: "Exercise therapy is a scientifically designed program of specific physical exercises prescribed by Dr. Anvi to treat injury, disability, or disease. Unlike general gym workouts, every exercise is chosen for your specific condition, ability level, and recovery goals.",
-    how: "After a full assessment, Dr. Anvi designs a personalised exercise program targeting your weak areas, movement restrictions, and pain patterns. You are taught each exercise with correct technique, progression is monitored regularly, and the program evolves as you improve.",
-    treats: ["Muscle weakness after injury or surgery", "Poor posture and movement habits", "Chronic back and neck pain", "Joint instability", "Sports performance deficits", "Age-related muscle loss and balance issues"],
-    benefits: ["Builds strength to support injured joints", "Restores full range of motion", "Prevents recurrence of injury", "Improves balance and coordination", "Increases confidence in movement", "Long-term independent self-management"]
-  },
-  electro: {
-    title: "Electrotherapy",
-    sub: "TENS, IFT & Ultrasound Therapy",
-    icon: '<svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>',
-    tags: ["TENS", "IFT", "Ultrasound", "Pain Relief", "Healing"],
-    what: "Electrotherapy uses controlled electrical currents or sound waves delivered through specialised equipment to reduce pain, reduce swelling, promote tissue healing, and stimulate muscle function. It is used alongside other physiotherapy treatments for faster and more effective recovery.",
-    how: "TENS (Transcutaneous Electrical Nerve Stimulation) sends gentle electrical pulses through the skin to block pain signals. IFT (Interferential Therapy) uses medium-frequency currents that penetrate deeper tissues to reduce inflammation. Therapeutic Ultrasound uses sound waves to generate gentle heat deep within tissues, promoting healing.",
-    treats: ["Acute and chronic pain", "Muscle spasm and tightness", "Soft tissue injuries — sprains & strains", "Tendinitis and bursitis", "Post-surgical swelling", "Nerve pain and referred symptoms"],
-    benefits: ["Rapid, drug-free pain relief", "Reduces muscle guarding and spasm", "Accelerates tissue healing", "Decreases inflammation and swelling", "Improves blood flow to injured area", "Prepares muscles for further therapy"]
-  },
-  needling: {
-    title: "Dry Needling",
-    sub: "Trigger Point Release & Myofascial Pain Relief",
-    icon: '<svg viewBox="0 0 24 24"><line x1="12" y1="2" x2="12" y2="22"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>',
-    tags: ["Trigger Points", "Myofascial Pain", "Muscle Knots", "Advanced Technique"],
-    what: "Dry needling is an advanced physiotherapy technique where thin, sterile acupuncture-type needles are inserted directly into trigger points (tight, painful knots) within muscles. Unlike acupuncture, dry needling is based on Western anatomical and neurophysiological principles.",
-    how: "Dr. Anvi identifies active trigger points through palpation during your assessment. Fine needles are inserted into these specific points, causing a local twitch response — a brief muscle contraction that releases the trigger point. Sessions typically last 20–30 minutes and may include 4–10 needles depending on the area.",
-    treats: ["Chronic neck and shoulder pain", "Lower back and gluteal muscle tightness", "Tennis and golfer's elbow", "IT band syndrome in runners", "Plantar fasciitis", "Headaches from trigger points in neck muscles"],
-    benefits: ["Immediate release of muscle knots", "Significant pain reduction", "Restored muscle length and function", "Improved blood flow to chronic areas", "Reduces referred pain patterns", "Complements and enhances other physio treatments"]
-  },
-  taping: {
-    title: "Kinesiology Taping",
-    sub: "Elastic Therapeutic Taping for Support & Pain Relief",
-    icon: '<svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>',
-    tags: ["Sports Injuries", "Swelling Reduction", "Posture Support", "Active Recovery"],
-    what: "Kinesiology taping uses a specially designed elastic cotton tape applied to the skin in specific patterns to support muscles and joints without restricting movement. The tape lifts the skin slightly, creating space for improved circulation and lymphatic drainage.",
-    how: "Dr. Anvi applies the tape in precise directions and tensions based on your specific condition — to facilitate or inhibit muscle function, offload painful structures, reduce swelling, or improve posture and body awareness. The tape is water-resistant and can be worn for 3–5 days.",
-    treats: ["Sports injuries — ankle sprains, knee pain", "Shoulder instability and rotator cuff issues", "Lymphoedema and post-surgical swelling", "Postural correction in neck and back", "Pregnancy-related back and pelvic pain", "Patellofemoral pain syndrome (runner's knee)"],
-    benefits: ["Provides support without limiting movement", "Reduces swelling and bruising faster", "Pain relief through skin stimulation", "Improves muscle activation and posture", "Can be worn during sports and daily activities", "Safe for all ages including children and pregnant women"]
-  },
-  aqua: {
-    title: "Aquatherapy",
-    sub: "Water-Based Rehabilitation & Aquafitness",
-    icon: '<svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10A15.3 15.3 0 0 1 12 2z"/></svg>',
-    tags: ["Pool Therapy", "Low-Impact", "Paediatric", "Neurological Rehab"],
-    what: "Aquatherapy (also called hydrotherapy) uses the physical properties of water — buoyancy, resistance, and warmth — to facilitate rehabilitation. Water reduces body weight by up to 90%, allowing patients to exercise and move with much less pain and joint stress than on land.",
-    how: "Sessions are conducted in a therapeutic pool under Dr. Anvi's direct supervision. Exercises are designed using water resistance for strengthening, buoyancy for support during movement, and hydrostatic pressure for swelling reduction. Specially designed aquatic equipment is used for children and neurological patients.",
-    treats: ["Cerebral palsy and developmental delay in children", "Stroke and neurological rehabilitation", "Severe arthritis with limited mobility", "Post-surgical rehabilitation", "Chronic pain conditions", "Balance and gait disorders in elderly patients"],
-    benefits: ["Reduces joint load — perfect for painful conditions", "Allows movement not possible on land", "Reduces muscle spasm through warmth", "Builds strength with minimal injury risk", "Highly motivating, especially for children", "Improves cardiovascular fitness simultaneously"]
-  },
-  cupping: {
-    title: "Dry & Ice Cupping",
-    sub: "Myofascial Decompression & Deep Tissue Relief",
-    icon: '<svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>',
-    tags: ["Myofascial Release", "Deep Tissue", "Back Pain", "Sports Recovery"],
-    what: "Cupping therapy uses specialised cups placed on the skin to create suction. Unlike traditional massage that compresses tissues, cupping uses negative pressure to lift and separate layers of fascia, muscle, and skin. Dry cupping uses air suction cups; ice cupping adds cold therapy for inflammation management.",
-    how: "Dr. Anvi places silicone or plastic cups on targeted areas, creating suction that lifts the tissue upward. Cups may be left stationary (static cupping) or moved across the skin (dynamic cupping) with a lubricant. Sessions last 15–20 minutes. The characteristic circular marks left on skin are normal and fade within 3–7 days.",
-    treats: ["Chronic back and neck muscle tightness", "IT band and hip flexor tightness in athletes", "Plantar fasciitis", "Respiratory conditions — chest cupping for decongestion", "Post-exercise muscle soreness", "Scar tissue and fascial adhesions"],
-    benefits: ["Releases deep fascial restrictions", "Significantly reduces muscle tension and pain", "Improves blood and lymphatic flow", "Breaks down adhesions and scar tissue", "Enhances athletic recovery", "Reduces inflammation when combined with ice cupping"]
-  },
-  posture: {
-    title: "Posture Correction & Ergonomics",
-    sub: "Workplace Health & Movement Re-Education",
-    icon: '<svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>',
-    tags: ["Corporate Health", "Work From Home", "Neck Pain", "Spinal Health"],
-    what: "Posture correction focuses on identifying and correcting abnormal movement patterns and postures that cause pain and dysfunction. Ergonomic assessment evaluates your workstation, sitting habits, and daily activities to reduce strain and prevent injury — particularly important for office workers and those working from home.",
-    how: "Dr. Anvi conducts a thorough postural assessment including spinal alignment, muscle imbalances, movement screening, and functional movement analysis. A corrective exercise program is prescribed targeting weak stabilising muscles and overactive tight muscles. For corporate clients, workstation ergonomic advice is provided.",
-    treats: ["Tech neck and forward head posture", "Rounded shoulders from desk work", "Lower back pain from prolonged sitting", "Upper back and thoracic stiffness", "Repetitive strain injuries in office workers", "Scoliosis and spinal curvature management"],
-    benefits: ["Eliminates the root cause of posture-related pain", "Prevents recurrence of work-related injuries", "Improves breathing and lung capacity", "Boosts confidence and appearance", "Reduces fatigue from poor posture", "Suitable for corporate wellness programmes"]
-  },
-  hep: {
-    title: "Home Exercise Programs",
-    sub: "Self-Management, Education & Long-Term Wellness",
-    icon: '<svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>',
-    tags: ["Self-Management", "Patient Education", "Home Rehab", "Independent Recovery"],
-    what: "A Home Exercise Program (HEP) is a personalised set of exercises prescribed by Dr. Anvi to be performed independently at home between clinic sessions. HEPs are a critical component of physiotherapy — recovery happens not just during sessions, but through consistent daily practice.",
-    how: "Dr. Anvi teaches each exercise with hands-on guidance, ensuring perfect technique before you leave the clinic. Exercises are progressed at regular intervals based on your improvement. Clear instructions, illustrations, and video demonstrations can be provided so you always know exactly what to do at home.",
-    treats: ["All musculoskeletal conditions requiring rehabilitation", "Post-surgical recovery maintenance", "Chronic pain self-management", "Neurological conditions requiring daily practice", "Sports injury recovery between sessions", "Elderly patients needing daily balance and strength maintenance"],
-    benefits: ["Accelerates recovery between clinic visits", "Builds strength and mobility continuously", "Prevents recurrence through ongoing conditioning", "Empowers patients to manage their own health", "Cost-effective — reduces number of clinic visits needed", "Promotes lifelong healthy movement habits"]
-  },
-  postop: {
-    title: "Post-Operative Rehabilitation",
-    sub: "Safe & Structured Recovery After Surgery",
-    icon: '<svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>',
-    tags: ["Surgery Recovery", "Orthopaedic", "Neurological", "Cardiac", "Step-by-Step Rehab"],
-    what: "Post-operative rehabilitation is a structured physiotherapy programme specifically designed to guide your recovery after surgery. The goal is to restore strength, mobility, and function safely, minimising complications like scar tissue, muscle atrophy, and joint stiffness.",
-    how: "Dr. Anvi works in close collaboration with your surgeon and medical team. Rehabilitation begins as early as 24–48 hours post-surgery and progresses through defined phases — from initial pain and swelling management, to mobility restoration, strength building, and finally return to full activity.",
-    treats: ["Knee replacement (TKR) and hip replacement (THR)", "ACL reconstruction and ligament repair", "Rotator cuff and shoulder surgery", "Spinal surgery — discectomy, fusion", "Cardiac and thoracic surgery recovery", "Fracture fixation and orthopaedic procedures"],
-    benefits: ["Prevents post-surgical complications", "Reduces scar tissue formation", "Restores strength and joint motion faster", "Safe, surgeon-guided progression", "Returns you to daily activities and sports confidently", "Reduces risk of re-injury after recovery"]
-  },
-  mfr: {
-    title: "Myofascial Release (MFR)",
-    sub: "Fascia & Deep Connective Tissue Therapy",
-    icon: '<svg viewBox="0 0 24 24"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>',
-    tags: ["Fascia", "Chronic Pain", "Fibromyalgia", "Deep Tissue"],
-    what: "Myofascial Release is a specialised manual therapy technique targeting the fascia — the thin, tough connective tissue that surrounds and interconnects every muscle, organ, and structure in your body. When fascia becomes tight or restricted due to injury, surgery, or inflammation, it can create widespread pain and movement restrictions.",
-    how: "Dr. Anvi applies sustained, gentle pressure into fascial restrictions using her hands, allowing the fascia to gradually release and elongate. Unlike regular massage, MFR is a slow, deliberate technique — pressure is held for 90 seconds to 5 minutes at each restriction point. Results are often felt immediately.",
-    treats: ["Fibromyalgia and widespread chronic pain", "Post-surgical scar tissue pain", "Neck, shoulder and back pain", "Temporomandibular joint (jaw) dysfunction", "Pelvic floor dysfunction", "Chronic fatigue and tension headaches"],
-    benefits: ["Releases deep restrictions that other techniques cannot reach", "Reduces chronic pain significantly", "Restores normal tissue elasticity and glide", "Improves posture and movement quality", "Reduces nerve compression and referred pain", "Long-lasting results with regular sessions"]
-  },
-  balance: {
-    title: "Balance & Gait Training",
-    sub: "Fall Prevention, Mobility & Walking Rehabilitation",
-    icon: '<svg viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>',
-    tags: ["Fall Prevention", "Elderly Care", "Neurological Rehab", "Gait Retraining"],
-    what: "Balance and gait training is a specialised physiotherapy program to improve stability, coordination, and walking ability. It is essential for elderly patients at risk of falls, individuals recovering from neurological conditions like stroke, and anyone experiencing dizziness, unsteadiness, or movement difficulties.",
-    how: "Dr. Anvi assesses your balance, coordination, proprioception (sense of body position), and walking pattern. A progressive program is designed starting with static balance exercises and advancing to dynamic movement challenges. Gait retraining focuses on correcting abnormal walking patterns using mirrors, feedback, and targeted exercises.",
-    treats: ["Elderly patients with fall risk", "Stroke and Parkinson's disease recovery", "Vestibular disorders causing dizziness", "Post-fracture rehabilitation", "Multiple sclerosis and neurological weakness", "Sports performance and agility training"],
-    benefits: ["Dramatically reduces fall risk in older adults", "Restores confident, independent walking", "Improves reaction time and coordination", "Strengthens ankle, knee, and hip stabilisers", "Enhances quality of life and independence", "Reduces fear of falling — critical for elderly wellbeing"]
-  }
-};
-
-function openTreatment(key) {
-  var t = TREATMENTS[key];
-  if (!t) return;
-  document.getElementById("tModalTitle").textContent = t.title;
-  document.getElementById("tModalSub").textContent = t.sub;
-  document.getElementById("tModalIcon").innerHTML = t.icon;
-
-  var tags = t.tags.map(function(tag){ return "<span class=\"t-modal-tag\">" + tag + "</span>"; }).join("");
-  var treats = t.treats.map(function(i){ return "<li>" + i + "</li>"; }).join("");
-  var benefits = t.benefits.map(function(i){ return "<li>" + i + "</li>"; }).join("");
-
-  document.getElementById("tModalBody").innerHTML =
-    "<div class=\"t-modal-tags\">" + tags + "</div>" + "<h3>What is " + t.title + "?</h3><p>" + t.what + "</p>" + "<h3>How does it work?</h3><p>" + t.how + "</p>" + "<h3>Conditions it treats</h3><ul>" + treats + "</ul>" + "<h3>Key benefits</h3><ul>" + benefits + "</ul>";
-
-  document.getElementById("tModalOverlay").classList.add("open");
-  document.body.style.overflow = "hidden";
-}
-
-function closeTreatment(e) {
-  if (e.target === document.getElementById("tModalOverlay")) closeTreatmentDirect();
-}
-function closeTreatmentDirect() {
-  document.getElementById("tModalOverlay").classList.remove("open");
-  document.body.style.overflow = "";
-}
-document.addEventListener("keydown", function(e){ if(e.key === "Escape") closeTreatmentDirect(); });
-</script>
-
-<script>
-var CONDITIONS = {"neck_back": {"title": "Neck & Back Pain", "sub": "Cervical & Lumbar Spine Conditions", "tags": ["Very Common", "Postural", "Acute & Chronic", "All Ages"], "what": "Neck and back pain are among the most common conditions treated at Anvi Wellness Studio. They range from acute injuries to chronic conditions built up over months from poor posture, prolonged sitting, or degenerative changes in the spine.", "causes": "Poor posture, prolonged sitting, screen time, muscle imbalances, lifting injuries, disc problems, stress and tension, sports injuries, and age-related spinal changes.", "treatment": "Dr. Anvi uses manual therapy, dry needling, exercise therapy, electrotherapy, and postural correction — always targeted at the root cause, not just the site of pain.", "symptoms": ["Pain in neck, upper back, mid back, or lower back", "Stiffness and reduced range of motion", "Pain radiating to arms (neck) or legs (back)", "Muscle spasm and tightness", "Headaches from the neck", "Pain worse with sitting, standing, or bending"], "outcomes": ["Significant pain reduction within sessions", "Restored movement and flexibility", "Prevention of recurrence through exercise", "Return to work, sport, and daily activities", "Improved posture and body awareness"]}, "knee": {"title": "Knee Pain & Arthritis", "sub": "Musculoskeletal Knee Conditions & Osteoarthritis", "tags": ["Common", "All Ages", "Sports & Elderly", "Post-Surgery"], "what": "Knee pain is one of the most frequent complaints in physiotherapy — from acute injuries (ligament tears, meniscus damage) to overuse conditions (runner's knee) and degenerative osteoarthritis. Early physiotherapy reduces pain and often avoids surgery.", "causes": "Sports injuries, repetitive strain, muscle weakness, previous injuries, age-related cartilage wear, and inflammatory arthritis.", "treatment": "Dr. Anvi assesses the entire lower limb chain — hip, knee, ankle, and foot — as weakness anywhere affects the knee. Treatment includes strengthening, manual therapy, taping, and electrotherapy.", "symptoms": ["Pain in front, sides, or back of knee", "Swelling and warmth around the joint", "Clicking, locking, or giving way", "Stiffness after sitting or waking", "Pain on stairs, squatting, or kneeling", "Reduced ability to walk or exercise"], "outcomes": ["Reduced pain and swelling", "Stronger muscles supporting the knee", "Delayed or avoided surgery", "Safe return to sport", "Improved walking and stair tolerance"]}, "frozen_shoulder": {"title": "Frozen Shoulder", "sub": "Adhesive Capsulitis — Stiffness & Severe Pain", "tags": ["Painful", "3 Stages", "Takes Time", "Treatable"], "what": "Frozen shoulder (adhesive capsulitis) causes severe pain and progressive loss of movement as the shoulder joint capsule thickens and tightens. It has three stages — freezing, frozen, and thawing — and without treatment can last 2–3 years.", "causes": "Often develops without a clear cause. More common with diabetes, thyroid conditions, or after shoulder immobilisation.", "treatment": "Manual therapy to gently stretch the capsule, electrotherapy for pain relief, targeted mobility exercises, and dry needling for muscle tightness.", "symptoms": ["Constant dull aching pain in the shoulder", "Severe pain at night", "Inability to raise arm above shoulder height", "Difficulty reaching behind the back", "Dramatic loss of shoulder rotation", "Pain when dressing or combing hair"], "outcomes": ["Faster recovery through all three stages", "Significant pain reduction", "Gradual restoration of full shoulder movement", "Return to daily activities", "Surgery avoided in most cases"]}, "sports": {"title": "Sports Injuries", "sub": "Acute & Chronic Sports-Related Injuries", "tags": ["Athletes", "All Sports", "Return to Sport", "Evidence-Based"], "what": "Sports injuries range from acute traumatic events (sprains, muscle tears) to overuse conditions (tendinitis, IT band syndrome). Physiotherapy is essential for complete recovery and safe return to sport.", "causes": "Inadequate warm-up, overtraining, muscle imbalances, incorrect technique, contact injuries, and returning too soon from a previous injury.", "treatment": "Evidence-based rehabilitation — acute management, progressive loading, sport-specific training, and tested return-to-sport criteria before going back.", "symptoms": ["Acute pain at time of injury", "Swelling, bruising, and tenderness", "Inability to bear weight or use the limb", "Pain with specific movements", "Chronic nagging pain that won't fully resolve", "Reduced sports performance"], "outcomes": ["Full recovery from injury", "Return to sport faster and safer", "Stronger than before", "Sport-specific performance improvement", "Confidence to play without fear of re-injury"]}, "ligament": {"title": "Ligament Injuries", "sub": "Sprains, Tears & Ligament Rehabilitation", "tags": ["Grades 1-3", "Ankle", "Knee ACL", "Shoulder"], "what": "Ligament injuries (sprains) range from mild overstretching (Grade 1) to complete tears (Grade 3). Common injuries include ankle sprains, ACL tears, and shoulder ligament injuries. Structured physiotherapy prevents long-term instability.", "causes": "Sudden twisting, falls, contact sports, incorrect landing from a jump. Previous sprains significantly increase re-injury risk.", "treatment": "Progressive rehabilitation from initial swelling management through joint stability training to full sport-specific rehabilitation.", "symptoms": ["Immediate sharp pain at injury", "Rapid swelling and bruising", "Feeling of instability or giving way", "Tenderness over the ligament", "Difficulty bearing weight", "Reduced range of motion"], "outcomes": ["Complete ligament healing", "Restored joint stability", "Prevention of re-injury", "Avoidance of surgery for most Grade 1 and 2 tears", "Safe return to sport"]}, "strains": {"title": "Muscle Strains & Sprains", "sub": "Acute Muscle Tears & Soft Tissue Injuries", "tags": ["Acute", "Graded Recovery", "All Muscles", "Sports & Daily Life"], "what": "Muscle strains occur when fibres are overstretched or torn during sudden, forceful movements. Commonly affect hamstrings, quadriceps, calf, back muscles, and groin. Structured physiotherapy ensures complete healing and prevents recurrence.", "causes": "Sudden explosive movements, inadequate warm-up, muscle fatigue, overtraining, poor flexibility, and returning to activity too early.", "treatment": "Three-phase rehabilitation: acute pain and swelling management, progressive tissue loading, and return to full function with sport-specific training.", "symptoms": ["Sudden sharp pain during activity", "Muscle spasm and tightness", "Swelling and bruising", "Tenderness on palpation", "Weakness in affected muscle", "Pain with stretching or contraction"], "outcomes": ["Complete muscle healing", "Full strength and flexibility restored", "Return to activity without re-injury", "Improved conditioning for prevention", "Clear return-to-sport criteria"]}, "postop_cond": {"title": "Post-Operative Rehabilitation", "sub": "Recovery After Surgery — All Types", "tags": ["Surgery Recovery", "Phased Rehab", "Multidisciplinary", "All Surgery"], "what": "Post-operative physiotherapy starting within 24–48 hours of surgery significantly improves outcomes, reduces complications, and shortens recovery time for all types of surgery.", "causes": "Required after joint replacements, ligament reconstructions, spinal surgery, fracture fixation, cardiac surgery, and procedures affecting movement or function.", "treatment": "Phased rehabilitation working with your surgical team — from early mobilisation through strength building to full return to activity.", "symptoms": ["Pain, swelling, and limited movement post-surgery", "Muscle weakness and atrophy", "Scar tissue tightness", "Difficulty with walking, stairs, or self-care", "Stiffness in operated joint"], "outcomes": ["Safe staged return to full function", "Reduced surgical complications", "Stronger muscles protecting the repair", "Improved scar tissue mobility", "Confident return to daily activities and sport"]}, "posture_cond": {"title": "Postural Dysfunction", "sub": "Poor Posture, Imbalances & Work-Related Pain", "tags": ["Office Workers", "Tech Neck", "Correctable", "Prevention"], "what": "Postural dysfunction — abnormal alignment of the head, shoulders, spine, and hips — places excessive stress on joints, muscles, and nerves. In today's screen-heavy world it is the leading cause of neck pain, back pain, and headaches.", "causes": "Prolonged sitting, computer work, phone use, weak core muscles, muscle imbalances, improper workstation setup, and habitual poor posture.", "treatment": "Full postural assessment, targeted corrective exercises, manual therapy, and ergonomic workstation advice.", "symptoms": ["Forward head posture", "Rounded shoulders and hunched back", "Chronic neck or back pain", "Headaches and muscle tension", "Fatigue from poor alignment", "Discomfort after desk work"], "outcomes": ["Corrected posture and alignment", "Significant reduction in pain", "Improved confidence and appearance", "Better breathing and energy", "Long-term management through exercises"]}, "sciatica": {"title": "Sciatica", "sub": "Sciatic Nerve Pain from Lower Back to Leg", "tags": ["Nerve Pain", "Common", "Treatable", "Lower Back & Leg"], "what": "Sciatica describes pain travelling along the sciatic nerve — from the lower back through the buttock and down the leg. It is caused by compression or irritation of the nerve, most commonly from a herniated disc or tight piriformis muscle.", "causes": "Disc herniation, spinal stenosis, piriformis syndrome, spondylolisthesis, prolonged sitting, and pregnancy.", "treatment": "Neural mobilisation exercises, manual therapy, targeted core strengthening, postural correction, and electrotherapy for acute nerve pain.", "symptoms": ["Sharp, burning, or shooting pain from back into leg", "Tingling or pins and needles", "Numbness in leg, calf, or foot", "Pain worse with sitting, sneezing, or bending", "Leg or foot weakness", "Usually one-sided pain"], "outcomes": ["Resolution of leg pain and nerve symptoms", "Restored disc health through exercise", "Recurrence prevented through core strengthening", "Return to sitting, driving, and daily activities", "Surgery avoided in most cases"]}, "slip_disc": {"title": "Slip Disc & Cervical Spondylosis", "sub": "Disc Herniation & Degenerative Spine Conditions", "tags": ["Spine", "Disc", "Degenerative", "Neck & Back"], "what": "A slip disc (disc herniation) occurs when the soft inner disc material pushes through the outer ring, pressing on nerves. Cervical spondylosis is age-related neck spine wear causing stiffness, pain, and sometimes nerve compression.", "causes": "Age-related degeneration, poor posture, heavy lifting, prolonged sitting, repetitive bending, and genetic factors.", "treatment": "McKenzie directional exercises, manual therapy, traction, electrotherapy, and progressive core stabilisation to reduce disc pressure.", "symptoms": ["Neck or back pain radiating to arm or leg", "Stiffness and reduced mobility", "Nerve pain, tingling, or numbness", "Pain worse in the morning", "Headaches from cervical spondylosis", "Arm or leg weakness in severe cases"], "outcomes": ["Disc-related pain and nerve symptoms reduced", "Improved spinal mobility and strength", "Surgery avoided with conservative management", "Long-term spinal health through exercise", "Education on posture and safe lifting"]}, "falls": {"title": "Fall Prevention (Elderly)", "sub": "Balance, Stability & Independence for Older Adults", "tags": ["Elderly", "Falls", "Independence", "Vital"], "what": "Falls are the leading cause of injury and loss of independence in older adults. Physiotherapy-based fall prevention dramatically reduces fall risk by addressing muscle weakness, poor balance, and gait problems.", "causes": "Muscle weakness, reduced balance and coordination, joint pain, dizziness from medications, previous falls, and reduced vision.", "treatment": "Personalised programme of balance training, leg strengthening, gait retraining, and home safety advice.", "symptoms": ["Unsteadiness when walking", "Difficulty on stairs or uneven ground", "History of falls or near-misses", "Fear of falling limiting activities", "Reduced walking speed and confidence", "Dizziness on movement"], "outcomes": ["Dramatically reduced fall risk", "Stronger legs and better balance", "Improved walking confidence", "Greater independence in daily life", "Reduced fear of falling", "Better quality of life"]}, "ergonomics": {"title": "Corporate Ergonomics", "sub": "Workplace Assessment & Injury Prevention", "tags": ["Office Workers", "Work From Home", "Corporate", "Prevention"], "what": "Corporate ergonomics optimises the interaction between workers and their work environment to prevent injury. Poor ergonomics is a major cause of neck pain, back pain, and repetitive strain injuries — especially in today's work-from-home environment.", "causes": "Incorrect chair or monitor height, poor keyboard position, prolonged static posture, insufficient movement breaks, and laptop use without proper setup.", "treatment": "Workstation assessment (in-person or virtual), corrective exercise prescription, postural re-education, and practical ergonomic recommendations.", "symptoms": ["Neck pain and headaches after screen use", "Shoulder and upper back tightness", "Wrist pain or tingling (carpal tunnel)", "Lower back pain from prolonged sitting", "Eye strain and fatigue", "General muscle tension"], "outcomes": ["Eliminated work-related pain", "Correct workstation setup", "Improved posture at work", "Increased productivity and fewer sick days", "Corporate wellness programme support"]}, "stroke": {"title": "Stroke Rehabilitation", "sub": "Restoring Movement, Function & Independence", "tags": ["Neurological", "Intensive", "Neuroplasticity", "All Stages"], "what": "Stroke physiotherapy harnesses the brain's ability to rewire itself (neuroplasticity) — greatest in the months following stroke. Early, intensive physiotherapy produces the best functional recovery outcomes.", "causes": "Ischaemic stroke (blood clot) or haemorrhagic stroke (bleeding). Risk factors include high blood pressure, diabetes, atrial fibrillation, and smoking.", "treatment": "Task-specific training, strength and balance exercises, gait retraining, and neurodevelopmental techniques. Early intervention is critical.", "symptoms": ["Weakness or paralysis on one side of the body", "Difficulty walking and maintaining balance", "Reduced coordination and fine motor control", "Muscle stiffness (spasticity)", "Poor sitting and standing balance", "Difficulty with daily tasks"], "outcomes": ["Significant recovery of movement and function", "Improved walking ability and balance", "Greater independence in daily activities", "Reduced spasticity", "Maximised neurological recovery"]}, "parkinsons": {"title": "Parkinson's Disease", "sub": "Managing Symptoms & Maintaining Mobility", "tags": ["Neurological", "Progressive", "Quality of Life", "Specialist"], "what": "While there is no cure for Parkinson's disease, physiotherapy significantly slows symptom progression and maintains function and independence for much longer through specialised movement techniques.", "causes": "Progressive loss of dopamine-producing brain cells. Combination of genetic and environmental factors.", "treatment": "LSVT BIG movement training, gait training with visual and auditory cues, balance exercises, and strategies to manage freezing episodes.", "symptoms": ["Resting tremor in hands or legs", "Muscle stiffness and rigidity", "Slow, shuffling gait", "Stooped posture", "Balance problems and falls", "Difficulty starting movement (freezing)"], "outcomes": ["Maintained mobility for longer", "Improved gait speed and stride", "Better balance and reduced falls", "Maintained daily independence", "Improved quality of life"]}, "bells": {"title": "Bell's Palsy", "sub": "Facial Nerve Palsy — Full Recovery Possible", "tags": ["Facial Nerve", "Usually Temporary", "Early Treatment", "Recovery"], "what": "Bell's palsy causes sudden weakness or paralysis of one side of the face from facial nerve inflammation. Most people recover fully — especially with early physiotherapy treatment.", "causes": "Viral infection (often herpes simplex), inflammation of the facial nerve, and immune response.", "treatment": "Facial exercises to maintain muscle tone, electrical stimulation to prevent atrophy, massage for circulation, and eye protection advice.", "symptoms": ["Sudden weakness on one side of the face", "Difficulty closing the eye", "Drooping corner of the mouth", "Altered taste", "Sensitivity to sound", "Pain behind the ear before weakness"], "outcomes": ["Full or near-complete facial recovery", "Prevention of muscle atrophy", "Faster recovery with early treatment", "Reduced abnormal linked movements", "Eye protection managed safely"]}, "ms": {"title": "Multiple Sclerosis", "sub": "Maintaining Function & Managing Symptoms", "tags": ["Neurological", "Chronic", "Fatigue", "Specialist Care"], "what": "Physiotherapy for MS focuses on managing specific symptoms to maintain function and quality of life as long as possible, despite the progressive nature of the condition.", "causes": "Autoimmune condition attacking the myelin sheath of nerve fibres. Combination of genetic and environmental factors.", "treatment": "Fatigue management strategies, strengthening, balance training, spasticity management, and activity pacing tailored to energy levels.", "symptoms": ["Fatigue (most debilitating symptom)", "Weakness in legs and arms", "Balance and coordination problems", "Muscle spasticity", "Bladder difficulties", "Cognitive changes"], "outcomes": ["Better fatigue and energy management", "Improved strength and mobility", "Reduced fall risk", "Maintained independence longer", "Strategies for managing relapses"]}, "balance_cond": {"title": "Balance & Coordination Disorders", "sub": "Vestibular, Neurological & Age-Related Balance Problems", "tags": ["Dizziness", "Vertigo", "BPPV", "Fall Risk"], "what": "Balance disorders from inner ear (vestibular), neurological, or musculoskeletal causes produce dizziness, unsteadiness, and increased fall risk — severely limiting confidence and independence.", "causes": "BPPV, vestibular neuritis, labyrinthitis, Meniere's disease, neurological conditions, muscle weakness, and certain medications.", "treatment": "Vestibular rehabilitation, Epley manoeuvre for BPPV, balance training on various surfaces, and gaze stabilisation exercises.", "symptoms": ["Dizziness or spinning sensation (vertigo)", "Unsteadiness when walking", "Tendency to veer to one side", "Nausea from head movements", "Difficulty focusing during movement", "Falls or near-falls"], "outcomes": ["BPPV vertigo resolved in 1–3 sessions", "Significantly improved balance", "Reduced dizziness and nausea", "Improved gait safety", "Restored confidence in daily activities"]}, "neuro_weakness": {"title": "Neurological Weakness", "sub": "Muscle Weakness from Neurological Conditions", "tags": ["Upper & Lower Motor Neuron", "Functional", "Strength", "Independence"], "what": "Neurological weakness from damage to the nervous system impairs muscle control and ranges from mild weakness to complete paralysis depending on the extent and location of damage.", "causes": "Stroke, traumatic brain injury, spinal cord injury, peripheral nerve damage, and Guillain-Barré syndrome.", "treatment": "Progressive resistance training, neuromuscular re-education, functional electrical stimulation, and task-specific practice to maximise recovery.", "symptoms": ["Reduced ability to move affected limbs", "Difficulty with fine motor tasks", "Abnormal muscle tone", "Fatigue with minimal exertion", "Difficulty with daily tasks", "Compensatory movement patterns"], "outcomes": ["Maximised neurological recovery", "Improved strength and function", "Better daily task performance", "Reduced compensatory strain", "Greater independence"]}, "functional": {"title": "Functional Mobility", "sub": "Restoring Safe, Independent Movement", "tags": ["Daily Living", "Independence", "Elderly", "Post-Illness"], "what": "Functional mobility — the ability to move safely through daily activities including bed transfers, standing, walking, and stairs — is the foundation of independence. When impaired, structured physiotherapy restores it.", "causes": "Neurological conditions, post-surgical deconditioning, prolonged bed rest, elderly weakness, joint pain, and chronic illness.", "treatment": "Task-specific training targeting exactly the activities you struggle with, combined with strength, balance, and flexibility training.", "symptoms": ["Difficulty getting up from chairs or bed", "Slow or unsafe walking", "Dependence on others for daily activities", "Fatigue during routine tasks", "Fear of falling during movement"], "outcomes": ["Regained daily independence", "Safe mobility at home and in the community", "Reduced caregiver burden", "Improved quality of life", "Maintained independence longer"]}, "gait": {"title": "Gait Rehabilitation", "sub": "Walking Pattern Analysis & Retraining", "tags": ["Walking", "Neurological", "Post-Injury", "Gait Analysis"], "what": "Abnormal walking patterns from injury, neurological conditions, or pain cause secondary problems in hips, knees, and back if uncorrected. Gait rehabilitation restores normal, efficient, pain-free walking.", "causes": "Stroke, Parkinson's, hip or knee pain, leg length discrepancy, post-surgical changes, and compensatory habits.", "treatment": "Detailed gait analysis, targeted corrective exercises, mirror feedback, treadmill retraining, and progressive movement challenges.", "symptoms": ["Limping or asymmetric walking", "Shuffling, toe-dragging, or high-stepping", "Compensatory trunk lean", "Reduced walking speed and endurance", "Fear of tripping", "Pain during walking"], "outcomes": ["Corrected, symmetrical gait", "Improved speed and endurance", "Reduced pain during walking", "Enhanced safety and confidence", "Prevention of secondary joint problems"]}, "cardiac": {"title": "Post-Cardiac Surgery Recovery", "sub": "Safe Return to Function After Heart Surgery", "tags": ["Cardiac", "Post-Surgery", "Breathing", "Gradual"], "what": "Physiotherapy after cardiac surgery (bypass, valve replacement) addresses breathing function, surgical site healing, and safe gradual return to activity — essential for a complete and safe recovery.", "causes": "Coronary artery disease, heart valve disease, and other cardiac conditions requiring surgery.", "treatment": "Early mobilisation, deep breathing and airway clearance, progressive walking programmes, scar management, and safe return-to-activity guidance.", "symptoms": ["Breathlessness with minimal exertion", "Weakness and fatigue", "Chest and shoulder stiffness from sternotomy", "Anxiety about resuming activity", "Reduced functional capacity"], "outcomes": ["Safe staged return to full activity", "Improved breathing function", "Better exercise tolerance", "Reduced complications", "Confidence to resume normal life"]}, "cardiac_rehab": {"title": "Cardiac Rehabilitation", "sub": "Long-Term Heart Health & Exercise Programme", "tags": ["Heart Disease", "Exercise", "Prevention", "Lifestyle"], "what": "Cardiac rehabilitation is a medically supervised programme of exercise and education to help people recover from and prevent recurrence of cardiac events including heart attacks, heart failure, and cardiac surgery.", "causes": "Heart attack, heart failure, angina, cardiac surgery, and significant cardiac events requiring structured recovery.", "treatment": "Progressive, individually monitored exercise programme — aerobic conditioning, strength training, breathing exercises, and safe exertion education.", "symptoms": ["Reduced exercise capacity after cardiac event", "Breathlessness on exertion", "Fatigue and weakness", "Anxiety about exercise after cardiac event", "Poor cardiovascular fitness"], "outcomes": ["Significantly improved heart health and fitness", "Reduced risk of future cardiac events", "Increased energy levels", "Improved quality of life", "Confidence to exercise safely"]}, "respiratory": {"title": "Respiratory Rehabilitation", "sub": "Breathing Function & Lung Capacity", "tags": ["Breathing", "COPD", "Post-COVID", "Chest Physio"], "what": "Respiratory physiotherapy improves breathing efficiency, clears airway secretions, and builds exercise tolerance in people with chronic or acute lung conditions — vital for COPD, asthma, post-COVID breathlessness, and post-surgical chest recovery.", "causes": "COPD, asthma, post-COVID-19 breathlessness, bronchiectasis, post-thoracic surgery, and acute respiratory infections.", "treatment": "Breathing exercises, airway clearance techniques, inspiratory muscle training, and graded exercise to build tolerance.", "symptoms": ["Persistent breathlessness at rest or on exertion", "Chronic cough with or without phlegm", "Reduced ability to exercise or walk", "Chest tightness and wheezing", "Frequent respiratory infections", "Fatigue from the effort of breathing"], "outcomes": ["Improved breathing efficiency", "Better lung capacity", "Reduced breathlessness in daily life", "Improved exercise tolerance", "Better management of respiratory condition"]}, "breathing": {"title": "Breathing Exercises", "sub": "Diaphragmatic Training & Breath Control", "tags": ["Breathing Pattern", "Anxiety", "Post-COVID", "Rehabilitation"], "what": "Therapeutic breathing exercises address dysfunctional breathing patterns — too fast, too shallow, or using the wrong muscles. Poor breathing worsens pain, anxiety, and fatigue. Targeted therapy restores efficient breathing.", "causes": "Anxiety, stress, post-COVID, chronic pain, respiratory conditions, poor posture, and post-surgical restriction.", "treatment": "Diaphragmatic breathing, paced breathing, pursed lip breathing, inspiratory muscle training, and relaxation techniques integrated into daily activities.", "symptoms": ["Breathlessness without much exertion", "Upper chest breathing with raised shoulders", "Frequent sighing or yawning", "Dizziness or light-headedness", "Tight chest without cardiac cause", "Anxiety worsened by breathlessness"], "outcomes": ["Restored normal breathing pattern", "Reduced breathlessness and anxiety", "Improved oxygen efficiency", "Better exercise tolerance", "Reduced chest tightness and tension"]}, "deconditioning": {"title": "Post-Hospitalisation Deconditioning", "sub": "Rebuilding Strength & Stamina After Illness", "tags": ["Recovery", "Weakness", "Fatigue", "All Ages"], "what": "After prolonged illness or hospital stay, the body deconditions rapidly — losing muscle strength, cardiovascular fitness, and functional ability. Even 1–2 weeks of bed rest causes significant muscle loss. Physiotherapy safely rebuilds strength and stamina.", "causes": "Prolonged bed rest, severe illness, COVID-19 recovery, post-surgical recovery, ICU stays, and extended inactivity.", "treatment": "Gentle active exercises progressing to standing, walking, and functional activities. Energy management strategies prevent post-exertional fatigue.", "symptoms": ["Extreme weakness and fatigue", "Difficulty standing or walking after bed rest", "Breathlessness with minimal activity", "Muscle wasting especially in legs", "Dizziness when standing", "Loss of movement confidence"], "outcomes": ["Progressive rebuilding of strength and endurance", "Return to pre-illness function", "Improved energy management", "Safe return to daily activities", "Prevention of further decline"]}, "copd": {"title": "COPD & Lung Conditions", "sub": "Chronic Obstructive Pulmonary Disease Management", "tags": ["Chronic", "Breathlessness", "Exercise", "Lifestyle"], "what": "Physiotherapy is a cornerstone of COPD management — it cannot reverse the condition but significantly improves quality of life, exercise tolerance, and reduces hospital admissions through pulmonary rehabilitation.", "causes": "Long-term smoking is the leading cause. Also prolonged exposure to air pollutants, dust, chemical fumes, and genetic factors.", "treatment": "Pulmonary rehabilitation: airway clearance, breathing exercises, graded exercise training, energy conservation, and exacerbation management education.", "symptoms": ["Persistent breathlessness on exertion", "Chronic cough often with phlegm", "Frequent chest infections", "Wheeze and chest tightness", "Reduced exercise ability", "Fatigue and poor quality of life"], "outcomes": ["Improved exercise tolerance", "Better breathlessness management", "Reduced hospital admissions", "Improved quality of life", "Greater daily independence"]}, "endurance": {"title": "Functional Endurance Training", "sub": "Building Stamina for Daily Life", "tags": ["Energy", "Fatigue", "Cardiac", "Respiratory", "Post-Illness"], "what": "Functional endurance training builds the cardiovascular and muscular stamina needed for daily activities — essential for patients recovering from serious illness, cardiac or respiratory conditions, or prolonged deconditioning.", "causes": "Post-COVID fatigue, cardiac conditions, respiratory disease, post-surgical deconditioning, and chronic fatigue syndrome.", "treatment": "Progressive, individually monitored exercise building duration and intensity gradually using heart rate and perceived exertion as safe guides.", "symptoms": ["Fatigue with minimal physical activity", "Breathlessness during routine tasks", "Poor stamina limiting daily life", "Rapid muscle fatigue on exertion", "Limited walking distances", "Difficulty climbing stairs"], "outcomes": ["Improved cardiovascular fitness", "Better daily activity tolerance", "Reduced fatigue", "Improved quality of life", "Confident return to work and community"]}, "energy": {"title": "Energy Conservation Techniques", "sub": "Managing Fatigue in Chronic Conditions", "tags": ["Fatigue", "Post-COVID", "MS", "Chronic Illness", "Practical"], "what": "Energy conservation techniques help people with chronic fatigue manage their limited energy more efficiently — maximising daily activity without causing post-exertional fatigue or worsening symptoms.", "causes": "Multiple sclerosis, post-COVID long COVID, chronic fatigue syndrome, Parkinson's, cardiac and COPD conditions causing persistent limiting fatigue.", "treatment": "Education on activity pacing (the 3 Ps: prioritise, plan, pace), rest-activity balance, work simplification, and fatigue diary use.", "symptoms": ["Fatigue disproportionate to activity", "Post-exertional malaise — worsening after activity", "Boom-bust activity cycles", "Inability to maintain consistent activity", "Brain fog alongside physical fatigue", "Significant impact on work and daily life"], "outcomes": ["Better energy management throughout the day", "Reduced boom-bust cycles", "More consistent daily activity", "Improved quality of life", "Strategies for managing flares and bad days"]}, "dev_delay": {"title": "Developmental Delay", "sub": "Supporting Children to Reach Their Milestones", "tags": ["Paediatric", "Motor Skills", "Early Intervention", "Play-Based"], "what": "Developmental delay occurs when a child does not reach expected physical milestones at typical ages. Early physiotherapy intervention produces the best outcomes as the nervous system is most adaptable in early childhood.", "causes": "Premature birth, genetic conditions (Down syndrome), neurological conditions, low muscle tone, and environmental factors.", "treatment": "Play-based therapy targeting specific missing motor skills. Parents are fully involved and trained to continue activities at home between sessions.", "symptoms": ["Not sitting unsupported by 9 months", "Not crawling by 12 months", "Not walking by 18 months", "Low muscle tone (floppy baby)", "Poor coordination compared to peers", "Unusual movement patterns or postures"], "outcomes": ["Achievement of motor milestones", "Improved muscle tone and strength", "Better coordination and movement quality", "Confident movement and play participation", "Parent empowerment with home strategies"]}, "cp": {"title": "Cerebral Palsy", "sub": "Lifelong Support for Function & Quality of Life", "tags": ["Paediatric", "Lifelong", "Function", "Independence"], "what": "Cerebral palsy (CP) is the most common childhood physical disability. While CP itself doesn't change, the child's function can be significantly improved with ongoing physiotherapy focused on meaningful goals.", "causes": "Brain damage before, during, or shortly after birth — from prematurity, oxygen deprivation, infection, or bleeding in the brain.", "treatment": "Goal-directed therapy, NDT (neurodevelopmental treatment), strength training, gait training, spasticity management, and aquatherapy.", "symptoms": ["Delayed motor milestones", "Abnormal muscle tone (spasticity or low tone)", "Difficulty with coordination and balance", "Abnormal walking patterns", "Challenges with daily activities", "Stiff or tight muscles"], "outcomes": ["Improved functional movement", "Better strength, balance, and coordination", "Maintained or improved walking ability", "Reduced impact of spasticity", "Enhanced school and social participation"]}, "paeds_posture": {"title": "Postural Disorders (Children)", "sub": "Scoliosis, Kyphosis & Childhood Posture Problems", "tags": ["Scoliosis", "Flat Feet", "Children", "Preventive"], "what": "Children develop postural problems including scoliosis, kyphosis, and flat feet. Early physiotherapy is very effective in preventing these from causing pain and functional problems in later life.", "causes": "Growth spurts, heavy schoolbags, prolonged sitting, excessive screen time, hypermobility, muscle imbalances, and genetic factors for scoliosis.", "treatment": "Spinal assessment, corrective exercises, spinal mobilisation, and postural education. Scoliosis-specific exercises using SEAS or Schroth method principles.", "symptoms": ["Visible spine curvature", "Rounded upper back", "One shoulder higher than the other", "Flat feet causing knee or back pain", "Back pain complaints in children", "Postural asymmetry"], "outcomes": ["Reduced spinal curvature progression", "Improved posture and alignment", "Reduced pain", "Prevention of adult complications", "Child and parent empowered with home exercises"]}, "coordination": {"title": "Coordination Difficulties", "sub": "DCD/Dyspraxia — Motor Planning in Children", "tags": ["DCD", "Dyspraxia", "School Age", "Motor Skills"], "what": "Developmental Coordination Disorder (DCD/dyspraxia) affects a child's ability to plan and perform coordinated movements — appearing clumsy, struggling with sport, and having difficulties at school with writing and physical education.", "causes": "Neurological differences in motor planning areas of the brain. More common in boys and children born prematurely.", "treatment": "Task-specific practice, balance and proprioception training, and strengthening in a fun, supportive environment with school participation goals central to treatment.", "symptoms": ["Clumsiness and frequent falling", "Difficulty learning physical skills", "Avoidance of physical games", "Poor balance", "Difficulty with bike riding or ball sports", "Fatigue from extra movement effort"], "outcomes": ["Improved motor skill acquisition", "Better coordination and balance", "Increased confidence in physical activity", "Greater school sport participation", "Reduced frustration and improved self-esteem"]}, "balance_paeds": {"title": "Balance Problems (Children)", "sub": "Vestibular & Developmental Balance Difficulties", "tags": ["Paediatric", "Vestibular", "Coordination", "School Age"], "what": "Balance problems in children from inner ear dysfunction, neurological conditions, or developmental factors cause frequent falls, reluctance in physical activities, and can affect school performance and social participation.", "causes": "Vestibular disorders, neurological conditions, hypermobility, DCD, post-viral inner ear changes, and cerebellar dysfunction.", "treatment": "Vestibular rehabilitation, progressive balance challenges on different surfaces, gaze stabilisation, and proprioception training in a child-friendly, play-based setting.", "symptoms": ["Frequent unexplained falls", "Fear of heights or movement", "Poor single-leg balance", "Motion sickness", "Avoidance of playground equipment", "Difficulty with balance sports"], "outcomes": ["Improved static and dynamic balance", "Reduced falls and injuries", "Increased confidence in physical activities", "Better playground and sports participation", "Resolution of vestibular symptoms"]}, "paeds_msk": {"title": "Paediatric Musculoskeletal Conditions", "sub": "Childhood Joint, Bone & Muscle Problems", "tags": ["Paediatric", "Growing Pains", "Sports", "Joints"], "what": "Children's musculoskeletal system is still developing and susceptible to specific conditions including growing pains, Osgood-Schlatter disease (knee pain in growing adolescents), scoliosis, and sports injuries.", "causes": "Rapid growth phases, sports overuse, hypermobility, postural factors, and genetic predispositions.", "treatment": "Age-appropriate assessment and treatment with parents involved in home exercise programme. Adapted to the child's developmental stage.", "symptoms": ["Knee, hip, or heel pain in growing children", "Pain after physical activity", "Joint hypermobility causing pain", "Swelling around growing bone areas", "Limping or gait changes", "Pain interrupting sleep (growing pains)"], "outcomes": ["Resolution of pain and discomfort", "Safe return to sport", "Prevention of complications", "Education for child and parents", "Healthy musculoskeletal development"]}, "movement": {"title": "Movement Disorders", "sub": "Neurological & Paediatric Movement Problems", "tags": ["Neurological", "Paediatric", "Involuntary Movements", "Function"], "what": "Movement disorders include conditions with abnormal, involuntary, or reduced voluntary movements — in children (dystonia, ataxia, tics) and adults (Parkinson's, Huntington's). Physiotherapy maximises functional movement despite neurological changes.", "causes": "Neurological conditions, genetic factors, brain injury, medications, and metabolic conditions affecting the nervous system.", "treatment": "Functional movement training, compensatory strategies, relaxation techniques, and strength and coordination exercises tailored to the specific movement disorder.", "symptoms": ["Involuntary movements — tremor, tics, or jerks", "Slow or reduced movement", "Difficulty with precise coordinated movements", "Abnormal posture and muscle tone", "Fatigue from effortful movement", "Impact on daily activities and participation"], "outcomes": ["Improved functional movement", "Better daily activity participation", "Reduced impact of abnormal movements", "Coping strategies for family", "Maintained ability as long as possible"]}, "gross_motor": {"title": "Gross Motor Delay", "sub": "Supporting Large Muscle Development in Children", "tags": ["Paediatric", "Early Intervention", "Milestones", "Play-Based"], "what": "Gross motor delay means a child is significantly behind peers in large muscle movement skills — rolling, sitting, crawling, standing, walking. Early physiotherapy is critical as the nervous system is most adaptable in the first years of life.", "causes": "Premature birth, low muscle tone, neurological conditions, genetic syndromes, environmental deprivation.", "treatment": "Play-based, child-led therapy targeting specific missing motor skills. Built systematically from foundational skills. Parents trained as therapy partners.", "symptoms": ["Not meeting gross motor milestones", "Low muscle tone (floppy baby)", "Preferring to be carried", "Unusual movement patterns", "Delayed independent walking beyond 18 months", "Difficulty with running, jumping, or stairs"], "outcomes": ["Achievement of gross motor milestones", "Improved muscle tone and core stability", "Better movement quality", "Confident, independent mobility", "Family empowered with home programme"]}};
-
-
-function openCondition(key) {
-  var c = CONDITIONS[key];
-  if (!c) return;
-  document.getElementById("tModalTitle").textContent = c.title;
-  document.getElementById("tModalSub").textContent = c.sub;
-  document.getElementById("tModalIcon").innerHTML = '<svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>';
-
-  var tags = c.tags.map(function(t){ return '<span class="t-modal-tag">'+t+'</span>'; }).join('');
-  var symptoms = c.symptoms.map(function(s){ return '<li>'+s+'</li>'; }).join('');
-  var outcomes = c.outcomes.map(function(o){ return '<li>'+o+'</li>'; }).join('');
-
-  document.getElementById("tModalBody").innerHTML =
-    '<div class="t-modal-tags">'+tags+'</div>' +
-    '<h3>What is it?</h3><p>'+c.what+'</p>' +
-    '<h3>Common causes</h3><p>'+c.causes+'</p>' +
-    '<h3>How Dr. Anvi treats it</h3><p>'+c.treatment+'</p>' +
-    '<h3>Signs & symptoms</h3><ul>'+symptoms+'</ul>' +
-    '<h3>Expected outcomes</h3><ul>'+outcomes+'</ul>';
-
-  document.getElementById("tModalOverlay").classList.add("open");
-  document.body.style.overflow = "hidden";
-}
-
+  window.submitEnquiry = function() {
+    var name    = document.querySelector(".contact-form input[type=text]").value.trim();
+    var phone   = document.querySelector(".contact-form input[type=tel]").value.trim();
+    var email   = document.querySelector(".contact-form input[type=email]").value.trim();
+    var selects = document.querySelectorAll(".contact-form select");
+    var type    = selects[0] ? selects[0].value : "";
+    var service = selects[1] ? selects[1].value : "";
+    var message = document.querySelector(".contact-form textarea").value.trim();
+    if (!name)  { alert("Please enter your name."); return; }
+    if (!phone) { alert("Please enter your phone number."); return; }
+    var btn = document.querySelector(".contact-form .btn-primary");
+    btn.disabled = true; btn.textContent = "Sending...";
+    var data = { action:"addEnquiry", id:Date.now().toString(), name:name, phone:phone, email:email, type:type||"Not specified", service:service||"Not specified", message:message||"", date:new Date().toLocaleString("en-IN",{timeZone:"Asia/Kolkata"}) };
+    fetch("https://script.google.com/macros/s/AKfycbx12S4tlDAtjq7xtBLXl8aGH7e9vl4Edra0tXTanAcf7iQOd5-YgRqmxFWpLhFsQLOOeg/exec", { method:"POST", body:JSON.stringify(data) })
+      .then(function(r){ return r.json(); }).then(function(){ done(); }).catch(function(){ done(); });
+    function done() {
+      document.getElementById("formSuccess").style.display = "block";
+      btn.disabled = false;
+      btn.innerHTML = "Send Enquiry";
+      document.querySelector(".contact-form input[type=text]").value = "";
+      document.querySelector(".contact-form input[type=tel]").value = "";
+      document.querySelector(".contact-form input[type=email]").value = "";
+      if(selects[0]) selects[0].selectedIndex = 0;
+      if(selects[1]) selects[1].selectedIndex = 0;
+      document.querySelector(".contact-form textarea").value = "";
+      var msg = "Hi Dr. Anvi! I would like to book.\n\nName: " + name + "\nPhone: " + phone + "\nType: " + (type||"-") + "\nService: " + (service||"-") + (message ? "\nNote: " + message : "");
+      setTimeout(function(){ window.open("https://wa.me/919981026077?text="+encodeURIComponent(msg),"_blank"); }, 800);
+    }
+  };
 </script>
 </body>
 </html>

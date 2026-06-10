@@ -1,0 +1,1105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anvi Wellness Studio | Best Physiotherapist in Kandivali West, Mumbai</title>
+<meta name="description" content="Anvi Wellness Studio – Expert physiotherapy in Kandivali West, Mumbai. Dr. Anvi Kadakia (MPT) offers orthopaedic, sports, neuro, cardiopulmonary & paediatric rehab. Clinic, home visits & online consultations. Serving Kandivali, Borivali, Malad & Goregaon West.">
+<meta name="keywords" content="physiotherapist in Kandivali West, physiotherapy clinic Kandivali, sports physiotherapist Kandivali, home visit physiotherapy Mumbai, online physiotherapy consultation, physiotherapist Borivali West, physiotherapist Malad West, physiotherapist Goregaon West, Dr Anvi Kadakia, Anvi Wellness Studio">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --sage: #7a9e7e;
+    --sage-light: #a8c5ab;
+    --sage-pale: #e8f0e9;
+    --sage-deep: #4a7150;
+    --ivory: #faf8f3;
+    --ivory-dark: #f0ece2;
+    --warm-white: #fffef9;
+    --text-dark: #2c2c28;
+    --text-mid: #5a5a52;
+    --text-light: #8a8a7e;
+    --gold: #c4a55a;
+    --font-serif: 'Cormorant Garamond', Georgia, serif;
+    --font-sans: 'DM Sans', sans-serif;
+    --radius: 12px;
+    --radius-sm: 8px;
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--font-sans); background: var(--warm-white); color: var(--text-dark); line-height: 1.7; overflow-x: hidden; }
+
+  /* NAV */
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 1.1rem 5%; background: rgba(255,254,249,0.93); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(122,158,126,0.15); transition: box-shadow 0.3s; }
+  nav.scrolled { box-shadow: 0 2px 30px rgba(0,0,0,0.07); }
+  .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+  .nav-logo-mark { width: 38px; height: 38px; border-radius: 50%; background: var(--sage); display: flex; align-items: center; justify-content: center; }
+  .nav-logo-mark span { font-family: var(--font-serif); font-size: 18px; color: white; font-weight: 500; }
+  .nav-logo-text { display: flex; flex-direction: column; line-height: 1.1; }
+  .nav-logo-text strong { font-family: var(--font-serif); font-size: 18px; font-weight: 600; color: var(--text-dark); letter-spacing: 0.02em; }
+  .nav-logo-text small { font-size: 10px; color: var(--text-light); letter-spacing: 0.12em; text-transform: uppercase; }
+  .nav-links { display: flex; list-style: none; gap: 2.2rem; align-items: center; }
+  .nav-links a { text-decoration: none; color: var(--text-mid); font-size: 13.5px; font-weight: 400; letter-spacing: 0.03em; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--sage-deep); }
+  .nav-cta { background: var(--sage) !important; color: white !important; padding: 0.55rem 1.3rem; border-radius: 50px; font-size: 13px !important; font-weight: 500 !important; transition: background 0.2s !important; }
+  .nav-cta:hover { background: var(--sage-deep) !important; }
+  .nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+  .nav-hamburger span { display: block; width: 22px; height: 2px; background: var(--text-dark); border-radius: 2px; transition: all 0.3s; }
+
+  /* HERO */
+  .hero { min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; align-items: center; padding-top: 80px; background: var(--ivory); position: relative; overflow: hidden; }
+  .hero::before { content: ''; position: absolute; top: -100px; right: -100px; width: 500px; height: 500px; border-radius: 50%; background: var(--sage-pale); opacity: 0.5; z-index: 0; }
+  .hero-content { padding: 5rem 5% 4rem 7%; position: relative; z-index: 1; }
+  .hero-badge { display: inline-flex; align-items: center; gap: 6px; background: var(--sage-pale); color: var(--sage-deep); padding: 0.4rem 1rem; border-radius: 50px; font-size: 11.5px; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 500; margin-bottom: 1.4rem; }
+  .hero-badge::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--sage); }
+  .hero-title { font-family: var(--font-serif); font-size: clamp(2.8rem, 4.5vw, 4.2rem); font-weight: 300; line-height: 1.15; color: var(--text-dark); margin-bottom: 1.4rem; letter-spacing: -0.01em; }
+  .hero-title em { font-style: italic; color: var(--sage-deep); }
+  .hero-subtitle { font-size: 14px; color: var(--sage-deep); font-weight: 500; letter-spacing: 0.05em; margin-bottom: 0.8rem; }
+  .hero-desc { font-size: 15.5px; color: var(--text-mid); max-width: 430px; line-height: 1.85; margin-bottom: 2.2rem; font-weight: 300; }
+  .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; }
+  .btn-primary { display: inline-flex; align-items: center; gap: 8px; background: var(--sage); color: white; text-decoration: none; padding: 0.9rem 1.8rem; border-radius: 50px; font-size: 14px; font-weight: 500; letter-spacing: 0.03em; transition: all 0.25s; border: none; cursor: pointer; font-family: var(--font-sans); }
+  .btn-primary:hover { background: var(--sage-deep); transform: translateY(-1px); box-shadow: 0 8px 25px rgba(74,113,80,0.25); }
+  .btn-primary svg { width: 16px; height: 16px; stroke: white; fill: none; stroke-width: 2; }
+  .btn-secondary { display: inline-flex; align-items: center; gap: 8px; color: var(--text-dark); text-decoration: none; padding: 0.9rem 1.8rem; border-radius: 50px; font-size: 14px; font-weight: 400; border: 1px solid rgba(44,44,40,0.2); transition: all 0.25s; letter-spacing: 0.03em; }
+  .btn-secondary:hover { border-color: var(--sage); color: var(--sage-deep); background: var(--sage-pale); }
+  .hero-stats { display: flex; gap: 2rem; margin-top: 2.8rem; padding-top: 2rem; border-top: 1px solid rgba(122,158,126,0.2); flex-wrap: wrap; }
+  .hero-stat-num { font-family: var(--font-serif); font-size: 2rem; font-weight: 500; color: var(--text-dark); line-height: 1; }
+  .hero-stat-label { font-size: 11.5px; color: var(--text-light); letter-spacing: 0.08em; text-transform: uppercase; margin-top: 4px; }
+  .hero-image { position: relative; height: 100vh; overflow: hidden; }
+  .hero-image-bg { width: 100%; height: 100%; background: linear-gradient(155deg, #c8dac9 0%, #8ab98e 45%, #5a8c60 100%); display: flex; align-items: center; justify-content: center; }
+  .hero-image-overlay { position: absolute; inset: 0; background: linear-gradient(to right, var(--ivory) 0%, transparent 25%); }
+  .hero-float-card { position: absolute; bottom: 3rem; left: -2.5rem; background: white; border-radius: var(--radius); padding: 1.1rem 1.4rem; box-shadow: 0 10px 40px rgba(0,0,0,0.1); display: flex; align-items: center; gap: 12px; min-width: 230px; }
+  .hero-float-icon { width: 42px; height: 42px; border-radius: 50%; background: var(--sage-pale); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .hero-float-icon svg { width: 20px; height: 20px; stroke: var(--sage-deep); fill: none; stroke-width: 1.8; }
+  .hero-float-text strong { display: block; font-size: 12.5px; font-weight: 500; color: var(--text-dark); }
+  .hero-float-text small { font-size: 11px; color: var(--text-light); }
+
+  /* SECTIONS */
+  section { padding: 5.5rem 5%; }
+  .section-tag { font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--sage); font-weight: 500; margin-bottom: 0.7rem; }
+  .section-title { font-family: var(--font-serif); font-size: clamp(1.9rem, 3.2vw, 2.8rem); font-weight: 400; line-height: 1.2; color: var(--text-dark); margin-bottom: 1rem; }
+  .section-title em { font-style: italic; color: var(--sage-deep); }
+  .section-desc { font-size: 15px; color: var(--text-mid); line-height: 1.8; max-width: 500px; font-weight: 300; }
+
+  /* ANNOUNCEMENT BAR */
+  .announcement-bar { background: var(--sage-deep); color: white; text-align: center; padding: 0.55rem 2rem; font-size: 12.5px; letter-spacing: 0.04em; }
+  .announcement-bar a { color: rgba(255,255,255,0.8); text-decoration: underline; margin-left: 8px; }
+
+  /* ABOUT */
+  .about { background: var(--warm-white); display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+  .about-images { position: relative; height: 500px; }
+  .about-years-badge { position: absolute; top: 2rem; right: 1rem; background: var(--sage); color: white; border-radius: var(--radius); padding: 1.1rem; text-align: center; z-index: 2; box-shadow: 0 8px 25px rgba(74,113,80,0.3); }
+  .about-years-badge strong { display: block; font-family: var(--font-serif); font-size: 2rem; font-weight: 500; line-height: 1; }
+  .about-years-badge span { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.9; }
+  .about-features { margin-top: 2.2rem; display: grid; grid-template-columns: 1fr 1fr; gap: 1.1rem; }
+  .about-feature { display: flex; gap: 10px; align-items: flex-start; }
+  .about-feature-icon { width: 32px; height: 32px; border-radius: var(--radius-sm); background: var(--sage-pale); display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px; }
+  .about-feature-icon svg { width: 15px; height: 15px; stroke: var(--sage-deep); fill: none; stroke-width: 2; }
+  .about-feature-text strong { display: block; font-size: 13px; font-weight: 500; color: var(--text-dark); margin-bottom: 2px; }
+  .about-feature-text small { font-size: 12px; color: var(--text-light); line-height: 1.5; }
+
+  /* DOCTOR PROFILE */
+  .doctor { background: var(--ivory); }
+  .doctor-inner { display: grid; grid-template-columns: 1fr 1.6fr; gap: 5rem; align-items: center; }
+  .doctor-photo-wrap { position: relative; }
+  .doctor-photo { width: 100%; aspect-ratio: 3/4; border-radius: var(--radius); overflow: hidden; background: linear-gradient(155deg, #c8dac9, #7a9e7e); display: flex; align-items: center; justify-content: center; }
+  .doctor-credential-badge { position: absolute; bottom: -1rem; right: -1rem; background: white; border-radius: var(--radius); padding: 1rem 1.2rem; box-shadow: 0 8px 30px rgba(0,0,0,0.1); }
+  .doctor-credential-badge strong { display: block; font-size: 13px; font-weight: 500; color: var(--text-dark); }
+  .doctor-credential-badge small { font-size: 11px; color: var(--text-light); }
+  .doctor-name { font-family: var(--font-serif); font-size: clamp(1.8rem, 3vw, 2.5rem); font-weight: 400; color: var(--text-dark); margin-bottom: 0.3rem; }
+  .doctor-qual { font-size: 13px; color: var(--sage-deep); font-weight: 500; letter-spacing: 0.04em; margin-bottom: 1.4rem; }
+  .doctor-bio { font-size: 14.5px; color: var(--text-mid); line-height: 1.85; font-weight: 300; margin-bottom: 1.2rem; }
+  .doctor-skills { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.5rem; }
+  .skill-tag { background: var(--sage-pale); color: var(--sage-deep); font-size: 12px; padding: 0.35rem 0.9rem; border-radius: 50px; font-weight: 400; border: 1px solid rgba(122,158,126,0.2); }
+
+  /* SERVICES */
+  .services { background: var(--ivory-dark); }
+  .services-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 3rem; flex-wrap: wrap; gap: 1rem; }
+  .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4rem; }
+  .service-card { background: white; border-radius: var(--radius); overflow: hidden; transition: transform 0.3s, box-shadow 0.3s; }
+  .service-card:hover { transform: translateY(-5px); box-shadow: 0 20px 50px rgba(0,0,0,0.08); }
+  .service-card-img { height: 180px; overflow: hidden; }
+  .service-card-img-placeholder { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-size: 3rem; }
+  .service-card-body { padding: 1.4rem; }
+  .service-card-tag { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--sage); font-weight: 500; margin-bottom: 0.4rem; }
+  .service-card-title { font-family: var(--font-serif); font-size: 1.25rem; font-weight: 500; color: var(--text-dark); margin-bottom: 0.5rem; line-height: 1.3; }
+  .service-card-desc { font-size: 13px; color: var(--text-mid); line-height: 1.7; font-weight: 300; }
+
+  /* CONDITIONS */
+  .conditions { background: var(--sage); color: white; padding: 5rem 5%; }
+  .conditions-inner { display: grid; grid-template-columns: 1fr 1.6fr; gap: 5rem; align-items: start; }
+  .conditions .section-tag { color: rgba(255,255,255,0.7); }
+  .conditions .section-title { color: white; }
+  .conditions .section-desc { color: rgba(255,255,255,0.8); max-width: 100%; }
+  .conditions-tabs { display: flex; gap: 0.6rem; flex-wrap: wrap; margin-top: 1.5rem; margin-bottom: 1rem; }
+  .cond-tab { background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.25); color: white; font-size: 12px; padding: 0.4rem 1rem; border-radius: 50px; cursor: pointer; transition: all 0.2s; font-family: var(--font-sans); }
+  .cond-tab.active, .cond-tab:hover { background: white; color: var(--sage-deep); }
+  .conditions-list { display: none; grid-template-columns: 1fr 1fr; gap: 0.7rem; }
+  .conditions-list.active { display: grid; }
+  .condition-item { display: flex; align-items: center; gap: 9px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.15); border-radius: var(--radius-sm); padding: 0.75rem 1rem; font-size: 13px; color: rgba(255,255,255,0.9); font-weight: 300; transition: background 0.2s; }
+  .condition-item:hover { background: rgba(255,255,255,0.18); }
+  .condition-item::before { content: ''; width: 5px; height: 5px; border-radius: 50%; background: rgba(255,255,255,0.6); flex-shrink: 0; }
+
+  /* TREATMENTS */
+  .treatments { background: var(--warm-white); }
+  .treatments-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-top: 3rem; }
+  .treatment-pill { background: var(--ivory); border: 1px solid rgba(122,158,126,0.2); border-radius: var(--radius); padding: 1.1rem 1.2rem; display: flex; align-items: flex-start; gap: 10px; transition: all 0.2s; }
+  .treatment-pill:hover { border-color: var(--sage); background: var(--sage-pale); }
+  .treatment-pill-icon { width: 34px; height: 34px; border-radius: 50%; background: var(--sage-pale); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .treatment-pill-icon svg { width: 16px; height: 16px; stroke: var(--sage-deep); fill: none; stroke-width: 2; }
+  .treatment-pill strong { display: block; font-size: 13px; font-weight: 500; color: var(--text-dark); line-height: 1.3; }
+  .treatment-pill small { font-size: 11.5px; color: var(--text-light); }
+
+  /* FIRST VISIT */
+  .first-visit { background: var(--ivory); }
+  .first-visit-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+  .visit-steps { margin-top: 2.5rem; }
+  .visit-step { display: flex; gap: 1.2rem; margin-bottom: 2rem; padding-bottom: 2rem; border-bottom: 1px solid rgba(122,158,126,0.15); }
+  .visit-step:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+  .visit-step-num { font-family: var(--font-serif); font-size: 2.2rem; font-weight: 300; color: var(--sage-light); line-height: 1; flex-shrink: 0; width: 36px; }
+  .visit-step-content strong { display: block; font-size: 15px; font-weight: 500; color: var(--text-dark); margin-bottom: 3px; }
+  .visit-step-content p { font-size: 13px; color: var(--text-mid); line-height: 1.7; font-weight: 300; }
+  .visit-highlight { background: var(--sage); border-radius: var(--radius); padding: 2rem; color: white; }
+  .visit-highlight h4 { font-family: var(--font-serif); font-size: 1.5rem; font-weight: 400; margin-bottom: 1rem; }
+  .visit-highlight ul { list-style: none; }
+  .visit-highlight ul li { font-size: 13.5px; color: rgba(255,255,255,0.9); padding: 0.45rem 0; border-bottom: 1px solid rgba(255,255,255,0.1); font-weight: 300; display: flex; align-items: center; gap: 8px; }
+  .visit-highlight ul li::before { content: '✓'; font-weight: 500; color: rgba(255,255,255,0.7); flex-shrink: 0; }
+  .visit-highlight ul li:last-child { border-bottom: none; }
+  .visit-duration { margin-top: 1.2rem; background: rgba(255,255,255,0.12); border-radius: var(--radius-sm); padding: 0.8rem 1rem; font-size: 13px; color: rgba(255,255,255,0.9); text-align: center; }
+
+  /* TESTIMONIALS */
+  .testimonials { background: var(--warm-white); }
+  .testimonials-header { text-align: center; margin-bottom: 3.5rem; }
+  .testimonials-header .section-desc { margin: 0 auto; }
+  .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4rem; }
+  .testimonial-card { background: var(--ivory); border-radius: var(--radius); padding: 1.8rem; border: 1px solid rgba(122,158,126,0.15); transition: box-shadow 0.3s; }
+  .testimonial-card:hover { box-shadow: 0 10px 30px rgba(0,0,0,0.06); }
+  .testimonial-quote { font-family: var(--font-serif); font-size: 2.8rem; color: var(--sage-light); line-height: 1; margin-bottom: 0.3rem; }
+  .testimonial-text { font-size: 13.5px; color: var(--text-mid); line-height: 1.8; font-style: italic; font-weight: 300; margin-bottom: 1.3rem; }
+  .testimonial-stars { color: var(--gold); font-size: 13px; letter-spacing: 2px; margin-bottom: 1rem; }
+  .testimonial-author { display: flex; align-items: center; gap: 10px; }
+  .testimonial-avatar { width: 36px; height: 36px; border-radius: 50%; background: var(--sage-light); display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 500; color: white; flex-shrink: 0; font-family: var(--font-serif); }
+  .testimonial-name { font-size: 13px; font-weight: 500; color: var(--text-dark); }
+  .testimonial-location { font-size: 11px; color: var(--text-light); }
+
+  /* WHY */
+  .why { background: var(--ivory-dark); display: grid; grid-template-columns: 1.2fr 1fr; gap: 5rem; align-items: center; }
+  .why-points { margin-top: 2.2rem; }
+  .why-point { display: flex; gap: 1.2rem; margin-bottom: 1.8rem; padding-bottom: 1.8rem; border-bottom: 1px solid rgba(122,158,126,0.15); }
+  .why-point:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+  .why-point-num { font-family: var(--font-serif); font-size: 2.2rem; font-weight: 300; color: var(--sage-light); line-height: 1; flex-shrink: 0; width: 38px; }
+  .why-point-content strong { display: block; font-size: 14.5px; font-weight: 500; color: var(--text-dark); margin-bottom: 3px; }
+  .why-point-content p { font-size: 13px; color: var(--text-mid); line-height: 1.7; font-weight: 300; }
+  .why-visual { border-radius: var(--radius); overflow: hidden; height: 480px; background: linear-gradient(155deg, #e8f0e9, #4a7150); display: flex; align-items: center; justify-content: center; }
+
+  /* CONTACT */
+  .contact { background: var(--warm-white); }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1.3fr; gap: 5rem; align-items: start; }
+  .contact-info { padding-top: 1rem; }
+  .contact-detail { display: flex; gap: 1rem; align-items: flex-start; margin-bottom: 1.6rem; }
+  .contact-detail-icon { width: 40px; height: 40px; border-radius: 50%; background: var(--sage-pale); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .contact-detail-icon svg { width: 18px; height: 18px; stroke: var(--sage-deep); fill: none; stroke-width: 1.8; }
+  .contact-detail-text strong { display: block; font-size: 13px; font-weight: 500; color: var(--text-dark); margin-bottom: 2px; }
+  .contact-detail-text span { font-size: 13px; color: var(--text-mid); font-weight: 300; line-height: 1.6; }
+  .contact-hours { background: var(--sage-pale); border-radius: var(--radius); padding: 1.4rem; margin-top: 1.8rem; }
+  .contact-hours h4 { font-size: 12px; font-weight: 500; color: var(--text-dark); margin-bottom: 0.9rem; letter-spacing: 0.08em; text-transform: uppercase; }
+  .hours-row { display: flex; justify-content: space-between; font-size: 13px; margin-bottom: 0.5rem; color: var(--text-mid); }
+  .hours-row span:first-child { color: var(--text-dark); }
+  .hours-row:last-child { margin-bottom: 0; }
+
+  .contact-form { background: var(--ivory); border-radius: var(--radius); padding: 2.2rem; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .form-group { margin-bottom: 1.1rem; }
+  .form-group label { display: block; font-size: 11.5px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-light); margin-bottom: 0.45rem; font-weight: 500; }
+  .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 0.8rem 1rem; border: 1px solid rgba(122,158,126,0.25); border-radius: var(--radius-sm); background: white; font-family: var(--font-sans); font-size: 13.5px; color: var(--text-dark); transition: border-color 0.2s; outline: none; appearance: none; }
+  .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--sage); }
+  .form-group textarea { resize: vertical; min-height: 90px; }
+
+  /* SEO AREA */
+  .seo-area { background: var(--ivory); padding: 3.5rem 5%; border-top: 1px solid rgba(122,158,126,0.1); }
+  .seo-inner { max-width: 800px; margin: 0 auto; text-align: center; }
+  .seo-inner h2 { font-family: var(--font-serif); font-size: 1.4rem; font-weight: 400; color: var(--text-dark); margin-bottom: 0.8rem; }
+  .seo-inner p { font-size: 13px; color: var(--text-light); line-height: 1.8; font-weight: 300; }
+  .seo-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center; margin-top: 1.2rem; }
+  .seo-tag { background: white; border: 1px solid rgba(122,158,126,0.2); border-radius: 50px; padding: 0.3rem 0.8rem; font-size: 11.5px; color: var(--text-light); }
+
+  /* FOOTER */
+  footer { background: var(--text-dark); color: rgba(255,255,255,0.7); padding: 4rem 5% 2rem; }
+  .footer-top { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem; padding-bottom: 3rem; border-bottom: 1px solid rgba(255,255,255,0.1); }
+  .footer-logo { display: flex; align-items: center; gap: 10px; margin-bottom: 1rem; }
+  .footer-logo-mark { width: 34px; height: 34px; border-radius: 50%; background: var(--sage); display: flex; align-items: center; justify-content: center; }
+  .footer-logo-mark span { font-family: var(--font-serif); font-size: 16px; color: white; font-weight: 500; }
+  .footer-logo-text { font-family: var(--font-serif); font-size: 16px; color: white; font-weight: 500; }
+  .footer-tagline { font-size: 13px; line-height: 1.7; color: rgba(255,255,255,0.45); margin-bottom: 1.4rem; font-weight: 300; }
+  .footer-social { display: flex; gap: 0.7rem; }
+  .social-btn { width: 32px; height: 32px; border-radius: 50%; background: rgba(255,255,255,0.08); display: flex; align-items: center; justify-content: center; text-decoration: none; color: rgba(255,255,255,0.5); font-size: 12px; transition: all 0.2s; }
+  .social-btn:hover { background: var(--sage); color: white; }
+  .footer-col h5 { font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: white; font-weight: 500; margin-bottom: 1.1rem; }
+  .footer-col ul { list-style: none; }
+  .footer-col ul li { margin-bottom: 0.55rem; }
+  .footer-col ul li a { font-size: 13px; color: rgba(255,255,255,0.45); text-decoration: none; transition: color 0.2s; font-weight: 300; }
+  .footer-col ul li a:hover { color: var(--sage-light); }
+  .footer-bottom { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem; }
+  .footer-bottom p { font-size: 12px; color: rgba(255,255,255,0.3); }
+  .footer-bottom a { color: rgba(255,255,255,0.3); text-decoration: none; }
+  .footer-bottom a:hover { color: var(--sage-light); }
+
+  /* WHATSAPP */
+  .whatsapp-btn { position: fixed; bottom: 2rem; right: 2rem; z-index: 200; width: 52px; height: 52px; border-radius: 50%; background: #25D366; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 20px rgba(37,211,102,0.4); text-decoration: none; transition: all 0.25s; }
+  .whatsapp-btn:hover { transform: scale(1.08); box-shadow: 0 6px 28px rgba(37,211,102,0.5); }
+  .whatsapp-btn svg { width: 26px; height: 26px; fill: white; }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+  .fade-up { opacity: 0; animation: fadeUp 0.7s ease forwards; }
+  .fade-up.d1 { animation-delay: 0.1s; } .fade-up.d2 { animation-delay: 0.2s; } .fade-up.d3 { animation-delay: 0.3s; } .fade-up.d4 { animation-delay: 0.4s; }
+
+  /* RESPONSIVE */
+  @media (max-width: 1024px) {
+    .hero { grid-template-columns: 1fr; min-height: auto; }
+    .hero-image { display: none; }
+    .hero-content { padding: 3rem 4% 3rem; }
+    .hero-float-card { left: 1rem; bottom: 1rem; }
+    .about { grid-template-columns: 1fr; gap: 3rem; }
+    .about-images { height: 360px; }
+    .doctor-inner { grid-template-columns: 1fr; gap: 3rem; }
+    .doctor-photo { aspect-ratio: 4/3; }
+    .services-grid { grid-template-columns: repeat(2, 1fr); }
+    .conditions-inner { grid-template-columns: 1fr; gap: 3rem; }
+    .treatments-grid { grid-template-columns: repeat(2, 1fr); }
+    .first-visit-inner { grid-template-columns: 1fr; gap: 3rem; }
+    .testimonials-grid { grid-template-columns: repeat(2, 1fr); }
+    .why { grid-template-columns: 1fr; gap: 3rem; }
+    .why-visual { height: 320px; }
+    .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .footer-top { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 640px) {
+    nav { padding: 1rem 4%; }
+    .nav-links { display: none; }
+    .nav-hamburger { display: flex; }
+    .nav-links.open { display: flex; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: var(--warm-white); padding: 1.5rem 5%; gap: 1rem; border-bottom: 1px solid rgba(122,158,126,0.15); box-shadow: 0 8px 20px rgba(0,0,0,0.08); }
+    section { padding: 4rem 4%; }
+    .services-grid, .testimonials-grid, .treatments-grid { grid-template-columns: 1fr; }
+    .form-row { grid-template-columns: 1fr; }
+    .footer-top { grid-template-columns: 1fr; }
+    .hero-content { padding: 3.5rem 4% 2.5rem; }
+    .about-features { grid-template-columns: 1fr; }
+    .conditions-list { grid-template-columns: 1fr; }
+    .hero-stats { flex-wrap: wrap; gap: 1.5rem; }
+    .conditions-inner, .first-visit-inner { gap: 2.5rem; }
+  }
+</style>
+</head>
+<body>
+<script id="anvi-photos-data" type="application/json">{"LOGO": "https://raw.githubusercontent.com/anviwellnessstudio/anviwellness.github.io/main/images/logo.jpg", "HERO": "https://raw.githubusercontent.com/anviwellnessstudio/anviwellness.github.io/main/images/hero.jpg", "ABOUT_MAIN": "https://raw.githubusercontent.com/anviwellnessstudio/anviwellness.github.io/main/images/about-main.jpg", "ABOUT_ACCENT": "https://raw.githubusercontent.com/anviwellnessstudio/anviwellness.github.io/main/images/about-accent.jpg", "DOCTOR": "https://raw.githubusercontent.com/anviwellnessstudio/anviwellness.github.io/main/images/doctor.jpg", "WHY": "https://raw.githubusercontent.com/anviwellnessstudio/anviwellness.github.io/main/images/why.jpg", "AQUA": "https://raw.githubusercontent.com/anviwellnessstudio/anviwellness.github.io/main/images/aqua.jpg", "NEEDLING": "https://raw.githubusercontent.com/anviwellnessstudio/anviwellness.github.io/main/images/needling.jpg", "CUPPING": "https://raw.githubusercontent.com/anviwellnessstudio/anviwellness.github.io/main/images/cupping.jpg", "ONLINE": "https://raw.githubusercontent.com/anviwellnessstudio/anviwellness.github.io/main/images/online.jpg"}</script>
+<script>
+(function(){
+  var P = JSON.parse(document.getElementById("anvi-photos-data").textContent);
+  document.addEventListener("DOMContentLoaded", function(){
+    Object.keys(P).forEach(function(k){
+      document.querySelectorAll('img[data-photo="'+k+'"]').forEach(function(i){ i.src=P[k]; });
+    });
+  });
+})();
+</script>
+
+<!-- ANNOUNCEMENT BAR -->
+<div class="announcement-bar">
+  Clinic · Home Visits · Online Consultations &nbsp;|&nbsp; Kandivali West, Mumbai
+  <a href="#contact">Book now →</a>
+</div>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="#" class="nav-logo">
+    <div class="nav-logo-mark"><span>A</span></div>
+    <div class="nav-logo-text">
+      <strong>Anvi Wellness Studio</strong>
+      <small>Physiotherapy Clinic · Kandivali West</small>
+    </div>
+  </a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#about">About</a></li>
+    <li><a href="#doctor">Dr. Anvi</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#conditions">Conditions</a></li>
+    <li><a href="#testimonials">Reviews</a></li>
+    <li><a href="#contact" class="nav-cta">Book Appointment</a></li>
+  </ul>
+  <button class="nav-hamburger" id="hamburger" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-badge fade-up">Physiotherapist in Kandivali West, Mumbai</div>
+    <h1 class="hero-title fade-up d1">
+      Heal Faster.<br><em>Feel Freer.</em><br>Function Fully.
+    </h1>
+    <p class="hero-subtitle fade-up d2"><span class="hero-name-highlight">Dr. Anvi Kadakia</span> &nbsp;<span style="font-size:13px;color:var(--text-light);font-weight:400;">(PT) · Kandivali West, Mumbai</span></p>
+    <p class="hero-desc fade-up d2">
+      Expert physiotherapy care in Kandivali West, Mumbai. We treat musculoskeletal, neurological, cardiopulmonary & paediatric conditions — with clinic visits, home visits, and online consultations.
+    </p>
+    <div class="hero-actions fade-up d3">
+      <a href="https://wa.me/919981026077" class="btn-primary" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        Book via WhatsApp
+      </a>
+      <a href="#services" class="btn-secondary">Explore Services</a>
+    </div>
+    <div class="hero-stats fade-up d4">
+      <div class="hero-stat">
+        <div class="hero-stat-num">7+</div>
+        <div class="hero-stat-label">Years Experience</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">MPT</div>
+        <div class="hero-stat-label">NMIMS Mumbai</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">4</div>
+        <div class="hero-stat-label">Specialities</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">3</div>
+        <div class="hero-stat-label">Ways to Consult</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-image">
+    <div class="hero-image-bg">
+      <div style="text-align:center;color:rgba(255,255,255,0.7);">
+        <div style="font-size:5rem;margin-bottom:1rem;">🧘</div>
+        <p style="font-family:var(--font-serif);font-size:1.4rem;font-style:italic;">Add Your Clinic Photo Here</p>
+        <p style="font-size:11px;margin-top:0.5rem;letter-spacing:0.1em;text-transform:uppercase;">Replace this placeholder</p>
+      </div>
+    </div>
+    <div class="hero-image-overlay"></div>
+    <div class="hero-float-card">
+      <div class="hero-float-icon">
+        <svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+      </div>
+      <div class="hero-float-text">
+        <strong>Evidence-Based Care</strong>
+        <small>Root-cause treatment approach</small>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="about-images">
+    <div style="position:absolute;top:0;left:0;width:78%;height:85%;border-radius:12px;overflow:hidden;"><img src="" data-photo="ABOUT_MAIN" alt="Anvi Wellness Studio" style="width:100%;height:100%;object-fit:cover;"></div>
+    <div style="position:absolute;bottom:0;right:0;width:55%;height:54%;border-radius:12px;overflow:hidden;border:4px solid var(--warm-white);box-shadow:0 8px 30px rgba(0,0,0,0.08);"><img src="" data-photo="ABOUT_ACCENT" alt="Dr. Anvi" style="width:100%;height:100%;object-fit:cover;"></div>
+    <div class="about-years-badge">
+      <strong>7+</strong>
+      <span>Years of<br>Excellence</span>
+    </div>
+  </div>
+  <div class="about-content">
+    <div class="section-tag">About Anvi Wellness Studio</div>
+    <h2 class="section-title">Your Physiotherapy <em>Partner</em> in Kandivali West</h2>
+    <p class="section-desc">
+      Anvi Wellness Studio is a specialised physiotherapy clinic in Kandivali West, Mumbai. We believe in identifying the root cause of pain — not just treating symptoms — and empowering patients to recover confidently and independently.
+    </p>
+    <p style="font-size:14px;color:var(--text-mid);line-height:1.85;margin-top:1rem;font-weight:300;">
+      Conveniently located at Vora Palace, M.G. Road, next to Bank of Baroda, we serve patients from Kandivali, Borivali, Malad, and Goregaon West. We also offer home visits across Mumbai and online consultations globally.
+    </p>
+    <div class="about-features">
+      <div class="about-feature">
+        <div class="about-feature-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <div class="about-feature-text">
+          <strong>No Referral Needed</strong>
+          <small>Book directly — walk in or call us</small>
+        </div>
+      </div>
+      <div class="about-feature">
+        <div class="about-feature-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+        <div class="about-feature-text">
+          <strong>Clinic + Home + Online</strong>
+          <small>Three flexible ways to consult</small>
+        </div>
+      </div>
+      <div class="about-feature">
+        <div class="about-feature-icon"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+        <div class="about-feature-text">
+          <strong>Personalised Plans</strong>
+          <small>Tailored rehab for every patient</small>
+        </div>
+      </div>
+      <div class="about-feature">
+        <div class="about-feature-icon"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+        <div class="about-feature-text">
+          <strong>Root-Cause Approach</strong>
+          <small>Address the source, not just the pain</small>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:2.2rem;">
+      <a href="#contact" class="btn-primary">
+        <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        Book an Appointment
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- DOCTOR PROFILE -->
+<section class="doctor" id="doctor">
+  <div class="doctor-inner">
+    <div class="doctor-photo-wrap">
+      <div class="doctor-photo" style="background:none;"><img src="" data-photo="DOCTOR" alt="Dr. Anvi Kadakia" style="width:100%;height:100%;object-fit:cover;object-position:center top;"></div>
+    </div>
+    <div>
+      <div class="section-tag">Meet Your Physiotherapist</div>
+      <h2 class="doctor-name"><span style="color:var(--sage-deep);">Dr. Anvi Kadakia</span> <span style="font-size:1.3rem;color:var(--sage);font-weight:400;">(PT)</span></h2>
+      <p class="doctor-qual">Physiotherapist · MPT (Musculoskeletal) · 7+ Years Experience</p>
+      <p class="doctor-bio">
+        Dr. Anvi Kadakia is a dedicated physiotherapist with over 7 years of clinical experience in rehabilitation and patient care. She completed her Master's in Musculoskeletal Physiotherapy from NMIMS, Mumbai, and has worked extensively with patients across orthopaedic, sports, neurological, cardiopulmonary, women's health, paediatric, and geriatric rehabilitation.
+      </p>
+      <p class="doctor-bio">
+        Currently associated with Kapadia Multispeciality Hospital, Dr. Anvi collaborates with orthopaedic specialists to provide comprehensive rehabilitation care. She believes in identifying the root cause of each patient's problem and designing individualised treatment plans that help patients recover safely and return to their daily activities with confidence.
+      </p>
+      <div class="doctor-skills">
+        <span class="skill-tag">Dry Needling</span>
+        <span class="skill-tag">Kinesiology Taping</span>
+        <span class="skill-tag">Myofascial Release (MFR)</span>
+        <span class="skill-tag">Cupping Therapy</span>
+        <span class="skill-tag">Manual Therapy</span>
+        <span class="skill-tag">Aquatherapy</span>
+        <span class="skill-tag">Sports Rehab</span>
+        <span class="skill-tag">Chronic Pain Management</span>
+        <span class="skill-tag">Post-Op Rehab</span>
+        <span class="skill-tag">Mobility Restoration</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="services-header">
+    <div>
+      <div class="section-tag">What We Offer</div>
+      <h2 class="section-title">Our <em>Specialised</em> Services</h2>
+    </div>
+    <a href="#contact" class="btn-secondary">Book a Consultation</a>
+  </div>
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-card-img">
+        <img src="https://raw.githubusercontent.com/anviwellnessstudio/anviwellness.github.io/main/images/needling.jpg" alt="Orthopaedic" style="width:100%;height:100%;object-fit:cover;">
+      </div>
+      <div class="service-card-body">
+        <div class="service-card-tag">Musculoskeletal</div>
+        <h3 class="service-card-title">Orthopaedic Physiotherapy</h3>
+        <p class="service-card-desc">Treatment for neck & back pain, knee pain, shoulder conditions, sports injuries, ligament injuries, and post-operative rehabilitation.</p>
+      </div>
+    </div>
+    <div class="service-card">
+      <div class="service-card-img">
+        <img src="https://raw.githubusercontent.com/anviwellnessstudio/anviwellness.github.io/main/images/cupping.jpg" alt="Sports" style="width:100%;height:100%;object-fit:cover;">
+      </div>
+      <div class="service-card-body">
+        <div class="service-card-tag">Sports</div>
+        <h3 class="service-card-title">Sports Injury Rehabilitation</h3>
+        <p class="service-card-desc">Targeted recovery for athletes and active individuals — muscle strains, ligament injuries, ACL rehab, and return-to-sport programmes.</p>
+      </div>
+    </div>
+    <div class="service-card">
+      <div class="service-card-img">
+        <img src="https://raw.githubusercontent.com/anviwellnessstudio/anviwellness.github.io/main/images/needling.jpg" alt="Neuro" style="width:100%;height:100%;object-fit:cover;">
+      </div>
+      <div class="service-card-body">
+        <div class="service-card-tag">Neurological</div>
+        <h3 class="service-card-title">Neuro Physiotherapy</h3>
+        <p class="service-card-desc">Specialised rehab for stroke recovery, Parkinson's disease, Bell's palsy, multiple sclerosis, and balance & coordination disorders.</p>
+      </div>
+    </div>
+    <div class="service-card">
+      <div class="service-card-img">
+        <img src="https://raw.githubusercontent.com/anviwellnessstudio/anviwellness.github.io/main/images/online.jpg" alt="Cardio" style="width:100%;height:100%;object-fit:cover;">
+      </div>
+      <div class="service-card-body">
+        <div class="service-card-tag">Cardiopulmonary</div>
+        <h3 class="service-card-title">Cardiac & Respiratory Rehab</h3>
+        <p class="service-card-desc">Post-cardiac surgery recovery, cardiac rehab programmes, respiratory physiotherapy, and functional conditioning for reduced endurance.</p>
+      </div>
+    </div>
+    <div class="service-card">
+      <div class="service-card-img">
+        <img src="" data-photo="AQUA" alt="Paediatric" style="width:100%;height:100%;object-fit:cover;">
+      </div>
+      <div class="service-card-body">
+        <div class="service-card-tag">Paediatric</div>
+        <h3 class="service-card-title">Paediatric Physiotherapy</h3>
+        <p class="service-card-desc">Gentle, evidence-based care for developmental delay, cerebral palsy, coordination & balance difficulties, and paediatric musculoskeletal conditions.</p>
+      </div>
+    </div>
+    <div class="service-card">
+      <div class="service-card-img">
+        <img src="" data-photo="ONLINE" alt="Online" style="width:100%;height:100%;object-fit:cover;">
+      </div>
+      <div class="service-card-body">
+        <div class="service-card-tag">Online · Home · Clinic</div>
+        <h3 class="service-card-title">Online & Home Visit Consultations</h3>
+        <p class="service-card-desc">Can't travel? Access expert physiotherapy from home — online sessions available globally. Home visits across Kandivali, Borivali, Malad & Goregaon West.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONDITIONS TREATED (with tabs) -->
+<section class="conditions" id="conditions">
+  <div class="conditions-inner">
+    <div>
+      <div class="section-tag">Conditions We Treat</div>
+      <h2 class="section-title">We Treat a <em>Wide Range</em> of Conditions</h2>
+      <p class="section-desc">From common pain complaints to complex neurological and cardiopulmonary rehabilitation — our goal is to help you reduce pain, restore function, and return to your daily life.</p>
+      <div style="margin-top:2rem;">
+        <a href="#contact" class="btn-primary" style="background:white;color:var(--sage-deep);">
+          <svg viewBox="0 0 24 24" style="stroke:var(--sage-deep);"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          Book a Free Assessment
+        </a>
+      </div>
+    </div>
+    <div>
+      <div class="conditions-tabs">
+        <button class="cond-tab active" onclick="showCond('musculo', this)">Musculoskeletal</button>
+        <button class="cond-tab" onclick="showCond('neuro', this)">Neurological</button>
+        <button class="cond-tab" onclick="showCond('cardio', this)">Cardiopulmonary</button>
+        <button class="cond-tab" onclick="showCond('paeds', this)">Paediatric</button>
+      </div>
+      <div id="cond-musculo" class="conditions-list active">
+        <div class="condition-item">Neck & Back Pain</div>
+        <div class="condition-item">Knee Pain & Arthritis</div>
+        <div class="condition-item">Frozen Shoulder</div>
+        <div class="condition-item">Sports Injuries</div>
+        <div class="condition-item">Ligament Injuries</div>
+        <div class="condition-item">Muscle Strains/Sprains</div>
+        <div class="condition-item">Post-Operative Rehab</div>
+        <div class="condition-item">Postural Dysfunction</div>
+        <div class="condition-item">Sciatica</div>
+        <div class="condition-item">Slip Disc / Cervical Spondylosis</div>
+        <div class="condition-item">Fall Prevention (Elderly)</div>
+        <div class="condition-item">Corporate Ergonomics</div>
+      </div>
+      <div id="cond-neuro" class="conditions-list">
+        <div class="condition-item">Stroke Rehabilitation</div>
+        <div class="condition-item">Parkinson's Disease</div>
+        <div class="condition-item">Bell's Palsy</div>
+        <div class="condition-item">Multiple Sclerosis</div>
+        <div class="condition-item">Balance & Coordination Disorders</div>
+        <div class="condition-item">Neurological Weakness</div>
+        <div class="condition-item">Functional Mobility</div>
+        <div class="condition-item">Gait Rehabilitation</div>
+      </div>
+      <div id="cond-cardio" class="conditions-list">
+        <div class="condition-item">Post-Cardiac Surgery Recovery</div>
+        <div class="condition-item">Cardiac Rehab Programmes</div>
+        <div class="condition-item">Respiratory Rehabilitation</div>
+        <div class="condition-item">Breathing Exercises</div>
+        <div class="condition-item">Post-Hospitalisation Deconditioning</div>
+        <div class="condition-item">COPD & Lung Conditions</div>
+        <div class="condition-item">Functional Endurance Training</div>
+        <div class="condition-item">Energy Conservation Techniques</div>
+      </div>
+      <div id="cond-paeds" class="conditions-list">
+        <div class="condition-item">Developmental Delay</div>
+        <div class="condition-item">Cerebral Palsy</div>
+        <div class="condition-item">Postural Disorders (Children)</div>
+        <div class="condition-item">Coordination Difficulties</div>
+        <div class="condition-item">Balance Problems</div>
+        <div class="condition-item">Paediatric Musculoskeletal</div>
+        <div class="condition-item">Movement Disorders</div>
+        <div class="condition-item">Gross Motor Delay</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TREATMENT TECHNIQUES -->
+<section class="treatments" id="treatments">
+  <div style="text-align:center;margin-bottom:0.5rem;">
+    <div class="section-tag" style="text-align:center;">Our Methods</div>
+    <h2 class="section-title" style="text-align:center;">Evidence-Based <em>Treatment Techniques</em></h2>
+    <p class="section-desc" style="margin:0 auto;text-align:center;">We combine advanced techniques with personalised programmes to restore movement, reduce pain, and achieve long-term wellness.</p>
+  </div>
+  <div class="treatments-grid">
+    <div class="treatment-pill">
+      <div class="treatment-pill-icon"><svg viewBox="0 0 24 24"><path d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-3l-4 4z"/></svg></div>
+      <div><strong>Manual Therapy</strong><small>Joint mobilisation & soft tissue</small></div>
+    </div>
+    <div class="treatment-pill">
+      <div class="treatment-pill-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg></div>
+      <div><strong>Exercise Therapy</strong><small>Strengthening & mobility programs</small></div>
+    </div>
+    <div class="treatment-pill">
+      <div class="treatment-pill-icon"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+      <div><strong>Electrotherapy</strong><small>TENS, IFT, Ultrasound</small></div>
+    </div>
+    <div class="treatment-pill">
+      <div class="treatment-pill-icon"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+      <div><strong>Dry Needling</strong><small>Trigger point release</small></div>
+    </div>
+    <div class="treatment-pill">
+      <div class="treatment-pill-icon"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+      <div><strong>Kinesiology Taping</strong><small>Support & pain relief</small></div>
+    </div>
+    <div class="treatment-pill">
+      <div class="treatment-pill-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+      <div><strong>Aquatherapy</strong><small>Water-based rehabilitation</small></div>
+    </div>
+    <div class="treatment-pill">
+      <div class="treatment-pill-icon"><svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg></div>
+      <div><strong>Dry & Ice Cupping</strong><small>Myofascial decompression</small></div>
+    </div>
+    <div class="treatment-pill">
+      <div class="treatment-pill-icon"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+      <div><strong>Posture Correction</strong><small>Ergonomics & workplace health</small></div>
+    </div>
+    <div class="treatment-pill">
+      <div class="treatment-pill-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/></svg></div>
+      <div><strong>Home Exercise Programs</strong><small>Self-management & education</small></div>
+    </div>
+    <div class="treatment-pill">
+      <div class="treatment-pill-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg></div>
+      <div><strong>Post-Operative Rehab</strong><small>Surgery recovery protocols</small></div>
+    </div>
+    <div class="treatment-pill">
+      <div class="treatment-pill-icon"><svg viewBox="0 0 24 24"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg></div>
+      <div><strong>Myofascial Release</strong><small>Fascia & deep tissue work</small></div>
+    </div>
+    <div class="treatment-pill">
+      <div class="treatment-pill-icon"><svg viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div>
+      <div><strong>Balance & Gait Training</strong><small>Fall prevention & mobility</small></div>
+    </div>
+  </div>
+</section>
+
+<!-- FIRST VISIT -->
+<section class="first-visit" id="firstvisit">
+  <div class="first-visit-inner">
+    <div>
+      <div class="section-tag">New Patients</div>
+      <h2 class="section-title">What to Expect on Your <em>First Visit</em></h2>
+      <p class="section-desc">Your first session is a thorough, personalised assessment — not a rushed appointment.</p>
+      <div class="visit-steps">
+        <div class="visit-step">
+          <div class="visit-step-num">01</div>
+          <div class="visit-step-content">
+            <strong>Detailed Assessment</strong>
+            <p>We conduct a thorough evaluation of your condition, medical history, pain levels, posture, movement patterns, and functional limitations — understanding you as a whole.</p>
+          </div>
+        </div>
+        <div class="visit-step">
+          <div class="visit-step-num">02</div>
+          <div class="visit-step-content">
+            <strong>Root-Cause Diagnosis</strong>
+            <p>Dr. Anvi identifies the underlying reason for your pain or dysfunction — not just the symptoms — using clinical reasoning and hands-on assessment.</p>
+          </div>
+        </div>
+        <div class="visit-step">
+          <div class="visit-step-num">03</div>
+          <div class="visit-step-content">
+            <strong>Personalised Treatment Plan</strong>
+            <p>A customised rehabilitation plan is developed with clear recovery goals, treatment techniques, and home care recommendations tailored specifically to you.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="visit-highlight">
+        <h4>Your first session includes:</h4>
+        <ul>
+          <li>Posture & movement analysis</li>
+          <li>Strength & flexibility testing</li>
+          <li>Pain & functional assessment</li>
+          <li>Review of medical history & reports</li>
+          <li>Root-cause diagnosis discussion</li>
+          <li>Personalised treatment plan</li>
+          <li>Home exercise recommendations</li>
+        </ul>
+        <div class="visit-duration">⏱ Duration: Approximately 45 – 60 minutes</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials" id="testimonials">
+  <div class="testimonials-header">
+    <div class="section-tag">Patient Stories</div>
+    <h2 class="section-title">Real Recoveries, <em>Real Results</em></h2>
+    <p class="section-desc">Hear from patients who got their movement and confidence back.</p>
+  </div>
+  <div class="testimonials-grid">
+    <div class="testimonial-card">
+      <div class="testimonial-quote">"</div>
+      <p class="testimonial-text">Dr. Anvi's approach is truly different. Instead of just treating my knee pain, she explained exactly why it was happening and gave me a plan to fix it at the root. Three weeks in — I can walk without any discomfort.</p>
+      <div class="testimonial-stars">★★★★★</div>
+      <div class="testimonial-author">
+        <div class="testimonial-avatar">RS</div>
+        <div>
+          <div class="testimonial-name">Rajesh Shah</div>
+          <div class="testimonial-location">Kandivali West, Mumbai</div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-card">
+      <div class="testimonial-quote">"</div>
+      <p class="testimonial-text">I had a stroke last year and was struggling with my mobility. The neuro rehab sessions at Anvi Wellness Studio gave me back my independence. Patient, thorough, and genuinely caring team.</p>
+      <div class="testimonial-stars">★★★★★</div>
+      <div class="testimonial-author">
+        <div class="testimonial-avatar">PM</div>
+        <div>
+          <div class="testimonial-name">Priya Mehta</div>
+          <div class="testimonial-location">Borivali West, Mumbai</div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-card">
+      <div class="testimonial-quote">"</div>
+      <p class="testimonial-text">Extremely convenient — I booked via WhatsApp and was seen the same evening. The home exercise programme Dr. Anvi gave me made a huge difference between sessions. Highly recommend to anyone in Malad or Kandivali.</p>
+      <div class="testimonial-stars">★★★★★</div>
+      <div class="testimonial-author">
+        <div class="testimonial-avatar">AN</div>
+        <div>
+          <div class="testimonial-name">Anita Nair</div>
+          <div class="testimonial-location">Malad West, Mumbai</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="text-align:center;margin-top:2.5rem;">
+    <p style="font-size:13px;color:var(--text-light);margin-bottom:1rem;">Read our reviews on Google</p>
+    <a href="#" class="btn-secondary">View Google Reviews ↗</a>
+  </div>
+</section>
+
+<!-- WHY CHOOSE US -->
+<section class="why">
+  <div>
+    <div class="section-tag">Why Choose Anvi Wellness Studio</div>
+    <h2 class="section-title">The <em>Anvi</em> Difference</h2>
+    <p class="section-desc">We don't just treat symptoms — we restore your confidence to move, work, and live without limits.</p>
+    <div class="why-points">
+      <div class="why-point">
+        <div class="why-point-num">01</div>
+        <div class="why-point-content">
+          <strong>Root-Cause Treatment Philosophy</strong>
+          <p>Dr. Anvi identifies and addresses the underlying cause of your condition — not just the surface symptoms — for lasting recovery and fewer recurrences.</p>
+        </div>
+      </div>
+      <div class="why-point">
+        <div class="why-point-num">02</div>
+        <div class="why-point-content">
+          <strong>Advanced Training & Certifications</strong>
+          <p>Specialised in Dry Needling, MFR, Kinesiology Taping, Cupping, Manual Therapy, and Aquatherapy — rare combination of skills in one clinic.</p>
+        </div>
+      </div>
+      <div class="why-point">
+        <div class="why-point-num">03</div>
+        <div class="why-point-content">
+          <strong>Flexible Access — Clinic, Home & Online</strong>
+          <p>Clinic in Kandivali West, home visits across Borivali, Malad & Goregaon West, and online consultations available globally on appointment.</p>
+        </div>
+      </div>
+      <div class="why-point">
+        <div class="why-point-num">04</div>
+        <div class="why-point-content">
+          <strong>Collaborative, Multidisciplinary Care</strong>
+          <p>We work closely with orthopaedic specialists, neurologists, and paediatricians at Kapadia Multispeciality Hospital for comprehensive rehabilitation.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="why-visual" style="background:none;"><img src="" data-photo="WHY" alt="Dr. Anvi at clinic" style="width:100%;height:100%;object-fit:cover;border-radius:var(--radius);"></div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div style="text-align:center;margin-bottom:3.5rem;">
+    <div class="section-tag">Book an Appointment</div>
+    <h2 class="section-title">Start Your <em>Recovery</em> Today</h2>
+    <p class="section-desc" style="margin:0 auto;text-align:center;">WhatsApp us or fill in the form below — we'll get in touch to schedule your consultation.</p>
+  </div>
+  <div class="contact-grid">
+    <div class="contact-info">
+      <div class="contact-detail">
+        <div class="contact-detail-icon">
+          <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <div class="contact-detail-text">
+          <strong>Clinic Address</strong>
+          <span>Consulting Room No. 1, Vora Palace,<br>Mahatma Gandhi Road, Parekh Nagar,<br>Kandivali West, Mumbai – 400067</span>
+        </div>
+      </div>
+      <div class="contact-detail">
+        <div class="contact-detail-icon">
+          <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <div class="contact-detail-text">
+          <strong>Landmarks</strong>
+          <span>Next to Bank of Baroda · M.G. Road<br>Near Kala Hanuman Mandir</span>
+        </div>
+      </div>
+      <div class="contact-detail">
+        <div class="contact-detail-icon">
+          <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13 19.79 19.79 0 0 1 1.61 4.38 2 2 0 0 1 3.58 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 9.91A16 16 0 0 0 14 16.09l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        </div>
+        <div class="contact-detail-text">
+          <strong>WhatsApp / Phone</strong>
+          <span>+91 99810 26077<br><em style="font-style:normal;font-size:12px;color:var(--text-light);">Update with your actual number</em></span>
+        </div>
+      </div>
+      <div class="contact-detail">
+        <div class="contact-detail-icon">
+          <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div class="contact-detail-text">
+          <strong>Email</strong>
+          <span>hello@anviwellness.in</span>
+        </div>
+      </div>
+      <div class="contact-hours">
+        <h4>Opening Hours</h4>
+        <div class="hours-row"><span>Clinic (Mon – Sat)</span><span>5:00 PM – 8:00 PM</span></div>
+        <div class="hours-row"><span>Home Visits (Mon – Sat)</span><span>8:00 AM – 2:00 PM</span></div>
+        <div class="hours-row"><span>Online Consultations</span><span>8:00 AM – 8:00 PM</span></div>
+        <div class="hours-row" style="padding-top:0.5rem;margin-top:0.3rem;border-top:1px solid rgba(122,158,126,0.2);">
+          <span style="color:var(--text-light);">Sunday</span><span style="color:var(--text-light);">Closed</span>
+        </div>
+        <p style="font-size:11.5px;color:var(--sage-deep);margin-top:0.7rem;">📅 Appointment recommended for all sessions</p>
+      </div>
+    </div>
+    <div class="contact-form">
+      <h3 style="font-family:var(--font-serif);font-size:1.5rem;font-weight:400;color:var(--text-dark);margin-bottom:1.4rem;">Send an Enquiry</h3>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Your Name</label>
+          <input type="text" placeholder="Full name">
+        </div>
+        <div class="form-group">
+          <label>Phone / WhatsApp</label>
+          <input type="tel" placeholder="+91 00000 00000">
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Email Address</label>
+        <input type="email" placeholder="you@example.com">
+      </div>
+      <div class="form-group">
+        <label>Consultation Type</label>
+        <select>
+          <option value="">Choose type...</option>
+          <option>In-Clinic Consultation – Kandivali West</option>
+          <option>Home Visit – Kandivali/Borivali/Malad/Goregaon West</option>
+          <option>Online Consultation</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Service / Condition</label>
+        <select>
+          <option value="">Select a service...</option>
+          <option>Orthopaedic Physiotherapy</option>
+          <option>Sports Injury Rehabilitation</option>
+          <option>Neuro Physiotherapy</option>
+          <option>Cardiac & Respiratory Rehab</option>
+          <option>Paediatric Physiotherapy</option>
+          <option>Post-Operative Rehabilitation</option>
+          <option>Posture Correction / Ergonomics</option>
+          <option>General Assessment</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Brief Description (Optional)</label>
+        <textarea placeholder="Tell us a little about your condition or concern..."></textarea>
+      </div>
+      <button type="button" class="btn-primary" style="width:100%;justify-content:center;">
+        <svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+        Send Enquiry
+      </button>
+      <p style="font-size:12px;color:var(--text-light);margin-top:0.8rem;text-align:center;">We'll respond within a few hours. Your information is kept private.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SEO AREA -->
+<div class="seo-area">
+  <div class="seo-inner">
+    <h2>Physiotherapy Clinic in Kandivali West — Serving Mumbai's Western Suburbs</h2>
+    <p>Anvi Wellness Studio is a trusted physiotherapy clinic in Kandivali West, Mumbai. We provide expert physiotherapy for patients across Kandivali West, Borivali West, Malad West, and Goregaon West. Dr. Anvi Kadakia offers in-clinic, home visit, and online physiotherapy consultations for orthopaedic, sports, neurological, cardiopulmonary, paediatric, and geriatric conditions.</p>
+    <div class="seo-tags">
+      <span class="seo-tag">Physiotherapist Kandivali West</span>
+      <span class="seo-tag">Physiotherapy Clinic Kandivali</span>
+      <span class="seo-tag">Sports Physiotherapist Kandivali West</span>
+      <span class="seo-tag">Home Visit Physiotherapy Mumbai</span>
+      <span class="seo-tag">Physiotherapist Borivali West</span>
+      <span class="seo-tag">Physiotherapist Malad West</span>
+      <span class="seo-tag">Physiotherapist Goregaon West</span>
+      <span class="seo-tag">Online Physiotherapy Consultation</span>
+      <span class="seo-tag">Dr Anvi Kadakia Physiotherapist</span>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <div class="footer-logo" style="margin-bottom:1rem;"><div style="background:white;border-radius:10px;padding:6px 14px;display:inline-block;"><img src="" data-photo="LOGO" alt="Anvi Wellness Studio" style="height:48px;width:auto;object-fit:contain;display:block;"></div></div>
+      <p class="footer-tagline">Expert physiotherapy in Kandivali West, Mumbai. Clinic · Home Visits · Online Consultations.<br>Heal Faster. Feel Freer. Function Fully.</p>
+      <div class="footer-social">
+        <a href="#" class="social-btn" aria-label="Facebook">f</a>
+        <a href="#" class="social-btn" aria-label="Instagram">@</a>
+        <a href="#" class="social-btn" aria-label="WhatsApp">w</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h5>Quick Links</h5>
+      <ul>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#doctor">Dr. Anvi Kadakia</a></li>
+        <li><a href="#services">Our Services</a></li>
+        <li><a href="#conditions">Conditions Treated</a></li>
+        <li><a href="#treatments">Treatments</a></li>
+        <li><a href="#firstvisit">First Visit</a></li>
+        <li><a href="#testimonials">Patient Reviews</a></li>
+        <li><a href="#contact">Book Appointment</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Services</h5>
+      <ul>
+        <li><a href="#">Orthopaedic Physiotherapy</a></li>
+        <li><a href="#">Sports Rehabilitation</a></li>
+        <li><a href="#">Neuro Physiotherapy</a></li>
+        <li><a href="#">Cardio Rehab</a></li>
+        <li><a href="#">Paediatric Physiotherapy</a></li>
+        <li><a href="#">Home Visits</a></li>
+        <li><a href="#">Online Consultations</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Contact</h5>
+      <ul>
+        <li><a href="#">Vora Palace, M.G. Road</a></li>
+        <li><a href="#">Kandivali West, Mumbai 400067</a></li>
+        <li><a href="#">Next to Bank of Baroda</a></li>
+        <li><a href="#">+91 99810 26077</a></li>
+        <li><a href="#">hello@anviwellness.in</a></li>
+        <li><a href="#">Clinic: Mon–Sat 5–8 PM</a></li>
+        <li><a href="#">Home Visits: 8 AM–2 PM</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 Anvi Wellness Studio · Dr. Anvi Sanjay Kadakia, MPT · Kandivali West, Mumbai</p>
+    <p><a href="#">Privacy Policy</a> &nbsp;·&nbsp; <a href="#">Terms of Use</a></p>
+  </div>
+</footer>
+
+<!-- WHATSAPP BUTTON -->
+<a href="https://wa.me/919981026077" class="whatsapp-btn" target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+</a>
+
+
+<script>
+  var navbar = document.getElementById("navbar");
+  var hamburger = document.getElementById("hamburger");
+  var navLinks = document.getElementById("navLinks");
+
+  window.addEventListener("scroll", function() {
+    navbar.classList.toggle("scrolled", window.scrollY > 50);
+    var sections = ["about","doctor","services","conditions","treatments","firstvisit","testimonials","contact"];
+    var scrollPos = window.scrollY + 120;
+    sections.forEach(function(id) {
+      var el = document.getElementById(id);
+      var link = document.querySelector(".nav-links a[href=\"#" + id + "\"]");
+      if (!el || !link) return;
+      if (scrollPos >= el.offsetTop && scrollPos < el.offsetTop + el.offsetHeight) {
+        document.querySelectorAll(".nav-links a").forEach(function(a){ a.classList.remove("active-link"); });
+        link.classList.add("active-link");
+      }
+    });
+  });
+
+  document.addEventListener("click", function(e) {
+    var target = e.target.closest("a[href^=\"#\"]");
+    if (!target) return;
+    var hash = target.getAttribute("href");
+    if (!hash || hash === "#") return;
+    var dest = document.querySelector(hash);
+    if (!dest) return;
+    e.preventDefault();
+    var navHeight = document.getElementById("navbar").offsetHeight;
+    var top = dest.getBoundingClientRect().top + window.pageYOffset - navHeight - 10;
+    window.scrollTo({ top: top, behavior: "smooth" });
+    navLinks.classList.remove("open");
+  });
+
+  hamburger.addEventListener("click", function() { navLinks.classList.toggle("open"); });
+
+  function showCond(tab, btn) {
+    document.querySelectorAll(".conditions-list").forEach(function(el) { el.classList.remove("active"); });
+    document.querySelectorAll(".cond-tab").forEach(function(el) { el.classList.remove("active"); });
+    document.getElementById("cond-" + tab).classList.add("active");
+    btn.classList.add("active");
+  }
+
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = "1";
+        entry.target.style.transform = "translateY(0)";
+      }
+    });
+  }, { threshold: 0.08 });
+
+  document.querySelectorAll(".service-card, .testimonial-card, .why-point, .condition-item, .about-feature, .treatment-pill, .visit-step").forEach(function(el) {
+    el.style.opacity = "0";
+    el.style.transform = "translateY(18px)";
+    el.style.transition = "opacity 0.55s ease, transform 0.55s ease";
+    observer.observe(el);
+  });
+
+  window.submitEnquiry = function() {
+    var name    = document.querySelector(".contact-form input[type=text]").value.trim();
+    var phone   = document.querySelector(".contact-form input[type=tel]").value.trim();
+    var email   = document.querySelector(".contact-form input[type=email]").value.trim();
+    var selects = document.querySelectorAll(".contact-form select");
+    var type    = selects[0] ? selects[0].value : "";
+    var service = selects[1] ? selects[1].value : "";
+    var message = document.querySelector(".contact-form textarea").value.trim();
+    if (!name)  { alert("Please enter your name."); return; }
+    if (!phone) { alert("Please enter your phone number."); return; }
+    var btn = document.querySelector(".contact-form .btn-primary");
+    btn.disabled = true; btn.textContent = "Sending...";
+    var data = { action:"addEnquiry", id:Date.now().toString(), name:name, phone:phone, email:email, type:type||"Not specified", service:service||"Not specified", message:message||"", date:new Date().toLocaleString("en-IN",{timeZone:"Asia/Kolkata"}) };
+    fetch("https://script.google.com/macros/s/AKfycbx12S4tlDAtjq7xtBLXl8aGH7e9vl4Edra0tXTanAcf7iQOd5-YgRqmxFWpLhFsQLOOeg/exec", { method:"POST", body:JSON.stringify(data) })
+      .then(function(r){ return r.json(); }).then(function(){ done(); }).catch(function(){ done(); });
+    function done() {
+      document.getElementById("formSuccess").style.display = "block";
+      btn.disabled = false;
+      btn.innerHTML = "Send Enquiry";
+      document.querySelector(".contact-form input[type=text]").value = "";
+      document.querySelector(".contact-form input[type=tel]").value = "";
+      document.querySelector(".contact-form input[type=email]").value = "";
+      if(selects[0]) selects[0].selectedIndex = 0;
+      if(selects[1]) selects[1].selectedIndex = 0;
+      document.querySelector(".contact-form textarea").value = "";
+      var msg = "Hi Dr. Anvi! I would like to book.\n\nName: " + name + "\nPhone: " + phone + "\nType: " + (type||"-") + "\nService: " + (service||"-") + (message ? "\nNote: " + message : "");
+      setTimeout(function(){ window.open("https://wa.me/919981026077?text="+encodeURIComponent(msg),"_blank"); }, 800);
+    }
+  };
+</script>
+</body>
+</html>
